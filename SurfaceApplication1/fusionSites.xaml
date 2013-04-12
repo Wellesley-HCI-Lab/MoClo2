@@ -1,0 +1,21 @@
+﻿<s:ScatterViewItem x:Class="SurfaceApplication1.fusionSites"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:s="http://schemas.microsoft.com/surface/2008"
+             xmlns:myProject="clr-namespace:SurfaceApplication1"
+             d:DesignHeight="100" d:DesignWidth="100"
+                   Background="Transparent" BorderThickness="0">
+    <Grid Name="testing" Background="Transparent" Margin="0" Width="100">
+            <Grid.RowDefinitions>
+                 <RowDefinition Height="50"/>
+                 <RowDefinition Height="25"/>
+                 <RowDefinition Height="25"/>
+             </Grid.RowDefinitions>
+
+        <TextBlock Name="fsName" Grid.Row="1" Foreground="Black" HorizontalAlignment="Center">Name</TextBlock>
+        <TextBlock Name="seqText" Grid.Row="2" HorizontalAlignment="Center" Foreground="Black">TESTING</TextBlock>
+    </Grid>
+</s:ScatterViewItem>

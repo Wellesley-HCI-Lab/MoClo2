@@ -1,0 +1,10 @@
+P | prom | Othello | Likes white women and eats green jello | atcgggggtagatttagcggcatgcta | Desdemona, Iago, Emilia
+P | rbs | Iago | Jafar's parrot | atgcgattaatttaaa | Jafar, Jasmine, Aladdin
+P | cds | pikachu | The electric mouse pokemon. Your companion in Pokemon Yellow. | pee ka chew | Red
+P | prom | Ekans | Snake pokemon. | eck anne sssss | Team Rocket
+P | prom | Mr. Mime | A good housekeeper. | mister mime | Ash's Mom
+P | rbs | Sudowudo | It's like a tree but not a tree. | sudowudo! sudowudo! | Pokemon franchise
+P | term | Vileplume | A pokemon based on the corpse flower. | acta | Gloom
+P | term | Gyarados | Big blue sea dragon. | gyaah | Magikarp
+P | prom | part1 | this is a part | actgactgactgactg | saodk;asdkl;asdkl;asdjklasdkl
+P | term | sdfasdf | asdfasdfs | sdfadsfsd | asdfsdfsdf

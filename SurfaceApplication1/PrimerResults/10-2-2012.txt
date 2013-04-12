@@ -1,0 +1,9 @@
+Forward Name: 
+	# of Base Pairs: 14
+ATGAAGACGTatgg
+Reverse
+	# of Base Pairs: 
+TGCTTCTGGATGGAactg
+Reverse Complement Name: 
+	# of Base Pairs: 
+tgac

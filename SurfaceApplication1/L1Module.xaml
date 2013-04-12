@@ -1,0 +1,72 @@
+﻿<s:ScatterViewItem x:Class="SurfaceApplication1.L1Module"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:s="http://schemas.microsoft.com/surface/2008"
+             xmlns:myProject="clr-namespace:SurfaceApplication1"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+                  
+            CanRotate="False" CanScale="False"
+            ContainerManipulationStarted="L1Module_ContainerManipulationStarted"
+            ContainerManipulationDelta="L1Module_ContainerManipulationDelta"
+            ContainerManipulationCompleted="L1Module_ContainerManipulationCompleted"
+                   BorderThickness="1"
+                   BorderBrush="White"
+            Background="#FFDDDDDD"
+            AllowDrop="True"
+            ToolTip="DROP L0 MODULES HERE TO MAKE L1 MODULES"
+                   Width="510" Height="135"
+                   >
+    
+    <s:ScatterViewItem.Resources>
+        <Style TargetType="myProject:Part" x:Key="PlaceHolder">
+            <Setter Property="Height" Value="auto"></Setter>
+            <Setter Property="Width" Value="auto"></Setter>
+            <Setter Property="Margin" Value="1"></Setter>
+            <Setter Property="IsManipulationEnabled" Value="False"></Setter>
+        </Style>
+    </s:ScatterViewItem.Resources>
+    
+    <Grid Name="L1Grid" Background="Transparent" Width="auto" Height="auto" ShowGridLines="False" Margin="0,5,0,5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+        
+        <myProject:Part x:Name="L1Prom" Type="prom" Grid.Column="1" Style="{StaticResource PlaceHolder}"></myProject:Part>
+        <myProject:Part x:Name="L1RBS"  Type="rbs" Grid.Column="2" Style="{StaticResource PlaceHolder}"></myProject:Part>
+        <myProject:Part x:Name="L1CDS"  Type="cds" Grid.Column="3" Style="{StaticResource PlaceHolder}"></myProject:Part>
+        <myProject:Part x:Name="L1Term" Type="term" Grid.Column="4" Style="{StaticResource PlaceHolder}"></myProject:Part>
+        
+        <TextBlock x:Name="Template" Grid.Column="1" FontSize="22" VerticalAlignment="Top" Margin="0, 10" FontWeight="DemiBold" Visibility="Hidden" Foreground="White">
+            <TextBlock.RenderTransform>
+                <RotateTransform Angle="90"/>
+            </TextBlock.RenderTransform>
+            Template
+        </TextBlock>
+
+
+        <s:ElementMenu Name="L1ElementMenu" Grid.ColumnSpan="4"
+            ActivationHost="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type s:ScatterViewItem}}}"
+            ActivationMode="AlwaysActive" FlowDirection="LeftToRight"
+                       FontSize="12"
+            Orientation="180" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <s:ElementMenuItem Header="Sequence"
+                               Click="select_Sequence"
+                               Margin="150,-85,0,0"/>
+            <s:ElementMenuItem Name="PD" Header="Primer Designer"
+                               Click="select_PrimerDesigner"
+                               Margin="150,-85,0,0"/>
+            <s:ElementMenuItem Name="cusTUButton" 
+                               Click="select_cusTUButton"
+                               Margin="150,-85,0,0"/>
+        </s:ElementMenu>
+
+    </Grid>
+</s:ScatterViewItem>

@@ -1,0 +1,368 @@
+BBa_E0040, reporter,  green fluorescent protein derived from jellyfish Aequeora victoria wild-type GFP (SwissProt: P42212
+BBa_I715022, reporter, Amino Portion of RFP
+BBa_I715023, reporter, Carboxyl portion of RFP
+BBa_I712028, reporter, CherryNLS - synthetic construct monomeric red fluorescent protein with nuclear localization sequence
+BBa_K106000, reporter, GFP, AarI BD part
+BBa_K106004, reporter, mCherry, Aar1 AB part
+BBa_K106005, reporter, mCherry, Aar1 BD part
+BBa_K106028, reporter, GFP, AarI AB part
+BBa_K082003, reporter, GFP(+LVA)
+BBa_K106671, reporter, GFP, Aar1 AD part
+BBa_E0030, reporter, enhanced yellow fluorescent protein derived from A. victoria GFP
+BBa_E0020, reporter, engineered cyan fluorescent protein derived from A. victoria GFP 
+BBa_E1010, reporter,  **highly** engineered mutant of red fluorescent protein from Discosoma striata (coral)
+BBa_E2050, reporter, derivative of mRFP1, yeast-optimized
+BBa_J52021, reporter, dnTraf6-linker-GFP
+BBa_J52026, reporter, dnMyD88-linker-GFP
+BBa_K125500, reporter, GFP fusion brick
+BBa_K165005, reporter, Venus YFP, yeast optimized for fusion
+BBa_K125810, reporter, slr2016 signal sequence + GFP fusion for secretion of GFP
+BBa_K156009, reporter, OFP (orange fluorescent protein)
+BBa_K156010, reporter, SBFP2 (strongly enhanced blue fluorescent protein)
+BBa_K294055, reporter, GFP RFP Hybrid
+BBa_K192001, reporter, CFP +tgt +lva
+BBa_K180001, reporter, Green fluorescent protein (+LVA)
+BBa_K283005, reporter, lpp_ompA_eGFP_streptavidin
+BBa_K180008, reporter, mCherry (rights owned by Clontech)
+BBa_K180009, reporter, mBanana (rights owned by Clontech)
+BBa_K157043, reporter, CFP
+BBa_K648013, reporter, GFP with Standard 25 Prefix/Suffix 
+BBa_K525304, reporter, Fusion Protein of S-Layer SgsE and mCherry RFP
+BBa_K525305, reporter, Fusion Protein of S-Layer SgsE and mCitrine
+BBa_K525306, reporter, Fusion Protein of S-Layer SgsE and mCerulean
+BBa_K525404, reporter, Fusion Protein of S-Layer SbpA and mCherry RFP
+BBa_K525405, reporter,  Fusion Protein of S-Layer SbpA and mCitrine 
+BBa_K525406, reporter,  Fusion Protein of S-Layer SbpA and mCerulean 
+BBa_K525234, reporter, Fusion Protein of mRFP, S-layer cspB from Corynebacterium halotolerans with TAT-sequence, PT7, RBS 
+BBa_K592100, reporter, Blue Fluorescent Protein (mTagBFP)
+BBa_K592101, reporter, Yellow Fluorescent Protein (YFP)
+BBa_I712019, reporter, Firefly luciferase - luciferase from Photinus pyralis
+BBa_J52011, reporter, dnMyD88-linker-Rluc
+BBa_J52013, reporter, dnMyD88-linker-Rluc-linker-PEST191
+BBa_I732006, reporter, lacZ alpha fragment
+BBa_I732005, reporter, lacZ (encoding beta-galactosidase, full-length)
+BBa_K147002, reporter, xylE
+BBa_K678035, reporter, yA (green pigment) from Aspergillus nidulans
+BBa_K678035, transcriptional, yA (green pigment) from Aspergillus nidulans
+BBa_K091001, transcriptional, LsrR gene
+BBa_K091121, transcriptional, LacI wild-type gene
+BBa_K143033, transcriptional, LacI (Lva<sup>-</sup>, N-terminal deletion) regulatory protein
+BBa_K106666, transcriptional, Lac Repressor, AarI AB part
+BBa_K106667, transcriptional, Lac Repressor, AarI BD part
+BBa_K106668, transcriptional, Tet Repressor, AarI AB part
+BBa_K106669, transcriptional, Tet Repressor, AarI BD part
+BBa_K082004, transcriptional, LacI- wild type
+BBa_K082005, transcriptional, LacI-Mutant
+BBa_C0012, transcriptional, lacI repressor  from E. coli (+LVA)
+BBa_C0040, transcriptional, tetracycline repressor from transposon Tn10 (+LVA)
+BBa_C0050, transcriptional, cI repressor from phage HK022  (+LVA?)
+BBa_C0051, transcriptional, cI repressor from E. coli phage lambda (+LVA) 
+BBa_C0052, transcriptional, cI repressor from phage  434 (+LVA)
+BBa_C0053, transcriptional, c2  repressor from Salmonella phage P22  (+LVA)
+BBa_C0073, transcriptional, mnt repressor (weak) from Salmonella phage P22 (+LVA)
+BBa_C0075, transcriptional, TP901 cI repressor from phage TP901-1  (+LVA)
+BBa_C0074, transcriptional, penI repressor from Bacillus licheniformis (+LVA)
+BBa_C0072, transcriptional, mnt repressor (strong) from Salmonella phage P22 (+LVA)
+BBa_C2001, transcriptional, Zif23-GCN4 engineered repressor (+LVA, C2000 codon-optimized for E.coli)
+BBa_C0056, transcriptional, cI repressor from phage 434 (no LVA)
+BBa_J06501, transcriptional, LacI repressor (temperature-sensitive mut 265) (+LVA)
+BBa_J06500, transcriptional, LacI repressor (temperature-sensitive mut 241) (+LVA)
+BBa_C2006, transcriptional, MalE.FactorXa.Zif268-GCN4
+BBa_I715032, transcriptional, lacIq reverse
+BBa_I732100, transcriptional, LacI
+BBa_I732101, transcriptional, LacI
+BBa_I732105, transcriptional, ARL2A0101
+BBa_I732106, transcriptional, ARL2A0102
+BBa_I732107, transcriptional, ARL2A0103
+BBa_I732110, transcriptional, ARL2A0203
+BBa_I732112, transcriptional, ARL2A0301
+BBa_I732115, transcriptional, ARL4A0604
+BBa_K091122, transcriptional, LacI_I12 protein
+BBa_K142000, transcriptional, lacI IS mutant (IPTG unresponsive) R197A
+BBa_K142001, transcriptional, lacI IS mutant (IPTG unresponsive) R197F
+BBa_K142002, transcriptional, lacI IS mutant (IPTG unresponsive) T276A
+BBa_K142003, transcriptional, lacI IS mutant (IPTG unresponsive) T276F
+BBa_K142004, transcriptional, lacI IS mutant (IPTG unresponsive) R197A T276A
+BBa_K142005, transcriptional, lacI IS mutant (IPTG unresponsive) R197A T276F 
+BBa_K142006, transcriptional, lacI IS mutant (IPTG unresponsive) R197F T276A 
+BBa_K142007, transcriptional, lacI IS mutant (IPTG unresponsive) R197F T276F
+BBa_K518003, transcriptional, LexA  - a repressor for LexA-regulated SOS promoters -
+BBa_K950001, transcriptional, yeast rox1
+BBa_C0062, transcriptional, luxR repressor/activator,  (no LVA?)
+BBa_C0071, transcriptional, rhlR repressor/activator from P. aeruginosa PA3477 (+LVA)
+BBa_C0080, transcriptional, araC arabinose operon regulatory protein (repressor/activator) from E. coli (+LVA)
+BBa_C0171, transcriptional, rhlR repressor/activator from P. aeruginosa PA3477 (no LVA)
+BBa_K108021, transcriptional, Fis
+BBa_J31002, selection marker, kanamycin resistance backwards (KanB)  [cf. BBa_J23012 &amp; BBa_J31003]
+BBa_J31006, selection marker, tetracycline resistance protein TetA(C) (backwards) [cf. BBa_J31007]
+BBa_J31005, selection marker, chloramphenicol acetyltransferase (forwards, CmF) [cf. BBa_J31004]
+BBa_J31007, selection marker, tetracycline resistance protein TetA(C)  (forward), [cf. BBa_J31006] 
+BBa_K143031, selection marker, Aad9 Spectinomycin Resistance Gene
+BBa_K389005, selection marker, Kanamycin resistance
+BBa_K394000, selection marker, Kanamycin resistance
+BBa_T9150, selection marker, orotidine 5
+BBa_J31003, selection marker, kanamycin resistance forward (KanF) [cf. BBa_J23012 &amp; BBa_J31002]
+BBa_J31004, selection marker, chloramphenicol acetyltransferase (backwards, CmB) [cf. BBa_J31005]
+BBa_K145151, selection marker, ccdB coding region
+BBa_K156011, selection marker, aadA (streptomycin 3'-adenyltransferase)
+BBa_K678042, selection marker, hygromycin cassette for Aspergillus nidulans
+BBa_K678040, selection marker, pyrG cassette, for selection of Aspergillus nidulans
+BBa_K678041, selection marker, pyrG-DR cassette, for selection of Aspergillus nidulans
+BBa_K678044, selection marker, bleR cassette, selection marker for Aspergillus nidulans
+BBa_K678045, selection marker, ptrA, selection marker for Aspergillus nidulans
+BBa_I712020, protease, Homo sapiens caspase 3
+BBa_I712077, protease, TEV protease (N-terminal half) - entered sequence may be wrong
+BBa_I712078, protease, TEV protease (C-terminal half)
+BBa_I712667, protease, HIV-1 aspartyl protease
+BBa_K116601, protease, HtlB (ftsH) coding region from E. coli 
+BBa_C0082, post-translational modification, Receptor, tar-envZ
+BBa_J58104, post-translational modification, Fusion protein Trg-EnvZ for signal transduction
+BBa_J58105, post-translational modification, Synthetic periplasmic binding protein that docks a vanillin molecule
+BBa_I752001, post-translational modification, CheZ coding sequence (Chemotaxis protein)
+BBa_K091002, post-translational modification, LsrK gene
+BBa_K147000, post-translational modification, cheZ
+BBa_K118015, post-translational modification, glgC coding sequence encoding ADP-glucose pyrophosphorylase
+BBa_K118016, post-translational modification, glgC16 (glgC with G336D substitution)
+BBa_K094100, post-translational modification, cheZ gene
+BBa_K136046, post-translational modification, envZ*
+BBa_K283008, post-translational modification, chez_Histag
+BBa_K629003, post-translational modification, cheZ, chemotaxis regulator, protein phosphatase for CheY
+BBa_K557000, post-translational modification, CheZ: phosphatase which dephosphorylates CheY-P and thus plays an important role in E.Coli chemotaxi
+BBa_C0024, post-translational modification, CheB chemotaxis coding sequence (protein glutamate methylesterase)
+BBa_K108020, post-translational modification, Dam
+BBa_K112116, DNA modification, a~BamHI
+BBa_K112117, DNA modification, a~BglII
+BBa_I716210, DNA modification, BamHI endonuclease without start codon
+BBa_K112106, DNA modification, BglII endonuclease
+BBa_K112107, DNA modification, BglII endonuclease without stop codon
+BBa_K112123, DNA modification, BglII restriction enzyme
+BBa_K525740, DNA modification, 	DNA ligase from Escherichia coli (LigA) with His-tag
+BBa_K525730, DNA modification, 	DNA ligase from Escherichia coli (LigA) with PT7 and RBS 
+BBa_K112114, DNA modification, a~Ligase!
+BBa_K525710, DNA modification, DNA ligase from Escherichia coli (LigA) with PT7, RBS and His-tag
+BBa_K525010, DNA modification, Fusion Protein of S-Layer SbpA and LigA with His-Tag
+BBa_K525009, DNA modification, Fusion Protein of S-Layer SgsE and LigA with His-Tag
+BBa_K112115, DNA modification, a~Cre
+BBa_I716212, DNA modification, Cre (GTG start)
+BBa_I716213, DNA modification, Cre (TTG start)
+BBa_J61047, DNA modification, Cre (TTG start)
+BBa_K112122, DNA modification, Cre with stop codon
+BBa_J31001, DNA modification, DNA invertase Hin tagged with LVA
+BBa_J31000, DNA modification, DNA-invertase Hin from Salmonella typhimurium
+BBa_I11021, DNA modification, excisionase from E. coli phage lambda (removes prophage from host genome)
+BBa_I11031, DNA modification, excisionase from E. coli phage P22 (removes prophage from host genome)
+BBa_K137007, DNA modification, fimE
+BBa_K313002, DNA modification, flpe DNA recombinase
+BBa_I11020, DNA modification, integrase from E. coli phage lambda
+BBa_I11030, DNA modification, integrase from E. coli phage P22
+BBa_K361000, DNA modification, Rci site-specific recombinase
+BBa_J70007, DNA modification, recT recombination gene from Spiroplasma citri
+BBa_K108022, DNA modification, RuvA
+BBa_K108023, DNA modification, RuvB
+BBa_K108024, DNA modification, RuvC
+BBa_K112001, DNA modification, Xis from bacteriophage lambda, assembly standard 21
+BBa_K112217, DNA modification, {a~ihfA!} The ihf alpha gene ready to have rbs attached with stop codon, BBb format
+BBa_K112223, DNA modification, {a~ihfB!} The ihf beta gene ready to have rbs attached and stop codon, BBb format
+BBa_K112211, DNA modification, {a~int!} The integrase gene with rbs ready to be attached with stop codon, BBb format
+BBa_K112204, DNA modification, {a~xis!} The bacteriophage lambda xis gene ready to have rbs attached and stop codon; assembly stand
+BBa_K112219, DNA modification, {ihfB!} The ihf beta gene with start and stop codons, BBb format
+BBa_K112207, DNA modification, {int!} The integrase gene with start and stop codon, BBb format
+BBa_K112200, DNA modification, {xis!} from bacteriophage lambda; assembly standard 21
+BBa_Y00073, DNA modification, {xis!} from bacteriophage lambda; assembly standard 21
+BBa_Y00029, DNA modification, S. pombe homolog of S.cerevisiae SGF29, recoded for expression in S.c.
+BBa_K106001, DNA modification, Sir4, Aar1 AD part
+BBa_K106002, DNA modification, Sir2, Aar1 AB part
+BBa_K106003, DNA modification, Sir2, Aar1 BD part
+BBa_K106011, DNA modification, Sas2 histone acetyltransferase, Aar1 AB part
+BBa_K106012, DNA modification, Sas2 histone acetyltransferase, Aar1 BD part
+BBa_K106013, DNA modification, Esa1 histone acetyltransferase, Aar1 BD part
+BBa_K106692, DNA modification, Sir3, AarI A!D part (A!D variant!)
+BBa_J07009, membrane proteins,   toxicity-gene activator from Vibrio cholerae
+BBa_K133063, membrane proteins, (TIR)TLR3
+BBa_K133064, membrane proteins, (TIR)TLR9
+BBa_K133065, membrane proteins, (TMTIR)TLR3
+BBa_K133069, membrane proteins, (TMTIR)TLR3stop
+BBa_K133067, membrane proteins, (TMTIR)TLR4
+BBa_K133060, membrane proteins, (TMTIR)TLR9
+BBa_K209400, membrane proteins, AarI B-C part, hM4D
+BBa_K209401, membrane proteins, AarI B-C part, Rs1.3
+BBa_I712002, membrane proteins, CCR5
+BBa_I712003, membrane proteins, CCR5-NUb
+BBa_I712010, membrane proteins, CD4 sequence without signal peptide
+BBa_I712017, membrane proteins, Chemokine (CXC motif) receptor 4, fused to N-terminal half of ubiquitin.
+BBa_K592000, membrane proteins, cph8 (Cph1/EnvZ fusion)
+BBa_I15010, membrane proteins, cph8 (Cph1/EnvZ fusion)
+BBa_I728500, membrane proteins, CPX Terminal Surface Display Protein with Polystyrene-Binding Peptide
+BBa_J52035, membrane proteins, dnMyD88
+BBa_K259000, membrane proteins, fhuA - Outer membrane transporter for ferrichrome-iron
+BBa_K259001, membrane proteins, fiu ? Outer Membrane Ferric Iron Transporter
+BBa_J58104, membrane proteins, Fusion protein Trg-EnvZ for signal transduction
+BBa_K137112, membrane proteins, lamB
+BBa_C0082, membrane proteins, Receptor, tar-envZ
+BBa_J58105, membrane proteins, Synthetic periplasmic binding protein that docks a vanillin molecule
+BBa_K533007, membrane proteins, Tar receptor
+BBa_I712012, membrane proteins, TIR domain of TLR3
+BBa_K389001, membrane proteins, VirA receptor
+BBa_K143037, membrane proteins, YtvA Blue Light Receptor for B.subtilis
+BBa_J07006, membrane proteins, malE
+BBa_J07017, membrane proteins, FecA protein
+BBa_J92000, membrane proteins, Lead Uptake Transporter 
+BBa_K141000, membrane proteins, Ucp1
+BBa_K141002, membrane proteins, Ucp 175 deleted
+BBa_K141003, membrane proteins, Ucp 76 deleted
+BBa_K190028, membrane proteins, GlpF
+BBa_K629005, membrane proteins, trkD, a functional Kup (formerly TrkD) system took up Cs+ with a moderate rate and affinity
+BBa_K633001, membrane proteins, Linker + EstA Membrane Protein
+BBa_I746200, membrane proteins, FepA L8T Mutant - Large Diffusion pore for E. coli outer membrane.
+BBa_I765002, membrane proteins, ExbB membrane spanning protein in TonB-ExbB-ExbD complex [ Escherichia coli K12 ]
+BBa_I765003, membrane proteins, TonB ferric siderophore transport system, periplasmic binding protein TonB [ Pseudomonas entomophila
+BBa_K090000, membrane proteins, Glutamate gated K+ channel
+BBa_K284000, membrane proteins, Lactate Permease from Kluyveromyces lactis
+BBa_K284997, membrane proteins, Deletar este
+BBa_K559000, membrane proteins, Halorhodopsin
+BBa_K559001, membrane proteins, Halorhodopsin under T7 promoter
+BBa_J22101, membrane proteins, Lac Y gene
+BBa_K079015, membrane proteins, LacY transporter protein from E. coli
+BBa_K119003, membrane proteins, RcnA (YohM)
+BBa_K137001, membrane proteins, LacY
+BBa_I712024, membrane proteins, CD4
+BBa_K133061, membrane proteins, CD4ecto
+BBa_K136046, membrane proteins, envZ*
+BBa_K227006, membrane proteins, puc BA coding region of R. sphaeroides
+BBa_K367000, membrane proteins, prhA coding sequence
+BBa_M12067, membrane proteins, E1
+BBa_I721002, receptors/ligands, Lead Binding Protein
+BBa_K126000, receptors/ligands, TE33 Fab L chain
+BBa_K133070, receptors/ligands, gyrEC
+BBa_K133062, receptors/ligands, gyrHP
+BBa_K211001, receptors/ligands, RI7
+BBa_K211002, receptors/ligands, RI7-odr10 chimeric GPCR
+BBa_K389001, receptors/ligands, VirA receptor
+BBa_K103004, receptors/ligands, protein Z<sub>SPA-1</sub>
+BBa_K128003, receptors/ligands, p1025
+BBa_K133059, receptors/ligands, RGD
+BBa_K283010, receptors/ligands, Streptavidin
+BBa_K112000, lysis protein, T4 holin, complete CDS, berkeley standard
+BBa_K112002, lysis protein, T4 holin, without stop codon, berkeley standard
+BBa_K112004, lysis protein, a~T4 holin! in BBb
+BBa_K112006, lysis protein, T4 antiholin! in BBb
+BBa_K112009, lysis protein, <T4 antiholin> in BBb
+BBa_K112010, lysis protein, a~T4 antiholin! in BBb
+BBa_K112012, lysis protein, T4 lysozyme! in BBb
+BBa_K112015, lysis protein, <T4 lysozyme> in BBb
+BBa_K112016, lysis protein, a~T4 lysozyme! in BBb
+BBa_K117000, lysis protein, Lysis gene (promotes lysis in colicin-producing bacteria strain)
+BBa_K124014, lysis protein, Bacteriophage Holin Gene pS105
+BBa_K108001, lysis protein, SRRz
+BBa_K112300, lysis protein, {lambda lysozyme!} in BBb format
+BBa_K112304, lysis protein, {a~lambda lysozyme!} in BBb format
+BBa_K112306, lysis protein, {lambda holin!} in BBb format
+BBa_K112310, lysis protein, {a~lambda holin!}; adheres to Berkeley standard
+BBa_K112312, lysis protein, {lambda antiholin!}; adheres to Berkeley standard
+BBa_K112316, lysis protein, {a~lambda antiholin!}; adheres to Berkeley standard
+BBa_K124017, lysis protein, Bacteriophage Lysis Cassette S105, R, and Rz
+BBa_K112806, lysis protein, [T4 endolysin] 
+BBa_K284001, lysis protein, Lysozyme from Gallus gallus
+BBa_C0061, biosynthesis, autoinducer synthetase for AHL
+BBa_C0060, biosynthesis, autoinducer inactivation enzyme from Bacillus; hydrolyzes acetyl homoserine lactone
+BBa_C0070, biosynthesis, autoinducer synthetase for N-butyryl-HSL (BHL) and HHL
+BBa_C0076, biosynthesis, autoinducer synthetase
+BBa_C0078, biosynthesis, autoinducer synthetase for PAI from Pseudomonas aeruginosa
+BBa_C0161, biosynthesis, autoinducer synthetase for AHL (no LVA)
+BBa_C0170, biosynthesis, autoinducer synthetase for N-butyryl-HSL (BHL) and HHL (no LVA)
+BBa_C0178, biosynthesis, autoinducer synthetase for PAI from Pseudomonas aeruginosa (no LVA)
+BBa_K091109, biosynthesis, LuxS
+BBa_C0060, biosynthesis, autoinducer inactivation enzyme from Bacillus; hydrolyzes acetyl homoserine lactone
+BBa_C0160, biosynthesis, autoinducer inactivation enzyme aiiA (no LVA)
+BBa_K118000, biosynthesis, dxs coding sequence encoding 1-deoxyxylulose-5-phosphate synthase
+BBa_K115050, biosynthesis, A-coA -> AA-coA
+BBa_K115056, biosynthesis, IPP -> OPP or DMAPP -> OPP
+BBa_K115057, biosynthesis, OPP -> FPP
+BBa_K118002, biosynthesis, crtB coding sequence encoding phytoene synthase
+BBa_K118003, biosynthesis, crtI coding sequence encoding phytoene dehydrogenase
+BBa_K118008, biosynthesis, crtY coding sequence encoding lycopene B-cyclase
+BBa_K343001, biosynthesis, B-carotene monooxygenase, Produces retinal from B-carotene. ninaB gene from Drosophila.
+BBa_J45001, biosynthesis,  SAM:salicylic acid carboxyl methyltransferase; converts salicylic acid to methyl salicylate (winter
+BBa_J45002, biosynthesis, SAM:benzoic acid carboxyl methyltransferase; converts benzoic acid to methyl benzoate (floral odor)
+BBa_J45004, biosynthesis, SAM:benzoic acid/salicylic acid carboxyl methyltransferase I; converts salicylic acid to methyl sali
+BBa_J45008, biosynthesis, branched-chain amino acid transaminase (BAT2); converts leucine to alpha-ketoisocaproate
+BBa_J45014, biosynthesis, alcohol acetyltransferase I; converts isoamyl alcohol to isoamyl acetate (banana odor)
+BBa_J45017, biosynthesis, isochorismate pyruvate-lyase and isochorismate synthase (pchBA); converts chorismate to salicylate
+BBa_I742107, biosynthesis, COMT
+BBa_K125504, biosynthesis, phaE BioPlastic polyhydroxybutyrate synthesis pathway (origin PCC6803 slr1829) 
+BBa_K125501, biosynthesis, phaA BioPlastic polyhydroxybutyrate synthesis pathway (origin PCC6803 slr1994)
+BBa_K125502, biosynthesis, phaB BioPlastic polyhydroxybutyrate synthesis pathway (origin PCC6803 slr1993)
+BBa_K125503, biosynthesis, phaC BioPlastic polyhydroxybutyrate synthesis pathway (origin PCC6803 slr1830) 
+BBa_K156012, biosynthesis, phaA (acetyl-CoA acetyltransferase)
+BBa_K156013, biosynthesis, phaB1 (acetyacetyl-CoA reductase)
+BBa_K156014, biosynthesis, phaC1 (Poly(3-hydroxybutyrate) polymerase)
+BBa_I725011, biosynthesis, B-hydroxy butyryl coA dehydrogenase 
+BBa_I72512, biosynthesis, Enoyl-coa hydratase
+BBa_I725013, biosynthesis, Butyryl CoA dehyrogenase
+BBa_I725014, biosynthesis, Butyraldehyde dehydrogenase
+BBa_I725015, biosynthesis, Butanol dehydrogenase
+BBa_K123001, biosynthesis, BisdB
+BBa_K123000, biosynthesis, BisdA
+BBa_K525007, biosynthesis, Fusion protein of S-Layer SgsE with T7/lac and BisdA and BisdB
+BBa_K525515, biosynthesis, Fusion protein of BisdA and BisdB
+BBa_K525008, biosynthesis, Fusion protein of S-Layer SbpA  with T7/lac and BisdA and BisdB
+BBa_K525517, biosynthesis, Fusion protein of BisdA and BisdB behind constitutive promoter
+BBa_K525582, biosynthesis, Fusion protein of NADP+ Oxidoreductase and BisdA and BisdB, polycistronic
+BBa_K525562, biosynthesis, Fusion protein of NADP+ Oxidoreductase and BisdA and BisdB with middle strong promoter,RBS
+BBa_K525499, biosynthesis, NADP+ Oxidoreductase from Escherichia coli
+BBa_K123000, biosynthesis, BisdA
+BBa_K123001, biosynthesis, BisdB
+BBa_K118022, biosynthesis, cex coding sequence encoding Cellulomonas fimi exoglucanase
+BBa_K118023, biosynthesis, cenA coding sequence encoding Cellulomonas fimi endoglucanase A
+BBa_K118028, biosynthesis, beta-glucosidase gene bglX (chu_2268) from Cytophaga hutchinsonii
+BBa_C0083, biosynthesis, aspartate ammonia-lyase
+BBa_I15008, biosynthesis, heme oxygenase (ho1) from Synechocystis
+BBa_I15009, biosynthesis, phycocyanobilin:ferredoxin oxidoreductase (PcyA) from synechocystis
+BBa_T9150, biosynthesis, orotidine 5
+BBa_I716153, biosynthesis, hemB
+BBa_I716154, biosynthesis, hemC
+BBa_I716155, biosynthesis, hemD
+BBa_I716152, biosynthesis, hemA (from CFT703)
+BBa_I742141, biosynthesis, sam5 (coumarate hydroxylase) coding sequence
+BBa_I742142, biosynthesis, sam8 (tyrosine-ammonia lyase) coding sequence
+BBa_I723024, biosynthesis, PhzM
+BBa_I723025, biosynthesis, PhzS
+BBa_K137005, biosynthesis, pabA (from pABA synthesis)
+BBa_K137006, biosynthesis, pabB (from pABA synthesis)
+BBa_K137009, biosynthesis, folB (dihydroneopterin aldolase)
+BBa_K137011, biosynthesis, folKE (GTP Cyclohydrolase I + pyrophosphokinase)
+BBa_K137017, biosynthesis, Galactose Oxidase
+BBa_K118015, biosynthesis, glgC coding sequence encoding ADP-glucose pyrophosphorylase
+BBa_K118016, biosynthesis, glgC16 (glgC with G336D substitution)
+BBa_K123001, biosynthesis, BisdB
+BBa_K108018, biosynthesis, PhbAB
+BBa_K108026, biosynthesis, XylA
+BBa_K108027, biosynthesis, XylM
+BBa_K108028, biosynthesis, XylB
+BBa_K108029, biosynthesis, XylS
+BBa_K147003, biosynthesis, ohbA
+BBa_K123000, biosynthesis, BisdA
+BBa_K356000, biosynthesis, CAI-1 autoinducer synthase
+BBa_K417000, biosynthesis, S-adenosyl methionine (SAM) synthetase
+BBa_K332011, biosynthesis, Crystal protein gene (cry11Aa) from Bacillus thuringiensis subsp. Israelensis.
+BBa_K284999, biosynthesis, Deletar este tamb?m
+BBa_K417001, biosynthesis, 1-aminocyclopropane-1-carboxylate (ACC) synthase
+BBa_K417002, biosynthesis, 1-aminocyclopropane-1-carboxylate (ACC) oxidase
+BBa_K653000, biosynthesis, Re-designing "The Biosurfactator" The first Central American BioBrick
+BBa_I716253, biosynthesis, HPI, katG
+BBa_K137000, biosynthesis, katE
+BBa_K137014, biosynthesis, katE +LAA
+BBa_K137067, biosynthesis, katG
+BBa_K078102, biosynthesis, katG
+BBa_K078003, biosynthesis, katG
+BBa_K078005, biosynthesis, katG
+BBa_K078006, biosynthesis, katG
+BBa_K078007, biosynthesis, katG
+BBa_K078008, biosynthesis, katG
+BBa_K078009, biosynthesis, katG
+BBa_K144000, biosynthesis, Lignin Peroxidase A
+BBa_K156012, biosynthesis, phaA (acetyl-CoA acetyltransferase)
+BBa_K174000, biosynthesis, SspB proteolysis chaperone
+BBa_K398000, biosynthesis, Long-Chain Alkane Monooxygenase
+BBa_K398006, biosynthesis, Medium-Chain Aldehyde Dehydrogenase
+BBa_K398005, biosynthesis, Medium-Chain Alcohol Dehydrogenase

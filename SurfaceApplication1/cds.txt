@@ -1,0 +1,367 @@
+BBa_E0040, reporter
+BBa_I715022, reporter
+BBa_I715023, reporter
+BBa_I712028, reporter
+BBa_K106000, reporter
+BBa_K106004, reporter
+BBa_K106005, reporter
+BBa_K106028, reporter
+BBa_K082003, reporter
+BBa_K106671, reporter
+BBa_E0030, reporter
+BBa_E0020, reporter
+BBa_E1010, reporter
+BBa_E2050, reporter
+BBa_J52021, reporter
+BBa_J52026, reporter
+BBa_K125500, reporter
+BBa_K165005, reporter
+BBa_K125810, reporter
+BBa_K156009, reporter
+BBa_K156010, reporter
+BBa_K294055, reporter
+BBa_K192001, reporter
+BBa_K180001, reporter
+BBa_K283005, reporter
+BBa_K180008, reporter
+BBa_K180009, reporter
+BBa_K157043, reporter
+BBa_K648013, reporter
+BBa_K525304, reporter
+BBa_K525305, reporter
+BBa_K525306, reporter
+BBa_K525404, reporter
+BBa_K525405, reporter
+BBa_K525406, reporter
+BBa_K525234, reporter
+BBa_K592100, reporter
+BBa_K592101, reporter
+BBa_I712019, reporter
+BBa_J52011, reporter
+BBa_J52013, reporter
+BBa_I732006, reporter
+BBa_I732005, reporter
+BBa_K147002, reporter
+BBa_K678035, reporter
+BBa_K678035, transcriptional
+BBa_K091001, transcriptional
+BBa_K091121, transcriptional
+BBa_K143033, transcriptional
+BBa_K106666, transcriptional
+BBa_K106667, transcriptional
+BBa_K106668, transcriptional
+BBa_K106669, transcriptional
+BBa_K082004, transcriptional
+BBa_K082005, transcriptional
+BBa_C0012, transcriptional
+BBa_C0040, transcriptional
+BBa_C0050, transcriptional
+BBa_C0051, transcriptional
+BBa_C0052, transcriptional
+BBa_C0053, transcriptional
+BBa_C0073, transcriptional
+BBa_C0075, transcriptional
+BBa_C0074, transcriptional
+BBa_C0072, transcriptional
+BBa_C2001, transcriptional
+BBa_C0056, transcriptional
+BBa_J06501, transcriptional
+BBa_J06500, transcriptional
+BBa_C2006, transcriptional
+BBa_I715032, transcriptional
+BBa_I732100, transcriptional
+BBa_I732101, transcriptional
+BBa_I732105, transcriptional
+BBa_I732106, transcriptional
+BBa_I732107, transcriptional
+BBa_I732110, transcriptional
+BBa_I732112, transcriptional
+BBa_I732115, transcriptional
+BBa_K091122, transcriptional
+BBa_K142000, transcriptional
+BBa_K142001, transcriptional
+BBa_K142002, transcriptional
+BBa_K142003, transcriptional
+BBa_K142004, transcriptional
+BBa_K142005, transcriptional
+BBa_K142006, transcriptional
+BBa_K142007, transcriptional
+BBa_K518003, transcriptional
+BBa_C0062, transcriptional
+BBa_C0071, transcriptional
+BBa_C0080, transcriptional
+BBa_C0171, transcriptional
+BBa_K108021, transcriptional
+BBa_J31002, selection marker
+BBa_J31006, selection marker
+BBa_J31005, selection marker
+BBa_J31007, selection marker
+BBa_K143031, selection marker
+BBa_K389005, selection marker
+BBa_K394000, selection marker
+BBa_T9150, selection marker
+BBa_J31003, selection marker
+BBa_J31004, selection marker
+BBa_K145151, selection marker
+BBa_K156011, selection marker
+BBa_K678042, selection marker
+BBa_K678040, selection marker
+BBa_K678041, selection marker
+BBa_K678044, selection marker
+BBa_K678045, selection marker
+BBa_I712020, protease
+BBa_I712077, protease
+BBa_I712078, protease
+BBa_I712667, protease
+BBa_K116601, protease
+BBa_C0082, post-translational modification
+BBa_J58104, post-translational modification
+BBa_J58105, post-translational modification
+BBa_I752001, post-translational modification
+BBa_K091002, post-translational modification
+BBa_K147000, post-translational modification
+BBa_K118015, post-translational modification
+BBa_K118016, post-translational modification
+BBa_K094100, post-translational modification
+BBa_K136046, post-translational modification
+BBa_K283008, post-translational modification
+BBa_K629003, post-translational modification
+BBa_K557000, post-translational modification
+BBa_C0024, post-translational modification
+BBa_K108020, post-translational modification
+BBa_K112116, DNA modification
+BBa_K112117, DNA modification
+BBa_I716210, DNA modification
+BBa_K112106, DNA modification
+BBa_K112107, DNA modification
+BBa_K112123, DNA modification
+BBa_K525740, DNA modification
+BBa_K525730, DNA modification
+BBa_K112114, DNA modification
+BBa_K525710, DNA modification
+BBa_K525010, DNA modification
+BBa_K525009, DNA modification
+BBa_K112115, DNA modification
+BBa_I716212, DNA modification
+BBa_I716213, DNA modification
+BBa_J61047, DNA modification
+BBa_K112122, DNA modification
+BBa_J31001, DNA modification
+BBa_J31000, DNA modification
+BBa_I11021, DNA modification
+BBa_I11031, DNA modification
+BBa_K137007, DNA modification
+BBa_K313002, DNA modification
+BBa_I11020, DNA modification
+BBa_I11030, DNA modification
+BBa_K361000, DNA modification
+BBa_J70007, DNA modification
+BBa_K108022, DNA modification
+BBa_K108023, DNA modification
+BBa_K108024, DNA modification
+BBa_K112001, DNA modification
+BBa_K112217, DNA modification
+BBa_K112223, DNA modification
+BBa_K112211, DNA modification
+BBa_K112204, DNA modification
+BBa_K112219, DNA modification
+BBa_K112207, DNA modification
+BBa_K112200, DNA modification
+BBa_Y00073, DNA modification
+BBa_Y00029, DNA modification
+BBa_K106001, DNA modification
+BBa_K106002, DNA modification
+BBa_K106003, DNA modification
+BBa_K106011, DNA modification
+BBa_K106012, DNA modification
+BBa_K106013, DNA modification
+BBa_K106692, DNA modification
+BBa_J07009, membrane proteins
+BBa_K133063, membrane proteins
+BBa_K133064, membrane proteins
+BBa_K133065, membrane proteins
+BBa_K133069, membrane proteins
+BBa_K133067, membrane proteins
+BBa_K133060, membrane proteins
+BBa_K209400, membrane proteins
+BBa_K209401, membrane proteins
+BBa_I712002, membrane proteins
+BBa_I712003, membrane proteins
+BBa_I712010, membrane proteins
+BBa_I712017, membrane proteins
+BBa_K592000, membrane proteins
+BBa_I15010, membrane proteins
+BBa_I728500, membrane proteins
+BBa_J52035, membrane proteins
+BBa_K259000, membrane proteins
+BBa_K259001, membrane proteins
+BBa_J58104, membrane proteins
+BBa_K137112, membrane proteins
+BBa_C0082, membrane proteins
+BBa_J58105, membrane proteins
+BBa_K533007, membrane proteins
+BBa_I712012, membrane proteins
+BBa_K389001, membrane proteins
+BBa_K143037, membrane proteins
+BBa_J07006, membrane proteins
+BBa_J07017, membrane proteins
+BBa_J92000, membrane proteins
+BBa_K141000, membrane proteins
+BBa_K141002, membrane proteins
+BBa_K141003, membrane proteins
+BBa_K190028, membrane proteins
+BBa_K629005, membrane proteins
+BBa_K633001, membrane proteins
+BBa_I746200, membrane proteins
+BBa_I765002, membrane proteins
+BBa_I765003, membrane proteins
+BBa_K090000, membrane proteins
+BBa_K284000, membrane proteins
+BBa_K284997, membrane proteins
+BBa_K559000, membrane proteins
+BBa_K559001, membrane proteins
+BBa_J22101, membrane proteins
+BBa_K079015, membrane proteins
+BBa_K119003, membrane proteins
+BBa_K137001, membrane proteins
+BBa_I712024, membrane proteins
+BBa_K133061, membrane proteins
+BBa_K136046, membrane proteins
+BBa_K227006, membrane proteins
+BBa_K367000, membrane proteins
+BBa_M12067, membrane proteins
+BBa_I721002, receptors/ligands
+BBa_K126000, receptors/ligands
+BBa_K133070, receptors/ligands
+BBa_K133062, receptors/ligands
+BBa_K211001, receptors/ligands
+BBa_K211002, receptors/ligands
+BBa_K389001, receptors/ligands
+BBa_K103004, receptors/ligands
+BBa_K128003, receptors/ligands
+BBa_K133059, receptors/ligands
+BBa_K283010, receptors/ligands
+BBa_K112000, lysis protein
+BBa_K112002, lysis protein
+BBa_K112004, lysis protein
+BBa_K112006, lysis protein
+BBa_K112009, lysis protein
+BBa_K112010, lysis protein
+BBa_K112012, lysis protein
+BBa_K112015, lysis protein
+BBa_K112016, lysis protein
+BBa_K117000, lysis protein
+BBa_K124014, lysis protein
+BBa_K108001, lysis protein
+BBa_K112300, lysis protein
+BBa_K112304, lysis protein
+BBa_K112306, lysis protein
+BBa_K112310, lysis protein
+BBa_K112312, lysis protein
+BBa_K112316, lysis protein
+BBa_K124017, lysis protein
+BBa_K112806, lysis protein
+BBa_K284001, lysis protein
+BBa_C0061, biosynthesis
+BBa_C0060, biosynthesis
+BBa_C0070, biosynthesis
+BBa_C0076, biosynthesis
+BBa_C0078, biosynthesis
+BBa_C0161, biosynthesis
+BBa_C0170, biosynthesis
+BBa_C0178, biosynthesis
+BBa_K091109, biosynthesis
+BBa_C0060, biosynthesis
+BBa_C0160, biosynthesis
+BBa_K118000, biosynthesis
+BBa_K115050, biosynthesis
+BBa_K115056, biosynthesis
+BBa_K115057, biosynthesis
+BBa_K118002, biosynthesis
+BBa_K118003, biosynthesis
+BBa_K118008, biosynthesis
+BBa_K343001, biosynthesis
+BBa_J45001, biosynthesis
+BBa_J45002, biosynthesis
+BBa_J45004, biosynthesis
+BBa_J45008, biosynthesis
+BBa_J45014, biosynthesis
+BBa_J45017, biosynthesis
+BBa_I742107, biosynthesis
+BBa_K125504, biosynthesis
+BBa_K125501, biosynthesis
+BBa_K125502, biosynthesis
+BBa_K125503, biosynthesis
+BBa_K156012, biosynthesis
+BBa_K156013, biosynthesis
+BBa_K156014, biosynthesis
+BBa_I725011, biosynthesis
+BBa_I72512, biosynthesis
+BBa_I725013, biosynthesis
+BBa_I725014, biosynthesis
+BBa_I725015, biosynthesis
+BBa_K123001, biosynthesis
+BBa_K123000, biosynthesis
+BBa_K525007, biosynthesis
+BBa_K525515, biosynthesis
+BBa_K525008, biosynthesis
+BBa_K525517, biosynthesis
+BBa_K525582, biosynthesis
+BBa_K525562, biosynthesis
+BBa_K525499, biosynthesis
+BBa_K123000, biosynthesis
+BBa_K123001, biosynthesis
+BBa_K118022, biosynthesis
+BBa_K118023, biosynthesis
+BBa_K118028, biosynthesis
+BBa_C0083, biosynthesis
+BBa_I15008, biosynthesis
+BBa_I15009, biosynthesis
+BBa_T9150, biosynthesis
+BBa_I716153, biosynthesis
+BBa_I716154, biosynthesis
+BBa_I716155, biosynthesis
+BBa_I716152, biosynthesis
+BBa_I742141, biosynthesis
+BBa_I742142, biosynthesis
+BBa_I723024, biosynthesis
+BBa_I723025, biosynthesis
+BBa_K137005, biosynthesis
+BBa_K137006, biosynthesis
+BBa_K137009, biosynthesis
+BBa_K137011, biosynthesis
+BBa_K137017, biosynthesis
+BBa_K118015, biosynthesis
+BBa_K118016, biosynthesis
+BBa_K123001, biosynthesis
+BBa_K108018, biosynthesis
+BBa_K108026, biosynthesis
+BBa_K108027, biosynthesis
+BBa_K108028, biosynthesis
+BBa_K108029, biosynthesis
+BBa_K147003, biosynthesis
+BBa_K123000, biosynthesis
+BBa_K356000, biosynthesis
+BBa_K417000, biosynthesis
+BBa_K332011, biosynthesis
+BBa_K284999, biosynthesis
+BBa_K417001, biosynthesis
+BBa_K417002, biosynthesis
+BBa_K653000, biosynthesis
+BBa_I716253, biosynthesis
+BBa_K137000, biosynthesis
+BBa_K137014, biosynthesis
+BBa_K137067, biosynthesis
+BBa_K078102, biosynthesis
+BBa_K078003, biosynthesis
+BBa_K078005, biosynthesis
+BBa_K078006, biosynthesis
+BBa_K078007, biosynthesis
+BBa_K078008, biosynthesis
+BBa_K078009, biosynthesis
+BBa_K144000, biosynthesis
+BBa_K156012, biosynthesis
+BBa_K174000, biosynthesis
+BBa_K398000, biosynthesis
+BBa_K398006, biosynthesis
+BBa_K398005, biosynthesis

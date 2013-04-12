@@ -1,0 +1,78 @@
+﻿<UserControl
+                x:Class="SurfaceApplication1.customForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:s="http://schemas.microsoft.com/surface/2008"
+             xmlns:myProject="clr-namespace:SurfaceApplication1"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1000">
+    <!--FORM FOR CUSTOM PART DATA-->
+    <Grid Name="cusForm" Visibility="Collapsed" Grid.ColumnSpan="2" Grid.RowSpan="5" Background="#FFBBBBBB" Width="1000" Height="700" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <!--Title of form-->
+            <RowDefinition Height="50"/>
+            <!--Part type-->
+            <RowDefinition/>
+            <!--Scrollable data area-->
+            <RowDefinition Height="50"/>
+            <!--Save, cancel buttons-->
+        </Grid.RowDefinitions>
+
+        <Label Content="New Module" FontSize="20" Padding="10,10,10,10" HorizontalAlignment="Stretch"/>
+        <!--Part type radio buttons-->
+        <StackPanel Name="cus_Type" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" >
+            <s:SurfaceRadioButton Name="cus_prom" Grid.Row="1" GroupName="newPartRadioButtons" Margin="0,0,50,0" Content="Promoter" IsChecked="True" />
+            <s:SurfaceRadioButton Name="cus_rbs" Grid.Row="1" GroupName="newPartRadioButtons" Margin="0,0,50,0" Content="RBS"/>
+            <s:SurfaceRadioButton Name="cus_cds" Grid.Row="1" GroupName="newPartRadioButtons" Margin="0,0,50,0" Content="CDS"/>
+            <s:SurfaceRadioButton Name="cus_term" Grid.Row="1" GroupName="newPartRadioButtons" Margin="0,0,50,0" Content="Terminator" />
+        </StackPanel>
+        <!--Scrollable data area-->
+        <ScrollViewer Grid.Row="2" Grid.ColumnSpan="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <!--Name-->
+                    <RowDefinition />
+                    <!--Description-->
+                    <RowDefinition />
+                    <!--Sequence-->
+                    <RowDefinition Height="50"/>
+                    <!--Associated with-->
+                    <RowDefinition />
+                    <!--add new field-->
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+
+                <!--Name-->
+                <Label Content="Name*" Grid.Row="0" VerticalContentAlignment="Center"/>
+                <TextBox Name="cus_Name" Width="500" Grid.Row="0" Grid.Column="1" Background="White" Margin="10" TextWrapping="Wrap" VerticalAlignment="Stretch"/>
+                <!--Description-->
+                <Label Content="Description*" Grid.Row="1" VerticalContentAlignment="Center"/>
+                <TextBox Name="cus_Desc" Grid.Row="1" Grid.Column="1" Background="White" Margin="10" TextWrapping="Wrap" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                <!--Sequence-->
+                <Label Content="Sequence" Grid.Row="2" VerticalContentAlignment="Center"/>
+                <TextBox Name="cus_Seq" Grid.Row="2" Grid.Column="1" Background="White" Margin="10" TextWrapping="Wrap" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                <!--Associated with-->
+                <Label Content="Associated With" Grid.Row="3" VerticalContentAlignment="Center"/>
+                <TextBox Name="cus_Asso" Grid.Row="3" Grid.Column="1" Background="White" Margin="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                <!--add new field-->
+                <Button Name="form_addNewField" Content="Add new field" Grid.Row="4" Height="50" VerticalAlignment="Top" Margin="10"/>
+            </Grid>
+        </ScrollViewer>
+
+        <!--Save and Cancel-->
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="form_save" Content="Save" FontSize="20" Width="100" Margin="10,10,20,10"
+                        Click="cusSave_Click"/>
+            <Button Name="form_cancel" Content="Cancel" FontSize="20" Width="100" Margin="10,10,0,10"
+                        Click="cusCancel_Click"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

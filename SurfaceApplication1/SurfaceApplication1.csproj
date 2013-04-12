@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F5B7D93B-0758-48E4-B97E-B2B2815B8D69}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SurfaceApplication1</RootNamespace>
+    <AssemblyName>SurfaceApplication1</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\..\Downloads\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Microsoft.Surface" />
+    <Reference Include="Microsoft.Surface.Presentation" />
+    <Reference Include="Microsoft.Surface.Presentation.Generic" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AbstractBox.xaml.cs">
+      <DependentUpon>AbstractBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="alignmentTests.cs" />
+    <Compile Include="Backend\BasicInfo.cs" />
+    <Compile Include="Backend\Description.cs" />
+    <Compile Include="Backend\Gene.cs" />
+    <Compile Include="Backend\Parser_PartsDataSheet.cs" />
+    <Compile Include="Backend\Promoter.cs" />
+    <Compile Include="Backend\Protocol.cs" />
+    <Compile Include="Backend\PubAbstract.cs" />
+    <Compile Include="Backend\PubList.cs" />
+    <Compile Include="Backend\RBS.cs" />
+    <Compile Include="Backend\Reference.cs" />
+    <Compile Include="Backend\RegDataSheet.cs" />
+    <Compile Include="Backend\RegList.cs" />
+    <Compile Include="Backend\Search.cs" />
+    <Compile Include="Backend\Terminators.cs" />
+    <Compile Include="CircularProgressIndicator.xaml.cs">
+      <DependentUpon>CircularProgressIndicator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="customDataSheet.xaml.cs">
+      <DependentUpon>customDataSheet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="customForm.xaml.cs">
+      <DependentUpon>customForm.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EugeneModules.cs" />
+    <Compile Include="fusionSite.cs" />
+    <Compile Include="fusionSites.xaml.cs">
+      <DependentUpon>fusionSites.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="L1Module.xaml.cs">
+      <DependentUpon>L1Module.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="L2Module.xaml.cs">
+      <DependentUpon>L2Module.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuDataSheet.xaml.cs">
+      <DependentUpon>MenuDataSheet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Part.xaml.cs">
+      <DependentUpon>Part.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AbstractBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CircularProgressIndicator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="customDataSheet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="customForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="fusionSites.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="L1Module.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="L2Module.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Level0.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Level1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Level2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MenuDataSheet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Part.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PrimerDesigner1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PrimerDesigner2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Sites.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SurfaceWindow1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Level0.xaml.cs">
+      <DependentUpon>Level0.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Level1.xaml.cs">
+      <DependentUpon>Level1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Level2.xaml.cs">
+      <DependentUpon>Level2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PrimerDesigner1.xaml.cs">
+      <DependentUpon>PrimerDesigner1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PrimerDesigner2.xaml.cs">
+      <DependentUpon>PrimerDesigner2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ProgressBarWrapper.cs" />
+    <Compile Include="Sites.xaml.cs">
+      <DependentUpon>Sites.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SurfaceWindow1.xaml.cs">
+      <DependentUpon>SurfaceWindow1.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Backend\PartsRegBrowse.csproj" />
+    <Resource Include="terminators2.txt" />
+    <Resource Include="terminators.txt" />
+    <Resource Include="Backend\PartsRegBrowse.xml" />
+    <Resource Include="Resources\Annealer\build.xml" />
+    <Resource Include="cds2.txt" />
+    <Resource Include="promoters2.txt" />
+    <Resource Include="rbs2.txt" />
+    <Resource Include="CustomParts.txt" />
+    <Resource Include="CustomTUs.txt" />
+    <Content Include="Resources\Annealer.jar" />
+    <Resource Include="promoters.txt" />
+    <Resource Include="cds.txt" />
+    <Content Include="Resources\Annealer\build\classes\annealer\biojava.jar" />
+    <Content Include="Resources\Annealer\build\classes\biojava.jar" />
+    <Content Include="Resources\Annealer\dist\Annealer.jar" />
+    <Content Include="Resources\Annealer\dist\lib\biojava.jar" />
+    <Resource Include="Resources\Annealer\dist\README.TXT" />
+    <Content Include="Resources\Annealer\lib\biojava\biojava.jar" />
+    <Content Include="Resources\Annealer\lib\CopyLibs\org-netbeans-modules-java-j2seproject-copylibstask.jar" />
+    <Content Include="Resources\Annealer\lib\junit\junit-3.8.2.jar" />
+    <Content Include="Resources\Annealer\lib\junit_4\junit-4.5-src.jar" />
+    <Content Include="Resources\Annealer\lib\junit_4\junit-4.5.jar" />
+    <Resource Include="Resources\Annealer\nbproject\build-impl.xml" />
+    <Resource Include="Resources\Annealer\nbproject\private\private.xml" />
+    <Resource Include="Resources\Annealer\nbproject\project.xml" />
+    <Content Include="Resources\Annealer\src\annealer\Annealer.java" />
+    <Content Include="Resources\Annealer\src\annealer\biojava.jar" />
+    <Content Include="Resources\Annealer\src\annealer\Main.java" />
+    <Content Include="Resources\Annealer\src\biojava.jar" />
+    <Resource Include="Resources\EugeneFiles\permute2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\EugeneFiles\permute3.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\EugeneFiles\permute4.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\EugeneFiles\permute5.txt" />
+    <Resource Include="Resources\EugeneFiles\permute6.txt" />
+    <Content Include="Resources\HtmlAgilityPack.dll" />
+    <Content Include="Resources\icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\testimg.bmp" />
+    <EmbeddedResource Include="Resources\sbol_prom.png" />
+    <None Include="Resources\Annealer\build\built-jar.properties" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\COMMIT_EDITMSG" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\config" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\description" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\FETCH_HEAD" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\HEAD" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\hooks\applypatch-msg.sample" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\hooks\commit-msg.sample" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\hooks\post-commit.sample" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\hooks\post-receive.sample" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\hooks\post-update.sample" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\hooks\pre-applypatch.sample" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\hooks\pre-commit.sample" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\hooks\pre-rebase.sample" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\hooks\prepare-commit-msg.sample" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\hooks\update.sample" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\index" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\info\exclude" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\logs\HEAD" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\logs\refs\heads\master" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\logs\refs\remotes\origin\master" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\objects\23\d9815ec02573313f8fe39845dc4da514aea537" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\objects\25\2ef99773138e08097495052115f24a0a207c89" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\objects\2d\d3f1875e1d3c9548eeec5362f4a173bc7a65ff" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\objects\3f\f0223822beabda9fef2c012985fe18a7761350" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\objects\47\a179efc0f5c93574ff1a29540807a4384afc59" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\objects\49\80b383b9c148abc659944d81ae944093ab45fe" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\objects\56\f4926999ef5918e792e5c43fb59887a981a4cc" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\objects\63\63ec48cef8f36183316140a83b3646d66c0488" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\objects\6f\26148b51f5f3e6efffc867a36ac5be37b5548a" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\objects\7b\b87151ef2d6ea5cc9e9e2b792c3d69f7ec217c" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\objects\7b\c65f1587e3815eebed03bef5d3b5be80ecc024" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\objects\97\b7b319182043002343b5d16e40a0caa85765e9" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\objects\a1\2908e7facd19a762ac6f70de802fef9d9a078e" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\objects\af\38fb6c090493d5b88486a710a07e07e9e05b8e" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\objects\c2\d9aaa8a3b7c4c746f58206fd5f87e0326f5a7a" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\objects\c7\667f816b5b7b22259d71492b000eee01699e3c" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\objects\cb\ef0378bd936d28cc8066d2e17c47350e7ee7dc" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\objects\cc\25cf9a42736a733c1cf4d8d637ef190dbb74a0" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\objects\de\b10bf4ec9c248551ccb73df813ce38ce74fb5b" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\objects\e9\a03c70927284d58e064e9821ed83a792228cf6" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\objects\fd\39c58142f11fe86628318b2697d8c074a8e4b9" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\ORIG_HEAD" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\refs\heads\master" />
+    <None Include="Resources\Annealer\build\classes\annealer\.git\refs\remotes\origin\master" />
+    <None Include="Resources\Annealer\build\classes\annealer\Annealer.class" />
+    <None Include="Resources\Annealer\build\classes\annealer\Main.class" />
+    <None Include="Resources\Annealer\lib\junit\junit-3.8.2-api.zip" />
+    <None Include="Resources\Annealer\lib\junit_4\junit-4.5-api.zip" />
+    <None Include="Resources\Annealer\lib\nblibraries.properties" />
+    <None Include="Resources\Annealer\manifest.mf" />
+    <None Include="Resources\Annealer\nbproject\genfiles.properties" />
+    <None Include="Resources\Annealer\nbproject\private\config.properties" />
+    <None Include="Resources\Annealer\nbproject\private\private.properties" />
+    <None Include="Resources\Annealer\nbproject\project.properties" />
+    <None Include="Resources\Annealer\public int pairwiseAlignment.docx" />
+    <None Include="Resources\Annealer\README" />
+    <None Include="Resources\Annealer\src\annealer\.git\COMMIT_EDITMSG" />
+    <None Include="Resources\Annealer\src\annealer\.git\config" />
+    <None Include="Resources\Annealer\src\annealer\.git\description" />
+    <None Include="Resources\Annealer\src\annealer\.git\FETCH_HEAD" />
+    <None Include="Resources\Annealer\src\annealer\.git\HEAD" />
+    <None Include="Resources\Annealer\src\annealer\.git\hooks\applypatch-msg.sample" />
+    <None Include="Resources\Annealer\src\annealer\.git\hooks\commit-msg.sample" />
+    <None Include="Resources\Annealer\src\annealer\.git\hooks\post-commit.sample" />
+    <None Include="Resources\Annealer\src\annealer\.git\hooks\post-receive.sample" />
+    <None Include="Resources\Annealer\src\annealer\.git\hooks\post-update.sample" />
+    <None Include="Resources\Annealer\src\annealer\.git\hooks\pre-applypatch.sample" />
+    <None Include="Resources\Annealer\src\annealer\.git\hooks\pre-commit.sample" />
+    <None Include="Resources\Annealer\src\annealer\.git\hooks\pre-rebase.sample" />
+    <None Include="Resources\Annealer\src\annealer\.git\hooks\prepare-commit-msg.sample" />
+    <None Include="Resources\Annealer\src\annealer\.git\hooks\update.sample" />
+    <None Include="Resources\Annealer\src\annealer\.git\index" />
+    <None Include="Resources\Annealer\src\annealer\.git\info\exclude" />
+    <None Include="Resources\Annealer\src\annealer\.git\logs\HEAD" />
+    <None Include="Resources\Annealer\src\annealer\.git\logs\refs\heads\master" />
+    <None Include="Resources\Annealer\src\annealer\.git\logs\refs\remotes\origin\master" />
+    <None Include="Resources\Annealer\src\annealer\.git\objects\23\d9815ec02573313f8fe39845dc4da514aea537" />
+    <None Include="Resources\Annealer\src\annealer\.git\objects\25\2ef99773138e08097495052115f24a0a207c89" />
+    <None Include="Resources\Annealer\src\annealer\.git\objects\2d\d3f1875e1d3c9548eeec5362f4a173bc7a65ff" />
+    <None Include="Resources\Annealer\src\annealer\.git\objects\3f\f0223822beabda9fef2c012985fe18a7761350" />
+    <None Include="Resources\Annealer\src\annealer\.git\objects\47\a179efc0f5c93574ff1a29540807a4384afc59" />
+    <None Include="Resources\Annealer\src\annealer\.git\objects\49\80b383b9c148abc659944d81ae944093ab45fe" />
+    <None Include="Resources\Annealer\src\annealer\.git\objects\56\f4926999ef5918e792e5c43fb59887a981a4cc" />
+    <None Include="Resources\Annealer\src\annealer\.git\objects\63\63ec48cef8f36183316140a83b3646d66c0488" />
+    <None Include="Resources\Annealer\src\annealer\.git\objects\6f\26148b51f5f3e6efffc867a36ac5be37b5548a" />
+    <None Include="Resources\Annealer\src\annealer\.git\objects\7b\b87151ef2d6ea5cc9e9e2b792c3d69f7ec217c" />
+    <None Include="Resources\Annealer\src\annealer\.git\objects\7b\c65f1587e3815eebed03bef5d3b5be80ecc024" />
+    <None Include="Resources\Annealer\src\annealer\.git\objects\97\b7b319182043002343b5d16e40a0caa85765e9" />
+    <None Include="Resources\Annealer\src\annealer\.git\objects\a1\2908e7facd19a762ac6f70de802fef9d9a078e" />
+    <None Include="Resources\Annealer\src\annealer\.git\objects\af\38fb6c090493d5b88486a710a07e07e9e05b8e" />
+    <None Include="Resources\Annealer\src\annealer\.git\objects\c2\d9aaa8a3b7c4c746f58206fd5f87e0326f5a7a" />
+    <None Include="Resources\Annealer\src\annealer\.git\objects\c7\667f816b5b7b22259d71492b000eee01699e3c" />
+    <None Include="Resources\Annealer\src\annealer\.git\objects\cb\ef0378bd936d28cc8066d2e17c47350e7ee7dc" />
+    <None Include="Resources\Annealer\src\annealer\.git\objects\cc\25cf9a42736a733c1cf4d8d637ef190dbb74a0" />
+    <None Include="Resources\Annealer\src\annealer\.git\objects\de\b10bf4ec9c248551ccb73df813ce38ce74fb5b" />
+    <None Include="Resources\Annealer\src\annealer\.git\objects\e9\a03c70927284d58e064e9821ed83a792228cf6" />
+    <None Include="Resources\Annealer\src\annealer\.git\objects\fd\39c58142f11fe86628318b2697d8c074a8e4b9" />
+    <None Include="Resources\Annealer\src\annealer\.git\ORIG_HEAD" />
+    <None Include="Resources\Annealer\src\annealer\.git\refs\heads\master" />
+    <None Include="Resources\Annealer\src\annealer\.git\refs\remotes\origin\master" />
+    <None Include="Resources\sbol_5utr.png" />
+    <EmbeddedResource Include="Resources\sbol_term.png" />
+    <EmbeddedResource Include="Resources\sbol_rbs.png" />
+    <None Include="Resources\sbol_cds.png" />
+    <None Include="Resources\sbol_prom2.png" />
+    <None Include="Resources\sbol_rbs2.png" />
+    <None Include="Resources\sbol_cds2.png" />
+    <None Include="Resources\sbol_term2.png" />
+    <Content Include="SurfaceApplication1.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Annealer\build\classes\annealer\.git\objects\info\" />
+    <Folder Include="Resources\Annealer\build\classes\annealer\.git\objects\pack\" />
+    <Folder Include="Resources\Annealer\build\classes\annealer\.git\refs\tags\" />
+    <Folder Include="Resources\Annealer\build\empty\" />
+    <Folder Include="Resources\Annealer\src\annealer\.git\objects\info\" />
+    <Folder Include="Resources\Annealer\src\annealer\.git\objects\pack\" />
+    <Folder Include="Resources\Annealer\src\annealer\.git\refs\tags\" />
+    <Folder Include="Resources\Annealer\test\" />
+    <Folder Include="Themes\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

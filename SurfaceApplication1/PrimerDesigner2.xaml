@@ -1,0 +1,295 @@
+﻿<s:ScatterViewItem x:Class="SurfaceApplication1.PrimerDesigner2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:s="http://schemas.microsoft.com/surface/2008"
+                   xmlns:myProject="clr-namespace:SurfaceApplication1"
+             mc:Ignorable="d" Height="1024" Width="1280" Center="640, 512" Orientation="0"  
+                   CanMove="False" CanRotate="False" Background="SkyBlue" ShowsActivationEffects="False" IsTopmostOnActivation="False"
+                   CanScale="False">
+
+        <!--<s:ScatterViewItem Orientation="0" CanMove="False" CanRotate="False" Width="1920" Height="1080" Center="960,540">-->
+
+    <s:ScatterViewItem.Resources>
+        <Style TargetType="TextBlock" x:Key="Titles">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="heavy"/>
+            <Setter Property="Grid.Row" Value="1"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <!--<Setter Property="HorizontalAlignment" Value="Center"/>-->
+        </Style>
+
+        <Style TargetType="s:SurfaceScrollViewer" x:Key="Scroll">
+            <Setter Property="MaxWidth" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type s:SurfaceWindow}}, Path=ActualWidth}"/>
+           <!-- <Setter Property="Grid.Row" Value="2"/>-->
+            <Setter Property="Margin" Value="20,0"/>
+        </Style>
+        
+        <Style TargetType="Grid" x:Key="Tests">
+            <Setter Property="Margin" Value="10" />
+        </Style>
+
+        <!-- #region SurfaceListBoxItemDataTemplate0 -->
+                <DataTemplate x:Key="SurfaceListBoxItemDataTemplate0">
+                    <StackPanel Height="75" Width="740" Background="White">
+                        <!--<Image Source="{Binding SiteTestIcon}" HorizontalAlignment="Left" VerticalAlignment="Center"
+                               Height="70" Width="70" Margin="5,5,5,5"/>-->
+                        <Label
+                            Content="{Binding FSName}"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Foreground="Black"
+                            FontSize="20"/>
+
+                        <Label
+                            Content="{Binding CanDrop}"
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Center"
+                            Foreground="Black"
+                            FontSize="18"/>
+                    </StackPanel>
+                </DataTemplate>
+                <!-- #endregion SurfaceListBoxItemDataTemplate0 -->
+    </s:ScatterViewItem.Resources>
+            
+    <Grid Background="SkyBlue" Width="1280" Height="1024" ShowGridLines="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="300" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="180"/>
+            <RowDefinition Height="30"/>
+            
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <!-- Primer Designer title-->
+        <TextBlock Grid.Row="0" Text="PRIMER DESIGNER" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Heavy" Foreground="White"/>
+
+        <!--Navigation-->
+        <!-- Not used in single layout
+        <s:SurfaceButton Name="forwardButton" Content="Forward to Primer Editor" FontSize="22"
+                         VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
+                         HorizontalAlignment="Right" VerticalAlignment="Top" Margin="30,0"
+                         Height="auto" Width="auto"
+                         Click="forwardButton_Click"
+                         IsEnabled="False" Visibility="Collapsed">
+            <s:SurfaceButton.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0" />
+                    <GradientStop Color="#FFD9D9D9" Offset="1" />
+                </LinearGradientBrush>
+            </s:SurfaceButton.Background>
+        </s:SurfaceButton>
+        -->
+        
+        <s:SurfaceButton Name="exitButton" Content="Back to MoClo" FontSize="18"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                         HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"
+                         Height="auto" Width="auto" 
+                         Click="exitButton_Click"
+                         Foreground="Black">
+            <s:SurfaceButton.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0" />
+                    <GradientStop Color="#BABABABA" Offset="1" />
+                </LinearGradientBrush>
+            </s:SurfaceButton.Background>
+        </s:SurfaceButton>
+
+
+        <!--Fusion Sites-->
+        <TextBlock Grid.Row="1" Style="{StaticResource Titles}" Text="Fusion Sites" Foreground="White" HorizontalAlignment="Left" Margin="15,0,0,0"/>
+        
+        <s:SurfaceScrollViewer Grid.Row="2" Width="400" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Left" Margin="15,0,0,0">
+            <s:ScatterView Name="PD2_siteLibrary"  Background="#FFE5E5E5" Height="300"
+                                   Width="400">
+                <!--ItemsSource="{Binding Path=SourceItems}"-->
+            </s:ScatterView>
+        </s:SurfaceScrollViewer>
+
+        <s:SurfaceButton Name="siteAdder" Grid.Row="3" HorizontalAlignment="Left" Content="Add Fusion Site + "
+                         VerticalContentAlignment="Center" VerticalAlignment="Center"  
+                         Foreground="Black" FontSize="18" Height="auto" Width="auto" Margin="15,0,0,0"
+                         Click="siteAdder_Click" ToolTip="Creates a fusion site template">
+            <s:SurfaceButton.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0" />
+                    <GradientStop Color="#BABABABA" Offset="1" />
+                </LinearGradientBrush>
+            </s:SurfaceButton.Background>
+        </s:SurfaceButton>
+
+        
+        <!-- Primer Results -->
+        <TextBlock Grid.Row="1" Style="{StaticResource Titles}" Text="Primer Results" Foreground="White" Margin="430,0,0,0"/>
+        <!-- Result grid usually hidden, only visible upon "Check and Generate Primer -->
+        <Grid x:Name="ResultGrid" Visibility="Visible" Grid.Row="2" Width="835" Height="300" Margin="415,0,0,0" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="345"/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="70"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- Level -->
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Level" Foreground="Black" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="2-fake" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+            <!-- Destination Vector -->
+            <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="Destination Vector" Foreground="Black" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="Some fake data here" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <!-- Complete Sequence -->
+            <s:SurfaceButton Name="ViewCompleteSequence" Content="View Complete Sequence" Grid.Row="0" Grid.Column="2"
+                             HorizontalAlignment="Left" VerticalAlignment="Center" 
+                             HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                             Foreground="White" Background="Gray" FontSize="18" Height="auto" Width="auto" Margin="110,0,0,0" />
+            <!-- Eugene Checklist -->
+            <s:SurfaceButton Name="ViewEugeneChecklist" Content="View Eguene Checklist" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="3"
+                             HorizontalAlignment="Left" VerticalAlignment="Center" 
+                             HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                             Foreground="White" Background="Gray" FontSize="18" Height="auto" Width="auto" Margin="0,0,0,0" Click="ViewEugeneChecklist_Click"/>
+            <!-- Result Labels -->
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Primers" Foreground="Black" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="Name" Foreground="Black" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="2" Grid.Column="2" Text="Sequence" Foreground="Black" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="2" Grid.Column="3" Text="Length" Foreground="Black" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="2" Grid.Column="4" Text="% GC" Foreground="Black" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="2" Grid.Column="5" Text="Temp." Foreground="Black" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <!-- Results -->
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Forward" Foreground="Black" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+            <s:SurfaceScrollViewer Grid.Row="3" Grid.Column="1" Width="140" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Left">
+                <TextBlock Text="Fake name" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </s:SurfaceScrollViewer>
+            <s:SurfaceScrollViewer Grid.Row="3" Grid.Column="2" Width="330" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible" HorizontalAlignment="Left">
+                <TextBlock Text="GTACGAGATCGATAGCTAGCTAGAAAGCTTTAGATCTAGATCAGATATAGCGATCGGAGTACGTAGCTAGCATATATATATCGGCGCGCGCATCAGTACGTAGCTAGCTA" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </s:SurfaceScrollViewer>
+            <TextBlock Grid.Row="3" Grid.Column="3" Text="12" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="3" Grid.Column="4" Text="3" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="3" Grid.Column="5" Text="46" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Reverse Complement" Foreground="Black" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+            <s:SurfaceScrollViewer Grid.Row="4" Grid.Column="1" Width="140" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Left">
+                <TextBlock Text="Fake name 2" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </s:SurfaceScrollViewer>
+            <s:SurfaceScrollViewer Grid.Row="4" Grid.Column="2" Width="330" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible" HorizontalAlignment="Left">
+                <TextBlock Text="ATCGACTTTAGATCTAGATCAGATATGTACGCAGCATCAGTATA" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </s:SurfaceScrollViewer>
+            <TextBlock Grid.Row="4" Grid.Column="3" Text="103" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="4" Grid.Column="4" Text="44" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="4" Grid.Column="5" Text="37" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        </Grid>
+        
+        <!--<s:SurfaceScrollViewer Grid.Row="2" Width="835" HorizontalScrollBarVisibility="Disabled" Margin="415,0,0,0">
+            <s:ScatterView Background="White" Height="300"
+                                   Width="835">
+                
+            </s:ScatterView>
+        </s:SurfaceScrollViewer>
+        -->
+
+        <s:SurfaceButton Name="GeneratePrimers" Grid.Row="3" Content="Check and Generate Primer" HorizontalAlignment="Left"
+                         VerticalContentAlignment="Center" VerticalAlignment="Center"  HorizontalContentAlignment="Center"
+                         Foreground="Black" FontSize="18" Height="auto" Width="auto" Margin="430,0,0,0"
+                         Click="GeneratePrimers_Click">
+            <s:SurfaceButton.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0" />
+                    <GradientStop Color="#BABABABA" Offset="1" />
+                </LinearGradientBrush>
+            </s:SurfaceButton.Background>
+        </s:SurfaceButton>
+
+        <s:SurfaceButton Name="SavePrimers" Grid.Row="3" Content="Save Primer" HorizontalAlignment="Left"
+                         VerticalContentAlignment="Center" VerticalAlignment="Center"  HorizontalContentAlignment="Center"
+                         Foreground="Black" FontSize="18" Height="auto" Width="auto" Margin="690,0,0,0"
+                         >
+            <s:SurfaceButton.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0" />
+                    <GradientStop Color="#BABABABA" Offset="1" />
+                </LinearGradientBrush>
+            </s:SurfaceButton.Background>
+        </s:SurfaceButton>
+
+
+        <!--Construction-->
+        <TextBlock Grid.Row="4" Text="Modules" Style="{StaticResource Titles}" Foreground="White" Margin="15,0,0,0"/>
+
+        <TabControl Name="PD2_buildTabs" Grid.Row="5" Margin="15,15,15,0" FontSize="18"
+                    SelectionChanged="PD2_buildTabs_SelectionChanged">
+            <TabItem Header="Manual" TouchDown="TabControl_TouchDown" ToolTip="Allows the User to Drag and Drop Parts to Make Custom L2 Modules">
+                <s:SurfaceScrollViewer Margin="10" Style="{StaticResource Scroll}">
+                    <StackPanel Name="PD2_manual" Orientation="Horizontal" Height="220" Background="#FFE5E5E5" />
+                </s:SurfaceScrollViewer>
+            </TabItem>
+            <TabItem Header="Automatic" TouchDown="TabControl_TouchDown" ToolTip="Generates All Possible Permutations of Selected Level1 Modules">
+                <s:SurfaceScrollViewer Margin="10" Style="{StaticResource Scroll}">
+                    <StackPanel Name="PD2_auto" Orientation="Horizontal" Height="220" Background="#FFE5E5E5" />
+                </s:SurfaceScrollViewer>
+            </TabItem>
+        </TabControl>
+
+        <s:SurfaceButton Name="permMaker" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Top" Content="Use random fusion sites" IsEnabled="True" Visibility="Visible"
+                         VerticalContentAlignment="Center" Click="permMaker_Click" Margin="0,0,15,0" Width="auto" Height="auto" Foreground="Black" HorizontalContentAlignment="Center" FontSize="18"
+                         ToolTip="Generates fusion sites automatically">
+            <s:SurfaceButton.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0" />
+                    <GradientStop Color="#BABABABA" Offset="1" />
+                </LinearGradientBrush>
+            </s:SurfaceButton.Background>
+        </s:SurfaceButton>
+        
+        <!--Overlying ScatterView-->
+        <s:ScatterView Name="PD2_SV" Grid.Row="2" Grid.RowSpan="3" />
+
+        <!-- <s:SurfaceButton Name="GeneratePrimers" Grid.Row="5" Content="Generate Primers" FontSize="26" FontWeight="Heavy"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                             Height="70" Width="300" 
+                             Click="GeneratePrimers_Click">
+            <s:SurfaceButton.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0" />
+                    <GradientStop Color="#BABABABA" Offset="1" />
+                </LinearGradientBrush>
+            </s:SurfaceButton.Background>
+        </s:SurfaceButton>
+       -->
+
+        <s:ScatterView Name="MainSV" Height="1024" Width="1280" Grid.RowSpan="7">
+            <!-- Eugene Checklist -->
+            <s:ScatterViewItem Name="EugeneChecklist" Height="500" Width="350" Background="LightSlateGray" BorderBrush="White" BorderThickness="10" Visibility="Collapsed">
+                <Grid Margin="10">
+                    <TextBlock FontSize="28" Text="Eugene Checklist"></TextBlock>
+                    <TextBlock Name="EugeneResults" FontSize="20" Margin="0,80,0,0" LineStackingStrategy="BlockLineHeight" LineHeight="20" Text="Made-up test 1...passed
+                                                                        Made-up test 2...passed
+                                                                        Duplicate fusion sites check..."/>
+                    <TextBlock   Margin="0,0,0,10" FontSize="18" VerticalAlignment="Bottom" HorizontalAlignment="Left" Text="2/12 finished"/>
+                    <s:SurfaceButton Width="50" Height="30" Name="EugeneOk" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Content="Ok" Click="EugeneOk_Click"/>
+                </Grid>
+            </s:ScatterViewItem>
+        </s:ScatterView>
+
+       
+        <Grid Width="{Binding ElementName=L0, Path=ActualWidth}" Height="{Binding ElementName=L0, Path=ActualHeight}"
+              Name="ProgressIndicator" Visibility="Collapsed" Grid.ColumnSpan="2" Grid.RowSpan="6">
+            <myProject:CircularProgressIndicator VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+        
+    </Grid>
+</s:ScatterViewItem>
+

@@ -1,0 +1,53 @@
+BBa_B0015, forward, double terminator (B0010-B0012)
+BBa_B1002, forward, Terminator (artificial, small,&nbsp;%T~=85%)
+BBa_B1003, forward, Terminator (artificial, small,&nbsp;%T~=80)
+BBa_B1004, forward, Terminator (artificial, small,&nbsp;%T~=55)
+BBa_B1005, forward, Terminator (artificial, small,&nbsp;%T~=25%
+BBa_B1006, forward, Terminator (artificial, large,&nbsp;%T~>90)
+BBa_B1010, forward, Terninator (artificial, large,&nbsp;%T~<10)
+BBa_J61048, forward, Terninator (artificial, large,&nbsp;%T~<10)
+BBa_B0010, forward, T1 from E. coli rrnB
+BBa_B0012, forward, TE from coliphageT7
+BBa_B0013, forward, TE from coliphage T7 (+/-)
+BBa_B0017, forward, double terminator (B0010-B0010)
+BBa_B0053, forward, Terminator (His)
+BBa_B0055, forward,  -- No description --
+BBa_I11013, forward, Modification of biobricks part BBa_B0015
+BBa_I51003, forward,  -- No description --
+BBa_B0011, bidirectional, LuxICDABEG (+/-)
+BBa_B0014, bidirectional, double terminator (B0012-B0011)
+BBa_B0021, bidirectional, LuxICDABEG (+/-), reversed
+BBa_B0024, bidirectional, double terminator (B0012-B0011), reversed
+BBa_B1001, bidirectional, Terminator (artifical, small,&nbsp;%T~=90)
+BBa_B1007, bidirectional, Terminator (artificial, large,&nbsp;%T~=80)
+BBa_B1008, bidirectional, Terminator (artificial, large, &nbsp;%T~=70)
+BBa_B1009, bidirectional, Terminator (artificial, large,&nbsp;%T~=40%)
+BBa_K259006, bidirectional, GFP-Terminator
+BBa_B0050, bidirectional, Terminator (pBR322, +/-)
+BBa_B0051, bidirectional, Terminator (yciA/tonA, +/-)
+BBa_B0025, reverse, double terminator (B0015), reversed
+BBa_B0022, reverse, TE from coliphageT7, reversed
+BBa_B0023, reverse, TE from coliphage T7, reversed
+BBa_B0020, reverse, Terminator (Reverse B0010)
+BBa_B0052, reverse, Terminator (rrnC)
+BBa_B0060, reverse, Terminator (Reverse B0050)
+BBa_B0061, reverse, Terminator (Reverse B0051)
+BBa_B0063, reverse, Terminator (Reverse B0053)
+BBa_J63002, yeast, ADH1 terminator from S. cerevisiae
+BBa_K392003, yeast, yeast ADH1 terminator
+BBa_K110012, yeast, STE2 terminator
+BBa_Y1015, yeast, CycE1
+BBa_J52016, eukaryotic, eukaryotic -- derived from SV40 early poly A signal sequence
+BBa_J63002, eukaryotic, ADH1 terminator from S. cerevisiae
+BBa_K392003, eukaryotic, yeast ADH1 terminator
+BBa_K404108, eukaryotic, yeast ADH1 terminator
+BBa_K404116, eukaryotic, hGH_[AAV2]-right-ITR 
+BBa_K110012, eukaryotic, STE2 terminator
+BBa_K678012, eukaryotic, SV40 poly A, terminator for mammalian cells
+BBa_K678018, eukaryotic, hGH poly A, terminator for mammalian cells
+BBa_K678019, eukaryotic, BGH poly A, mammalian terminator
+BBa_K678036, eukaryotic, trpC terminator for Aspergillus nidulans
+BBa_K678037, eukaryotic, T1-motni, terminator for Aspergillus niger
+BBa_K678038, eukaryotic, T2-motni, terminator for Aspergillus niger
+BBa_K678039, eukaryotic, T3-motni, terminator for Aspergillus niger
+BBa_Y1015, eukaryotic, CycE1

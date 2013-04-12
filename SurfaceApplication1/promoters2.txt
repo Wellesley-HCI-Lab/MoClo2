@@ -1,0 +1,653 @@
+BBa_I0500, inducible, Inducible pBad/araC promoter
+BBa_I13453, inducible, Pbad promoter
+BBa_K100000, inducible, Natural Xylose Regulated Bi-Directional Operator
+BBa_K100001, inducible, Edited Xylose Regulated Bi-Directional Operator 1
+BBa_K100002, inducible,  Edited Xylose Regulated Bi-Directional Operator 2 
+BBa_K118011, inducible, PcstA (glucose-repressible promoter)
+BBa_K135000, inducible, pCpxR (CpxR responsive promoter)
+BBa_K206000, inducible, pCpxR (CpxR responsive promoter)
+BBa_K206001, inducible, pCpxR (CpxR responsive promoter)
+BBa_K266000, inducible, PAI+LasR -> LuxI (AI)
+BBa_K266005, inducible, PAI+LasR -> LasI &amp; AI+LuxR --| LasI
+BBa_K266006, inducible, PAI+LasR -> LasI+GFP  &amp;  AI+LuxR --| LasI+GFP
+BBa_K266007, inducible, Complex QS -> LuxI &amp; LasI circuit
+BBa_I1051, inducible, Lux cassette right promoter
+BBa_I12006, inducible, Modified lamdba Prm promoter (repressed by 434 cI)
+BBa_I12007, inducible, Modified lambda Prm promoter (OR-3 obliterated)
+BBa_I12036, inducible, Modified lamdba Prm promoter (cooperative repression by 434 cI)
+BBa_I12040, inducible, Modified lambda P(RM) promoter: -10 region from P(L) and cooperatively repressed by 434 cI
+BBa_I14015, inducible, P(Las) TetO
+BBa_I14016, inducible, P(Las) CIO
+BBa_I14017, inducible, P(Rhl)
+BBa_I721001, inducible, Lead Promoter
+BBa_I723020, inducible, Pu
+BBa_I741018, inducible, Right facing promoter (for xylF) controlled by xylR and CRP-cAMP
+BBa_I746104, inducible, P2 promoter in agr operon from S. aureus
+BBa_I746360, inducible, PF promoter from P2 phage
+BBa_I746361, inducible, PO promoter from P2 phage
+BBa_I746362, inducible, PP promoter from P2 phage
+BBa_I746364, inducible, Psid promoter from P4 phage
+BBa_I746365, inducible, PLL promoter from P4 phage
+BBa_I761011, inducible, CinR, CinL and glucose controlled promotor
+BBa_I765001, inducible, UV promoter
+BBa_I765007, inducible, Fe and UV promoters
+BBa_J102001, inducible, Reverse Lux Promoter
+BBa_J13210, inducible, pOmpR dependent POPS producer
+BBa_J58100, inducible, AND-type promoter synergistically activated by cI and CRP
+BBa_J61051, inducible, AND-type promoter synergistically activated by cI and CRP
+BBa_K091107, inducible, pLux/cI Hybrid Promoter
+BBa_K091117, inducible, pLas promoter
+BBa_K091143, inducible, pLas/cI Hybrid Promoter
+BBa_K091146, inducible, pLas/Lux Hybrid Promoter
+BBa_K112118, inducible, rrnB P1 promoter
+BBa_K112320, inducible, {< ftsAZ promoter >} in BBb format
+BBa_K112322, inducible, {Pdps}  in BBb format
+BBa_K112402, inducible, promoter for FabA gene -  Membrane Damage and Ultrasound Senstitive
+BBa_K112405, inducible, Promoter for CadA and CadB genes
+BBa_K112406, inducible, cadC promoter
+BBa_K116001, inducible, nhaA promoter, that can be regulated by pH and nhaR protein.
+BBa_K116401, inducible, external phosphate sensing promoter
+BBa_K116500, inducible, external phosphate sensing promoter
+BBa_K116603, inducible, pRE promoter from &#955; phage
+BBa_K117002, inducible, LsrA promoter (indirectly activated by AI-2)
+BBa_K136010, inducible, fliA promoter
+BBa_K145150, inducible, Hybrid promoter: HSL-LuxR activated, P22 C2 repressed
+BBa_K180000, inducible, Hybrid promoter (trp &amp; lac regulated -- tac pR)
+BBa_K259005, inducible, AraC Rheostat Promoter
+BBa_K259007, inducible, AraC Promoter fused with RBS
+BBa_K338029, inducible, +OmpR, +(CinR-HSL) Double Promoter
+BBa_K427003, inducible, Pm promoter of Mu bacteriophage
+BBa_K427002, inducible, Mor protein of Mu bacteriophage
+BBa_K427004, inducible, Pmom promoter of Mu bacteriophage
+BBa_K427001, inducible, C protein of the Mu bacteriophage
+BBa_R0062, inducible, Promoter (luxR &amp; HSL regulated -- lux pR)
+BBa_R0065, inducible, Promoter (lambda cI and luxR regulated -- hybrid)
+BBa_R0071, inducible, Promoter (RhlR &amp; C4-HSL regulated)
+BBa_R0078, inducible, Promoter (cinR and HSL regulated)
+BBa_R0079, inducible, Promoter (LasR &amp; PAI regulated)
+BBa_R0080, inducible, Promoter (AraC regulated)
+BBa_R0082, inducible, Promoter (OmpR, positive)
+BBa_R0083, inducible, Promoter (OmpR, positive)
+BBa_R0084, inducible, Promoter (OmpR, positive)
+BBa_R1062, inducible, Promoter, Standard (luxR and HSL regulated -- lux pR)<br>
+BBa_I12210, inducible, plac Or2-62 (positive)
+BBa_I13406, inducible, Pbad/AraC with extra REN sites
+BBa_I731004, inducible, Pbad/AraC with extra REN sites
+BBa_I739104, inducible, Double Promoter (LuxR/HSL, positive / P22 cII, negative)
+BBa_I739105, inducible, Double Promoter (LuxR/HSL, positive / cI, negative)
+BBa_I741019, inducible, Right facing promoter (for xylA) controlled by xylR and CRP-cAMP
+BBa_I741020, inducible, promoter to xylF without CRP and several binding sites for xylR
+BBa_I741021, inducible, promoter to xylA without CRP and several binding sites for xylR
+BBa_I746363, inducible, PV promoter from P2 phage
+BBa_I751501, inducible, plux-cI hybrid promoter
+BBa_I751502, inducible, plux-lac hybrid promoter
+BBa_I760005, inducible, Cu-sensitive promoter
+BBa_J01005, inducible, pspoIIE promoter (spo0A J01004, positive)
+BBa_J03007, inducible, Maltose specific promotor
+BBa_J06403, inducible, RhIR promoter repressible by CI
+BBa_J07007, inducible, ctx promoter
+BBa_J15502, inducible, copA promoter
+BBa_J16101, inducible, BanAp - Banana-induced Promoter
+BBa_J16105, inducible, HelPp - "Help" Dependant promoter
+BBa_J45503, inducible, hybB Cold Shock Promoter
+BBa_J61054, inducible, [HIP-1] Promoter
+BBa_J61055, inducible, [HIP-1] Promoter
+BBa_J64000, inducible, rhlI promoter
+BBa_J64010, inducible, lasI promoter
+BBa_J64712, inducible, LasR/LasI Inducible &amp; RHLR/RHLI repressible Promoter
+BBa_J64800, inducible, RHLR/RHLI Inducible &amp; LasR/LasI repressible Promoter
+BBa_J64804, inducible, The promoter region (inclusive of regulator binding sites) of the B. subtilis RocDEF operon
+BBa_K091156, inducible, pLux
+BBa_K091157, inducible, pLux/Las Hybrid Promoter
+BBa_K112701, inducible, hns promoter
+BBa_K112900, inducible, Pbad
+BBa_K121011, inducible, promoter (lacI regulated)
+BBa_K180002, inducible, tac pR testing plasmid (GFP)
+BBa_K180003, inducible, PTAC testing plasmid (GFP) - basic
+BBa_K180004, inducible, Game of Life - Primary plasmid
+BBa_K180005, inducible, GoL - Primary plasmid (part 1)/RPS - Paper primary plasmid (part 1) [LuxR generator]
+BBa_K180006, inducible, Game of Life - Primary plasmid (part 2) [lux pR, GFP and LacI generator]
+BBa_K180007, inducible, Game of Life - Secondary plasmid [tac pR, LuxI generator]
+BBa_K180010, inducible, Rock-paper-scissors - Rock primary plasmid
+BBa_K180011, inducible, Rock - Primary plasmid (part 1) [RhlR generator]
+BBa_K180012, inducible, Rock - Primary plasmid (part 2) [tac pR, mCherry and LasI generator]
+BBa_K180013, inducible, Rock-paper-scissors - Rock secondary plasmid [rhl pR, LacI generator]
+BBa_K180014, inducible, Rock-paper-scissors - Paper primary plasmid
+BBa_K180015, inducible, Paper - Primary plasmid (part 2) [tac pR, GFP and RhlI generator]
+BBa_K180016, inducible, Rock-paper-scissors - Paper secondary plasmid [lux pR, LacI generator]
+BBa_K180017, inducible, Rock-paper-scissors - Scissors primary plasmid
+BBa_K180018, inducible, Scissors - Primary plasmid (part 1) [LasR generator]
+BBa_K180019, inducible, Scissors - Primary plasmid (part 2) [tac pR, mBanana and LuxI generator]
+BBa_K180020, inducible, Rock-paper-scissors - Scissors secondary plasmid [las pR, LacI generator]
+BBa_K658006, inducible, position 3 mutated promoter lux pR-3 (luxR &amp; HSL regulated)
+BBa_K658007, inducible, position 5 mutated promoter lux pR-5 (luxR &amp; HSL regulated) 
+BBa_K658008, inducible, position 3&amp;5 mutated promoter lux pR-3/5 (luxR &amp; HSL regulated)
+BBa_K112322, inducible, {Pdps}  in BBb format
+BBa_K338001, inducible, Heat Shock Promoter (HSP)
+BBa_K338002, inducible, K338001+R0011: Heat Shock Promoter + LacI Regulated Promoter
+BBa_K112400, inducible, Promoter for grpE gene - Heat Shock and Ultrasound Sensitive 
+BBa_K338042, inducible, GFP Reporter Device, Heat-Shock Induced
+BBa_K338062, inducible, GFP Reporter Device, Heat-Shock or IPTG Induced
+BBa_K338081, inducible, Heat-Shock Activated Generator
+BBa_J64979, inducible, glnAp2
+BBa_K090504, inducible, Gram-Positive Strong Constitutive Promoter
+BBa_J64001, inducible, psicA from <I>Salmonella</I>
+BBa_J64750, inducible, SPI-1 TTSS secretion-linked promoter from <I>Salmonella</I>
+BBa_K112149, inducible, PmgtCB Magnesium promoter from <I>Salmonella</I>
+BBa_K116201, inducible, ureD promoter from <I>P mirabilis<I>
+BBa_K125100, inducible, nir promoter from <I>Synechocystis</I> sp. PCC6803
+BBa_K131017, inducible, p_qrr4 from <I>Vibrio harveyi</I>
+BBa_J63006, inducible, yeast GAL1 promoter
+BBa_K392001, inducible, yeast ENO2 promoter
+BBa_K284003, inducible, Partial DLD Promoter from Kluyveromyces lactis
+BBa_K284002, inducible, JEN1 Promoter from Kluyveromyces lactis
+BBa_K165041, inducible,  Zif268-HIV binding sites + TEF constitutive yeast promoter 
+BBa_K165034, inducible,  Zif268-HIV bs + LexA bs +  mCYC promoter
+BBa_K165031, inducible, mCYC promoter plus LexA binding sites
+BBa_K165030, inducible, mCYC promoter plus Zif268-HIV binding sites
+BBa_K165001, inducible, pGAL1+ w/XhoI sites
+BBa_K110016, inducible, A-Cell Promoter  STE2 (backwards)
+BBa_K110006, inducible, Alpha-Cell Promoter MF(ALPHA)1 
+BBa_K110005, inducible, Alpha-Cell Promoter MF(ALPHA)2
+BBa_K110014, inducible, A-Cell Promoter MFA2 (backwards)
+BBa_K110004, inducible, Alpha-Cell Promoter Ste3
+BBa_K586000, inducible, Cup-1 Heavy metal sensor
+BBa_K106699, inducible, Gal1 Promoter
+BBa_J24813, inducible, URA3 Promoter from S. cerevisiae
+BBa_K110015, inducible, A-Cell Promoter MFA1 (RtL)
+BBa_I10498, inducible, Oct-4 promoter
+BBa_J05215, inducible, Regulator for R1-CREBH
+BBa_J05216, inducible, Regulator for R3-ATF6
+BBa_J05217, inducible, Regulator for R2-YAP7
+BBa_J05218, inducible, Regulator for R4-cMaf
+BBa_K143012, constitutive, 
+BBa_K143013, constitutive, 
+BBa_K143010, constitutive, 
+BBa_K143011, constitutive, 
+BBa_K143013, constitutive, 
+BBa_K112706, constitutive, Pspv2 from <I>Salmonella</I>
+BBa_K112707, constitutive, Pspv from <I>Salmonella</I>
+BBa_I712074, constitutive, T7 promoter (strong promoter from T7 bacteriophage)
+BBa_I719005, constitutive, T7 Promoter
+BBa_J34814, constitutive, T7 Promoter
+BBa_J64997, constitutive, T7 consensus -10 and rest
+BBa_K113010, constitutive, overlapping T7 promoter
+BBa_K113011, constitutive, more overlapping T7 promoter 
+BBa_K113012, constitutive, weaken overlapping T7 promoter
+BBa_R0085, constitutive, T7 Consensus Promoter Sequence
+BBa_R0180, constitutive, T7 RNAP promoter
+BBa_R0181, constitutive, T7 RNAP promoter
+BBa_R0182, constitutive, T7 RNAP promoter
+BBa_R0183, constitutive, T7 RNAP promoter
+BBa_Z0251, constitutive, T7 strong promoter
+BBa_Z0252, constitutive, T7 weak binding and processivity
+BBa_Z0253, constitutive, T7 weak binding promoter
+BBa_J64998, constitutive, consensus -10 and rest from SP6
+BBa_I766555, constitutive, pCyc (Medium) Promoter
+BBa_I766556, constitutive, pAdh (Strong) Promoter
+BBa_I766557, constitutive, pSte5 (Weak) Promoter
+BBa_J63005, constitutive, yeast ADH1 promoter
+BBa_K105027, constitutive, cyc100 minimal promoter
+BBa_K105028, constitutive, cyc70 minimal promoter
+BBa_K105029, constitutive, cyc43 minimal promoter
+BBa_K105030, constitutive, cyc28 minimal promoter
+BBa_K105031, constitutive, cyc16 minimal promoter
+BBa_K122000, constitutive, pPGK1
+BBa_K124000, constitutive, pCYC Yeast Promoter
+BBa_K124002, constitutive, Yeast GPD (TDH3) Promoter
+BBa_M31201, constitutive, Yeast CLB1 promoter region, G2/M cell cycle specific
+BBa_I712004, constitutive, CMV promoter
+BBa_K076017, constitutive, Ubc Promoter
+BBa_J23100, constitutive, constitutive promoter family member
+BBa_J23101, constitutive, constitutive promoter family member
+BBa_J23102, constitutive, constitutive promoter family member
+BBa_J23103, constitutive, constitutive promoter family member
+BBa_J23104, constitutive, constitutive promoter family member
+BBa_J23105, constitutive, constitutive promoter family member
+BBa_J23106, constitutive, constitutive promoter family member
+BBa_J23107, constitutive, constitutive promoter family member 
+BBa_J23108, constitutive, constitutive promoter family member 
+BBa_J23109, constitutive, constitutive promoter family member 
+BBa_J23110, constitutive, constitutive promoter family member
+BBa_J23111, constitutive, constitutive promoter family member
+BBa_J23112, constitutive, constitutive promoter family member
+BBa_J23113, constitutive, constitutive promoter family member
+BBa_J23114, constitutive, constitutive promoter family member
+BBa_J23115, constitutive, constitutive promoter family member
+BBa_J23116, constitutive, constitutive promoter family member
+BBa_J23117, constitutive, constitutive promoter family member
+BBa_J23118, constitutive, constitutive promoter family member
+BBa_J44002, constitutive, pBAD reverse
+BBa_K137029, constitutive, constitutive promoter with (TA)10 between -10 and -35 elements
+BBa_K137030, constitutive, constitutive promoter with (TA)9 between -10 and -35 elements
+BBa_K256002, constitutive, J23101:GFP
+BBa_K256018, constitutive, J23119:IFP
+BBa_K256020, constitutive, J23119:HO1
+BBa_K256033, constitutive, Infrared signal reporter (J23119:IFP:J23119:HO1)
+BBa_I14018, constitutive, P(Bla)
+BBa_I14033, constitutive, P(Cat)
+BBa_I14034, constitutive, P(Kat)
+BBa_J23119, constitutive, constitutive promoter family member
+BBa_K088007, constitutive, GlnRS promoter
+BBa_K137031, constitutive, constitutive promoter with (C)10 between -10 and -35 elements
+BBa_K137032, constitutive, constitutive promoter with (C)12 between -10 and -35 elements
+BBa_K292000, constitutive, Double terminator + constitutive promoter
+BBa_K292001, constitutive, Double terminator + Constitutive promoter + Strong RBS
+BBa_K418003, constitutive, IPTG inducible Lac promoter cassette 
+BBa_I732021, constitutive, Template for Building Primer Family Member
+BBa_I742126, constitutive, Reverse lambda cI-regulated promoter
+BBa_J01006, constitutive, Key Promoter absorbs 3
+BBa_J23150, constitutive, 1bp mutant from J23107
+BBa_J23151, constitutive, 1bp mutant from J23114
+BBa_J48104, constitutive, NikR promoter, a protein of the ribbon helix-helix family of trancription factors that repress expre
+BBa_J54200, constitutive, lacq_Promoter
+BBa_J56015, constitutive, lacIQ - promoter sequence
+BBa_J64951, constitutive, E. Coli CreABCD phosphate sensing operon promoter
+BBa_K119000, constitutive, Constitutive weak promoter of lacZ 
+BBa_K119001, constitutive, Mutated LacZ promoter
+BBa_K137085, constitutive, optimized (TA) repeat constitutive promoter with 13 bp between -10 and -35 elements 
+BBa_K137086, constitutive, optimized (TA) repeat constitutive promoter with 15 bp between -10 and -35 elements 
+BBa_K137087, constitutive, optimized (TA) repeat constitutive promoter with 17 bp between -10 and -35 elements 
+BBa_K137088, constitutive, optimized (TA) repeat constitutive promoter with 19 bp between -10 and -35 elements 
+BBa_K137089, constitutive, optimized (TA) repeat constitutive promoter with 21 bp between -10 and -35 elements 
+BBa_K137090, constitutive, optimized (A) repeat constitutive promoter with 17 bp between -10 and -35 elements 
+BBa_K137091, constitutive, optimized (A) repeat constitutive promoter with 18 bp between -10 and -35 elements 
+BBa_K418000, constitutive, IPTG inducible Lac promoter cassette
+BBa_K418002, constitutive, IPTG inducible Lac promoter cassette
+BBa_M13101, constitutive, M13K07 gene I promoter
+BBa_M13102, constitutive, M13K07 gene II promoter
+BBa_M13103, constitutive, M13K07 gene III promoter
+BBa_M13104, constitutive, M13K07 gene IV promoter
+BBa_M13105, constitutive, M13K07 gene V promoter
+BBa_M13106, constitutive, M13K07 gene VI promoter
+BBa_M13108, constitutive, M13K07 gene VIII promoter
+BBa_M13110, constitutive, M13110
+BBa_M31519, constitutive, Modified promoter sequence of g3.
+BBa_R1074, constitutive, Constitutive Promoter I
+BBa_R1075, constitutive, Constitutive Promoter II
+BBa_S03331, constitutive, --Specify Parts List--
+BBa_J45992, constitutive, Full-length stationary phase osmY promoter
+BBa_J45993, constitutive, Minimal stationary phase osmY promoter
+BBa_J45504, constitutive, htpG Heat Shock Promoter
+BBa_J64979, repressible, glnAp2
+BBa_I14032, repressible, promoter P(Lac) IQ
+BBa_I714889, repressible, OR21 of PR and PRM
+BBa_I714924, repressible, RecA_DlexO_DLacO1
+BBa_I732205, repressible, NOT Gate Promoter Family Member (D001O55)
+BBa_K091110, repressible, LacI Promoter
+BBa_K091111, repressible, LacIQ promoter
+BBa_K091112, repressible, pLacIQ1 promoter
+BBa_K094120, repressible, pLacI/ara-1
+BBa_K137046, repressible, 150 bp inverted tetR promoter
+BBa_K137047, repressible, 250 bp inverted tetR promoter
+BBa_K137048, repressible, 350 bp inverted tetR promoter
+BBa_K137049, repressible, 450 bp inverted tetR promoter
+BBa_K137050, repressible, 650 bp inverted tetR promoter
+BBa_K137051, repressible, 850 bp inverted tetR promoter
+BBa_K266001, repressible, Inverter TetR -> LuxR
+BBa_K266004, repressible, Const Lac Inverter -> LasR
+BBa_K266005, repressible, PAI+LasR -> LasI &amp; AI+LuxR --| LasI
+BBa_K266006, repressible, PAI+LasR -> LasI+GFP  &amp;  AI+LuxR --| LasI+GFP
+BBa_K266007, repressible, Complex QS -> LuxI &amp; LasI circuit
+BBa_R0010, repressible, promoter (lacI regulated)
+BBa_R0011, repressible, Promoter (lacI regulated, lambda pL hybrid)
+BBa_R0040, repressible, TetR repressible promoter
+BBa_R0051, repressible, promoter (lambda cI regulated)
+BBa_R0053, repressible, Promoter (p22 cII regulated)
+BBa_I1051, repressible, Lux cassette right promoter
+BBa_I12006, repressible, Modified lamdba Prm promoter (repressed by 434 cI)
+BBa_I12036, repressible, Modified lamdba Prm promoter (cooperative repression by 434 cI)
+BBa_I12040, repressible, Modified lambda P(RM) promoter: -10 region from P(L) and cooperatively repressed by 434 cI
+BBa_I14015, repressible, P(Las) TetO
+BBa_I14016, repressible, P(Las) CIO
+BBa_I718018, repressible, dapAp promoter 
+BBa_I761011, repressible, CinR, CinL and glucose controlled promotor
+BBa_J22106, repressible, rec A (SOS) Promoter
+BBa_K091100, repressible, pLac_lux hybrid promoter
+BBa_K091101, repressible, pTet_Lac hybrid promoter
+BBa_K091104, repressible, pLac/Mnt Hybrid Promoter
+BBa_K091105, repressible, pTet/Mnt Hybrid Promoter
+BBa_K091106, repressible, LsrA/cI hybrid promoter
+BBa_K091107, repressible, pLux/cI Hybrid Promoter
+BBa_K091143, repressible, pLas/cI Hybrid Promoter
+BBa_K091146, repressible, pLas/Lux Hybrid Promoter
+BBa_K093000, repressible, pRecA with LexA binding site
+BBa_K101017, repressible, MioC Promoter (DNAa-Repressed Promoter) 
+BBa_K109200, repressible, AraC and TetR promoter (hybrid)
+BBa_K112118, repressible, rrnB P1 promoter
+BBa_K112318, repressible, {< bolA promoter>} in BBb format
+BBa_K112401, repressible, Promoter for recA gene - SOS and Ultrasound Sensitive 
+BBa_K112402, repressible, promoter for FabA gene -  Membrane Damage and Ultrasound Senstitive
+BBa_K112405, repressible, Promoter for CadA and CadB genes
+BBa_K112406, repressible, cadC promoter
+BBa_K113009, repressible, pBad/araC
+BBa_K116001, repressible, nhaA promoter, that can be regulated by pH and nhaR protein.
+BBa_K116500, repressible, nhaA promoter, that can be regulated by pH and nhaR protein.
+BBa_K119002, repressible, RcnR operator (represses RcnA)
+BBa_K137125, repressible, LacI-repressed promoter B4
+BBa_K145150, repressible, Hybrid promoter: HSL-LuxR activated, P22 C2 repressed
+BBa_K259005, repressible, AraC Rheostat Promoter
+BBa_K259007, repressible, AraC Promoter fused with RBS
+BBa_K266003, repressible, POPS -> Lac Inverter -> LasR
+BBa_K266008, repressible, J23100 + Lac inverter
+BBa_K266009, repressible, J23100 + Lac inverter + RBS
+BBa_K292002, repressible, pLac (LacI regulated) + Strong RBS
+BBa_R0050, repressible, Promoter (HK022 cI regulated)
+BBa_R0052, repressible, Promoter (434 cI regulated)
+BBa_R0061, repressible, Promoter (HSL-mediated luxR repressor)
+BBa_R0063, repressible, Promoter (luxR &amp; HSL regulated -- lux pL)<br>
+BBa_R0065, repressible, Promoter (lambda cI and luxR regulated -- hybrid)
+BBa_R0073, repressible, Promoter (Mnt regulated)
+BBa_R0074, repressible, Promoter (PenI regulated)
+BBa_R0075, repressible, Promoter (TP901 cI regulated)
+BBa_R1050, repressible, Promoter, Standard (HK022 cI regulated) <br>
+BBa_R1051, repressible, Promoter, Standard (lambda cI regulated)<br>
+BBa_R1052, repressible, Promoter, Standard (434 cI regulated)<br>
+BBa_R1053, repressible, Promoter, Standard (p22 cII regulated)<br>
+BBa_R2000, repressible, Promoter, Zif23 regulated, test: between
+BBa_R2001, repressible, Promoter, Zif23 regulated, test: after
+BBa_R2002, repressible, Promoter, Zif23 regulated, test: between and after
+BBa_R2109, repressible, Promoter with operator site for C2003
+BBa_R2114, repressible, Promoter with operator site for C2003
+BBa_I12001, repressible, Promoter (PRM+)
+BBa_I12212, repressible, TetR - TetR-4C heterodimer promoter (negative)
+BBa_I715003, repressible, hybrid pLac with UV5 mutation
+BBa_I731004, repressible, hybrid pLac with UV5 mutation
+BBa_I732200, repressible, NOT Gate Promoter Family Member (D001O1wt1)
+BBa_I732201, repressible, NOT Gate Promoter Family Member (D001O11)
+BBa_I732202, repressible, NOT Gate Promoter Family Member (D001O22)
+BBa_I732203, repressible, NOT Gate Promoter Family Member (D001O33)
+BBa_I732204, repressible, NOT Gate Promoter Family Member (D001O44)
+BBa_I732206, repressible, NOT Gate Promoter Family Member (D001O66)
+BBa_I732207, repressible, NOT Gate Promoter Family Member (D001O77)
+BBa_I732270, repressible, Promoter Family Member with Hybrid Operator (D001O12)
+BBa_I732271, repressible, Promoter Family Member with Hybrid Operator (D001O16)
+BBa_I732272, repressible, Promoter Family Member with Hybrid Operator (D001O17)
+BBa_I732273, repressible, Promoter Family Member with Hybrid Operator (D001O21)
+BBa_I732274, repressible, Promoter Family Member with Hybrid Operator (D001O24)
+BBa_I732275, repressible, Promoter Family Member with Hybrid Operator (D001O26)
+BBa_I732276, repressible, Promoter Family Member with Hybrid Operator (D001O27)
+BBa_I732277, repressible, Promoter Family Member with Hybrid Operator (D001O46)
+BBa_I732278, repressible, Promoter Family Member with Hybrid Operator (D001O47)
+BBa_I732279, repressible, Promoter Family Member with Hybrid Operator (D001O61)
+BBa_I732301, repressible, NAND Candidate (U073O26D001O16)
+BBa_I732302, repressible, NAND Candidate (U073O27D001O17)
+BBa_I732303, repressible, NAND Candidate (U073O22D001O46)
+BBa_I732304, repressible, NAND Candidate (U073O22D001O47)
+BBa_I732305, repressible, NAND Candidate (U073O22D059O46)
+BBa_I732306, repressible, NAND Candidate (U073O11D002O22)
+BBa_I732351, repressible, NOR Candidate (U037O11D002O22)
+BBa_I732352, repressible, NOR Candidate (U035O44D001O22)
+BBa_I732400, repressible, Promoter Family Member (U097NUL+D062NUL)
+BBa_I732401, repressible, Promoter Family Member (U097O11+D062NUL)
+BBa_I732402, repressible, Promoter Family Member (U085O11+D062NUL)
+BBa_I732403, repressible, Promoter Family Member (U073O11+D062NUL)
+BBa_I732404, repressible, Promoter Family Member (U061O11+D062NUL)
+BBa_I732405, repressible, Promoter Family Member (U049O11+D062NUL)
+BBa_I732406, repressible, Promoter Family Member (U037O11+D062NUL)
+BBa_I732407, repressible, Promoter Family Member (U097NUL+D002O22)
+BBa_I732408, repressible, Promoter Family Member (U097NUL+D014O22)
+BBa_I732409, repressible, Promoter Family Member (U097NUL+D026O22)
+BBa_I732410, repressible, Promoter Family Member (U097NUL+D038O22)
+BBa_I732411, repressible, Promoter Family Member (U097NUL+D050O22)
+BBa_I732412, repressible, Promoter Family Member (U097NUL+D062O22)
+BBa_I732413, repressible, Promoter Family Member (U097O11+D002O22)
+BBa_I732414, repressible, Promoter Family Member (U097O11+D014O22)
+BBa_I732415, repressible, Promoter Family Member (U097O11+D026O22)
+BBa_I732416, repressible, Promoter Family Member (U097O11+D038O22)
+BBa_I732417, repressible, Promoter Family Member (U097O11+D050O22)
+BBa_I732418, repressible, Promoter Family Member (U097O11+D062O22)
+BBa_I732419, repressible, Promoter Family Member (U085O11+D002O22)
+BBa_I732420, repressible, Promoter Family Member (U085O11+D014O22)
+BBa_I732421, repressible, Promoter Family Member (U085O11+D026O22)
+BBa_I732422, repressible, Promoter Family Member (U085O11+D038O22)
+BBa_I732423, repressible, Promoter Family Member (U085O11+D050O22)
+BBa_I732424, repressible, Promoter Family Member (U085O11+D062O22)
+BBa_I732425, repressible, Promoter Family Member (U073O11+D002O22)
+BBa_I732426, repressible, Promoter Family Member (U073O11+D014O22)
+BBa_I732427, repressible, Promoter Family Member (U073O11+D026O22)
+BBa_I732428, repressible, Promoter Family Member (U073O11+D038O22)
+BBa_I732429, repressible, Promoter Family Member (U073O11+D050O22)
+BBa_I732430, repressible, Promoter Family Member (U073O11+D062O22)
+BBa_I732431, repressible, Promoter Family Member (U061O11+D002O22)
+BBa_I732432, repressible, Promoter Family Member (U061O11+D014O22)
+BBa_I732433, repressible, Promoter Family Member (U061O11+D026O22)
+BBa_I732434, repressible, Promoter Family Member (U061O11+D038O22)
+BBa_I732435, repressible, Promoter Family Member (U061O11+D050O22)
+BBa_I732436, repressible, Promoter Family Member (U061O11+D062O22)
+BBa_I732437, repressible, Promoter Family Member (U049O11+D002O22)
+BBa_I732438, repressible, Promoter Family Member (U049O11+D014O22)
+BBa_I732439, repressible, Promoter Family Member (U049O11+D026O22)
+BBa_I732440, repressible, Promoter Family Member (U049O11+D038O22)
+BBa_I732441, repressible, Promoter Family Member (U049O11+D050O22)
+BBa_I732442, repressible, Promoter Family Member (U049O11+D062O22)
+BBa_I732443, repressible, Promoter Family Member (U037O11+D002O22)
+BBa_I732444, repressible, Promoter Family Member (U037O11+D014O22)
+BBa_I732445, repressible, Promoter Family Member (U037O11+D026O22)
+BBa_I732446, repressible, Promoter Family Member (U037O11+D038O22)
+BBa_I732447, repressible, Promoter Family Member (U037O11+D050O22)
+BBa_I732448, repressible, Promoter Family Member (U037O11+D062O22)
+BBa_I732450, repressible, Promoter Family Member (U073O26+D062NUL)
+BBa_I732451, repressible, Promoter Family Member (U073O27+D062NUL)
+BBa_I732452, repressible, Promoter Family Member (U073O26+D062O61)
+BBa_I739101, repressible, Double Promoter (constitutive / TetR, negative)
+BBa_I739102, repressible, Double Promoter (cI, negative / TetR, negative)
+BBa_I739103, repressible, Double Promoter (lacI, negative / P22 cII, negative)
+BBa_I739104, repressible, Double Promoter (LuxR/HSL, positive / P22 cII, negative)
+BBa_I739105, repressible, Double Promoter (LuxR/HSL, positive / cI, negative)
+BBa_I739106, repressible, Double Promoter (TetR, negative / P22 cII, negative)
+BBa_I739107, repressible, Double Promoter (cI, negative / LacI, negative)
+BBa_I746665, repressible, Pspac-hy promoter
+BBa_I751500, repressible, pcI (for positive control of pcI-lux hybrid promoter)
+BBa_I751501, repressible, plux-cI hybrid promoter
+BBa_I751502, repressible, plux-lac hybrid promoter
+BBa_I756014, repressible, LexAoperator-MajorLatePromoter
+BBa_J05209, repressible, Modifed Pr Promoter
+BBa_J05210, repressible, Modifed Prm+ Promoter
+BBa_J07019, repressible, FecA Promoter (with Fur box)
+BBa_J15301, repressible, Pars promoter from Escherichia coli chromosomal ars operon.
+BBa_J22052, repressible, Pcya
+BBa_J22126, repressible, Rec A (SOS) promoter
+BBa_J31013, repressible, pLac Backwards [cf. BBa_R0010]
+BBa_J34800, repressible, Promoter tetracyclin inducible
+BBa_J34806, repressible, promoter lac induced
+BBa_J34809, repressible, promoter lac induced 
+BBa_J54016, repressible, promoter_lacq
+BBa_J54120, repressible, EmrR_regulated promoter
+BBa_J54130, repressible, BetI_regulated promoter
+BBa_J56012, repressible, Invertible sequence of dna includes Ptrc promoter
+BBa_J64065, repressible, cI repressed promoter
+BBa_J64067, repressible, LuxR+3OC6HSL independent R0065
+BBa_J64068, repressible, increased strength R0051
+BBa_J64069, repressible, R0065 with lux box deleted
+BBa_J64712, repressible, LasR/LasI Inducible &amp; RHLR/RHLI repressible Promoter
+BBa_J64800, repressible, RHLR/RHLI Inducible &amp; LasR/LasI repressible Promoter
+BBa_J64981, repressible, OmpR-P strong binding, regulatory region for Team Challenge03-2007
+BBa_J64987, repressible, LacI Consensus Binding Site in sigma 70 binding region
+BBa_J72005, repressible, {Ptet} promoter in BBb
+BBa_K086017, repressible, unmodified Lutz-Bujard LacO promoter
+BBa_K091157, repressible, pLux/Las Hybrid Promoter
+BBa_K093008, repressible, reverse BBa_R0011
+BBa_K094140, repressible, pLacIq
+BBa_K101000, repressible, Dual-Repressed Promoter for p22 mnt and TetR
+BBa_K101001, repressible, Dual-Repressed Promoter for LacI and LambdacI
+BBa_K101002, repressible, Dual-Repressed Promoter for p22 cII and TetR
+BBa_K112701, repressible, hns promoter
+BBa_K112708, repressible, PfhuA
+BBa_K121011, repressible, promoter (lacI regulated)
+BBa_K121014, repressible, promoter (lambda cI regulated)
+BBa_K145152, repressible, Hybrid promoter: P22 c2 , LacI NOR gate
+BBa_K256028, repressible, placI:CHE
+BBa_K266011, repressible, Lac Inverter and strong RBS
+BBa_M31370, repressible, tacI Promoter
+BBa_R2108, repressible, Promoter with operator site for C2003
+BBa_R2110, repressible, Promoter with operator site for C2003
+BBa_R2111, repressible, Promoter with operator site for C2003
+BBa_R2112, repressible, Promoter with operator site for C2003
+BBa_R2113, repressible, Promoter with operator site for C2003
+BBa_R2201, repressible, C2006-repressible promoter
+BBa_S03385, repressible, Cold-sensing promoter (hybB)
+BBa_S04209, repressible, R0051:Q04121:B0034:C0079:B0015
+BBa_K112318, repressible, {< bolA promoter>} in BBb format
+BBa_K086030, repressible, modified Lutz-Bujard LacO promoter,with alternative sigma factor  &#963;38 
+BBa_K086031, repressible, modified Lutz-Bujard LacO promoter,with alternative sigma factor  &#963;38 
+BBa_K086032, repressible, modified Lutz-Bujard LacO promoter,with alternative sigma factor  &#963;38 
+BBa_K086033, repressible, modified Lutz-Bujard LacO promoter,with alternative sigma factor  &#963;38 
+BBa_K086026, repressible, modified Lutz-Bujard LacO promoter,with alternative sigma factor  &#963;32 
+BBa_K086027, repressible, modified Lutz-Bujard LacO promoter,with alternative sigma factor  &#963;32 
+BBa_K086028, repressible, modified Lutz-Bujard LacO promoter,with alternative sigma factor  &#963;32 
+BBa_K086029, repressible, modified Lutz-Bujard LacO promoter,with alternative sigma factor  &#963;32 
+BBa_K090501, repressible, Gram-Positive IPTG-Inducible Promoter
+BBa_K143014, repressible, Gram-Positive IPTG-Inducible Promoter
+BBa_K143015, repressible, Gram-Positive IPTG-Inducible Promoter
+BBa_R0184, repressible, 
+BBa_R0185, repressible, T7 promoter (lacI repressible)
+BBa_R0186, repressible, T7 promoter (lacI repressible)
+BBa_R0187, repressible, T7 promoter (lacI repressible)
+BBa_K165000, repressible, MET 25 Promoter
+BBa_I766558, repressible, pFig1 (Inducible) Promoter 
+BBa_I766214, repressible, pGal1
+BBa_K950000, repressible, yeast fet3 promotor
+BBa_K950002, repressible, yeast anb1 promotor
+BBa_K950003, repressible, yeast suc2 promotor
+BBa_I756015, repressible, CMV Promoter with lac operator sites
+BBa_I756016, repressible, CMV-tet promoter
+BBa_I756017, repressible, U6 promoter with tet operators
+BBa_I756018, repressible, Lambda Operator in SV-40 intron
+BBa_I756019, repressible, Lac Operator in SV-40 intron
+BBa_I756020, repressible, Tet Operator in SV-40 intron
+BBa_I756021, repressible, CMV promoter with Lambda Operator
+BBa_I714924, multiple, RecA_DlexO_DLacO1
+BBa_K094120, multiple, pLacI/ara-1
+BBa_K100000, multiple, Natural Xylose Regulated Bi-Directional Operator
+BBa_K266005, multiple, PAI+LasR -> LasI &amp; AI+LuxR --| LasI
+BBa_K266006, multiple, PAI+LasR -> LasI+GFP  &amp;  AI+LuxR --| LasI+GFP
+BBa_K266007, multiple, Complex QS -> LuxI &amp; LasI circuit
+BBa_I1051, multiple, Lux cassette right promoter
+BBa_I12006, multiple, Modified lamdba Prm promoter (repressed by 434 cI)
+BBa_I12036, multiple, Modified lamdba Prm promoter (cooperative repression by 434 cI)
+BBa_I12040, multiple, Modified lambda P(RM) promoter: -10 region from P(L) and cooperatively repressed by 434 cI
+BBa_I14015, multiple, P(Las) TetO
+BBa_I14016, multiple, P(Las) CIO
+BBa_I741018, multiple, Right facing promoter (for xylF) controlled by xylR and CRP-cAMP
+BBa_I742124, multiple, Reverse complement Lac promoter
+BBa_I761011, multiple, CinR, CinL and glucose controlled promotor
+BBa_I765007, multiple, Fe and UV promoters
+BBa_J58100, multiple, AND-type promoter synergistically activated by cI and CRP
+BBa_K091100, multiple, pLac_lux hybrid promoter
+BBa_K091101, multiple, pTet_Lac hybrid promoter
+BBa_K091104, multiple, pLac/Mnt Hybrid Promoter
+BBa_K091105, multiple, pTet/Mnt Hybrid Promoter
+BBa_K091106, multiple, LsrA/cI hybrid promoter
+BBa_K091107, multiple, pLux/cI Hybrid Promoter
+BBa_K091143, multiple, pLas/cI Hybrid Promoter
+BBa_K091146, multiple, pLas/Lux Hybrid Promoter
+BBa_K109200, multiple, AraC and TetR promoter (hybrid)
+BBa_K112118, multiple, rrnB P1 promoter
+BBa_K112318, multiple, {< bolA promoter>} in BBb format
+BBa_K112322, multiple, {Pdps}  in BBb format
+BBa_K112402, multiple, promoter for FabA gene -  Membrane Damage and Ultrasound Senstitive
+BBa_K112405, multiple, Promoter for CadA and CadB genes
+BBa_K112406, multiple, cadC promoter
+BBa_K116001, multiple, nhaA promoter, that can be regulated by pH and nhaR protein.
+BBa_K116500, multiple, nhaA promoter, that can be regulated by pH and nhaR protein.
+BBa_K136010, multiple, fliA promoter
+BBa_K145150, multiple, Hybrid promoter: HSL-LuxR activated, P22 C2 repressed
+BBa_K259005, multiple, AraC Rheostat Promoter
+BBa_K259007, multiple, AraC Promoter fused with RBS
+BBa_R0065, multiple, Promoter (lambda cI and luxR regulated -- hybrid)
+BBa_I731004, multiple, Promoter (lambda cI and luxR regulated -- hybrid)
+BBa_I732301, multiple, NAND Candidate (U073O26D001O16)
+BBa_I732302, multiple, NAND Candidate (U073O27D001O17)
+BBa_I732303, multiple, NAND Candidate (U073O22D001O46)
+BBa_I732304, multiple, NAND Candidate (U073O22D001O47)
+BBa_I732305, multiple, NAND Candidate (U073O22D059O46)
+BBa_I732306, multiple, NAND Candidate (U073O11D002O22)
+BBa_I732351, multiple, NOR Candidate (U037O11D002O22)
+BBa_I732352, multiple, NOR Candidate (U035O44D001O22)
+BBa_I732400, multiple, Promoter Family Member (U097NUL+D062NUL)
+BBa_I732401, multiple, Promoter Family Member (U097O11+D062NUL)
+BBa_I732402, multiple, Promoter Family Member (U085O11+D062NUL)
+BBa_I732403, multiple, Promoter Family Member (U073O11+D062NUL)
+BBa_I732404, multiple, Promoter Family Member (U061O11+D062NUL)
+BBa_I732405, multiple, Promoter Family Member (U049O11+D062NUL)
+BBa_I732406, multiple, Promoter Family Member (U037O11+D062NUL)
+BBa_I732407, multiple, Promoter Family Member (U097NUL+D002O22)
+BBa_I732408, multiple, Promoter Family Member (U097NUL+D014O22)
+BBa_I732409, multiple, Promoter Family Member (U097NUL+D026O22)
+BBa_I732410, multiple, Promoter Family Member (U097NUL+D038O22)
+BBa_I732411, multiple, Promoter Family Member (U097NUL+D050O22)
+BBa_I732412, multiple, Promoter Family Member (U097NUL+D062O22)
+BBa_I732413, multiple, Promoter Family Member (U097O11+D002O22)
+BBa_I732414, multiple, Promoter Family Member (U097O11+D014O22)
+BBa_I732415, multiple, Promoter Family Member (U097O11+D026O22)
+BBa_I732416, multiple, Promoter Family Member (U097O11+D038O22)
+BBa_I732417, multiple, Promoter Family Member (U097O11+D050O22)
+BBa_I732418, multiple, Promoter Family Member (U097O11+D062O22)
+BBa_I732419, multiple, Promoter Family Member (U085O11+D002O22)
+BBa_I732420, multiple, Promoter Family Member (U085O11+D014O22)
+BBa_I732421, multiple, Promoter Family Member (U085O11+D026O22)
+BBa_I732422, multiple, Promoter Family Member (U085O11+D038O22)
+BBa_I732423, multiple, Promoter Family Member (U085O11+D050O22)
+BBa_I732424, multiple, Promoter Family Member (U085O11+D062O22)
+BBa_I732425, multiple, Promoter Family Member (U073O11+D002O22)
+BBa_I732426, multiple, Promoter Family Member (U073O11+D014O22)
+BBa_I732427, multiple, Promoter Family Member (U073O11+D026O22)
+BBa_I732428, multiple, Promoter Family Member (U073O11+D038O22)
+BBa_I732429, multiple, Promoter Family Member (U073O11+D050O22)
+BBa_I732430, multiple, Promoter Family Member (U073O11+D062O22)
+BBa_I732431, multiple, Promoter Family Member (U061O11+D002O22)
+BBa_I732432, multiple, Promoter Family Member (U061O11+D014O22)
+BBa_I732433, multiple, Promoter Family Member (U061O11+D026O22)
+BBa_I732434, multiple, Promoter Family Member (U061O11+D038O22)
+BBa_I732435, multiple, Promoter Family Member (U061O11+D050O22)
+BBa_I732436, multiple, Promoter Family Member (U061O11+D062O22)
+BBa_I732437, multiple, Promoter Family Member (U049O11+D002O22)
+BBa_I732438, multiple, Promoter Family Member (U049O11+D014O22)
+BBa_I732439, multiple, Promoter Family Member (U049O11+D026O22)
+BBa_I732440, multiple, Promoter Family Member (U049O11+D038O22)
+BBa_I732441, multiple, Promoter Family Member (U049O11+D050O22)
+BBa_I732442, multiple, Promoter Family Member (U049O11+D062O22)
+BBa_I732443, multiple, Promoter Family Member (U037O11+D002O22)
+BBa_I732444, multiple, Promoter Family Member (U037O11+D014O22)
+BBa_I732445, multiple, Promoter Family Member (U037O11+D026O22)
+BBa_I732446, multiple, Promoter Family Member (U037O11+D038O22)
+BBa_I732447, multiple, Promoter Family Member (U037O11+D050O22)
+BBa_I732448, multiple, Promoter Family Member (U037O11+D062O22)
+BBa_I732450, multiple, Promoter Family Member (U073O26+D062NUL)
+BBa_I732451, multiple, Promoter Family Member (U073O27+D062NUL)
+BBa_I732452, multiple, Promoter Family Member (U073O26+D062O61)
+BBa_I739102, multiple, Double Promoter (cI, negative / TetR, negative)
+BBa_I739103, multiple, Double Promoter (lacI, negative / P22 cII, negative)
+BBa_I739104, multiple, Double Promoter (LuxR/HSL, positive / P22 cII, negative)
+BBa_I739105, multiple, Double Promoter (LuxR/HSL, positive / cI, negative)
+BBa_I739106, multiple, Double Promoter (TetR, negative / P22 cII, negative)
+BBa_I739107, multiple, Double Promoter (cI, negative / LacI, negative)
+BBa_I741019, multiple, Right facing promoter (for xylA) controlled by xylR and CRP-cAMP
+BBa_I751501, multiple, plux-cI hybrid promoter
+BBa_I751502, multiple, plux-lac hybrid promoter
+BBa_J05209, multiple, Modifed Pr Promoter
+BBa_J05210, multiple, Modifed Prm+ Promoter
+BBa_J64712, multiple, LasR/LasI Inducible &amp; RHLR/RHLI repressible Promoter
+BBa_J64800, multiple, RHLR/RHLI Inducible &amp; LasR/LasI repressible Promoter
+BBa_J64804, multiple, The promoter region (inclusive of regulator binding sites) of the B. subtilis RocDEF operon
+BBa_J64979, multiple, glnAp2
+BBa_J64981, multiple, OmpR-P strong binding, regulatory region for Team Challenge03-2007
+BBa_K091157, multiple, pLux/Las Hybrid Promoter
+BBa_K101000, multiple, Dual-Repressed Promoter for p22 mnt and TetR
+BBa_K101001, multiple, Dual-Repressed Promoter for LacI and LambdacI
+BBa_K101002, multiple, Dual-Repressed Promoter for p22 cII and TetR
+BBa_K112701, multiple, hns promoter
+BBa_K121011, multiple, promoter (lacI regulated)
+BBa_K145152, multiple, Hybrid promoter: P22 c2 , LacI NOR gate
+BBa_S03385, multiple, Cold-sensing promoter (hybB)
+BBa_K125100, multiple, nir promoter from <I>Synechocystis</I> sp. PCC6803
+BBa_I766200, multiple, pSte2
+BBa_K110016, multiple, A-Cell Promoter  STE2 (backwards)
+BBa_K165034, multiple,  Zif268-HIV bs + LexA bs +  mCYC promoter
+BBa_K165041, multiple,  Zif268-HIV binding sites + TEF constitutive yeast promoter 
+BBa_K165043, multiple,  Zif268-HIV binding sites + MET25 constitutive yeast promoter 
+BBa_J05215, multiple, Regulator for R1-CREBH
+BBa_J05216, multiple, Regulator for R3-ATF6
+BBa_J05217, multiple, Regulator for R2-YAP7
+BBa_J05218, multiple, Regulator for R4-cMaf

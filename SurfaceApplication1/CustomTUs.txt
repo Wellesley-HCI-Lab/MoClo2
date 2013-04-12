@@ -1,0 +1,18 @@
+T | Poketeam GO! | Includes three (3) Pokemon and one (1) Shakespeare villain. Ekans, Iago, pikachu, Vileplume | This should be auto-generated. | 
+	P | prom | Ekans | no description | eck anne sssss | no associations
+	P | rbs | Iago | no description | atgcgattaatttaaa | no associations
+	P | cds | pikachu | no description | pee ka chew | no associations
+	P | term | Vileplume | no description | acta | no associations
+T | end
+T | Pokespeare | Auto-generated sequence! | atcgggggtagatttagcggcatgctaatgcgattaatttaaapee ka chewgyaah | Shakemon
+	P | prom | Othello | no description | atcgggggtagatttagcggcatgcta | no associations
+	P | rbs | Iago | no description | atgcgattaatttaaa | no associations
+	P | cds | pikachu | no description | pee ka chew | no associations
+	P | term | Gyarados | no description | gyaah | no associations
+T | end
+T | vsdfgsdf | dfgsfdg | Desdemona, Iago, EmiliaJafar, Jasmine, AladdinRedasdfsdfsdf | sdfgdfg
+	P | prom | Othello | no description | Desdemona, Iago, Emilia | no associations
+	P | rbs | Iago | no description | Jafar, Jasmine, Aladdin | no associations
+	P | cds | pikachu | no description | Red | no associations
+	P | term | sdfasdf | no description | asdfsdfsdf | no associations
+T | end
