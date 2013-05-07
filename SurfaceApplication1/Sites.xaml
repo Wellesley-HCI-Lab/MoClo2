@@ -4,15 +4,19 @@
              xmlns:s="http://schemas.microsoft.com/surface/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
-             d:DesignHeight="50" d:DesignWidth="50" Background="Transparent"
-                   BorderThickness="0"
-                   CanScale="False" CanRotate="False" Orientation="0" 
-                   
+             CanScale="False" CanRotate="False" Orientation="0" 
                    ContainerManipulationStarted="Sites_ContainerManipulationStarted"
                    ContainerManipulationDelta="Sites_ContainerManipulationDelta"
                    ContainerManipulationCompleted="Sites_ContainerManipulationCompleted">
+    
+    <s:ScatterViewItem.Clip>
+        <EllipseGeometry RadiusX="30" RadiusY="30" Center="40,40"></EllipseGeometry>
+    </s:ScatterViewItem.Clip>
+    
     <Grid x:Name="sitesGrid" Background="Transparent">
+        <Grid.Clip>
+            <EllipseGeometry RadiusX="50" RadiusY="50" Center="50,50"></EllipseGeometry>
+        </Grid.Clip>
         <Label x:Name ="Circle" Height="50" Width="50" 
                Background="LightGray" Foreground="White" FontSize="12"
                VerticalAlignment="Center" HorizontalAlignment="Center" 
@@ -21,7 +25,7 @@
                     <EllipseGeometry RadiusX="25" RadiusY="25" Center="25,25">
                     </EllipseGeometry>
                 </Label.Clip>
-            <TextBox Name="CircleText" Background="Transparent" Width="50" Height="50" 
+            <TextBox Name="CircleText" Background="Transparent" 
                      HorizontalAlignment="Center" VerticalAlignment="Center" 
                      HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                      Text="site" FontSize="12"

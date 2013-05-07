@@ -41,6 +41,22 @@ namespace SurfaceApplication1
         //private Sites[] _sitesAdded; //stores all fusion sites added to the object 
         //private int _l2Modulel1Count;
 
+        #region Sequences for building primers
+        private static String lString = "AT-GAAGAC-GT-";
+        private static String rString = "-AG-GTCTTC-GT";
+
+        private static String lacZ = "ACCATGATTACGGATTCACTGGCCGTCGTTTTACAACGTCGTGACTGGGAAAACCCTGGCGTTACCCAACTTAATCGCCTTGCAGCACATCCCCCTTTCGCCAGCTGGCGTAATAGCGAAGAGGCCCGCACCGATCGCCCTTCCCAACAGTTGCGCAGCCTGAATGGCGAATGGCGCTTTGCCTGGTTTCCGGCACCAGAAGCGGTGCCGGAAAGCTGGCTGGAGTGCGATCTTCCTGAGGCCGATACTGTCGTCGTCCCCTCAAACTGGCAGATGCACGGTTACGATGCGCCCATCTACACCAACGTAACCTATCCCATTACGGTCAATCCGCCGTTTGTTCCCACGGAGAATCCGACGGGTTGTTACTCGCTCACATTTAATGTTGATGAAAGCTGGCTACAGGAAGGCCAGACGCGAATTATTTTTGATGGCGTTAACTCGGCGTTTCATCTGTGGTGCAACGGGCGCTGGGTCGGTTACGGCCAGGACAGTCGTTTGCCGTCTGAATTTGACCTGAGCGCATTTTTACGCGCCGGAGAAAACCGCCTCGCGGTGATGGTGCTGCGTTGGAGTGACGGCAGTTATCTGGAAGATCAGGATATGTGGCGGATGAGCGGCATTTTCCGTGACGTCTCGTTGCTGCATAAACCGACTACACAAATCAGCGATTTCCATGTTGCCACTCGCTTTAATGATGATTTCAGCCGCGCTGTACTGGAGGCTGAAGTTCAGATGTGCGGCGAGTTGCGTGACTACCTACGGGTAACAGTTTCTTTATGGCAGGGTGAAACGCAGGTCGCCAGCGGCACCGCGCCTTTCGGCGGTGAAATTATCGATGAGCGTGGTGGTTATGCCGATCGCGTCACACTACGTCTGAACGTCGAAAACCCGAAACTGTGGAGCGCCGAAATCCCGAATCTCTATCGTGCGGTGGTTGAACTGCACACCGCCGACGGCACGCTGATTGAAGCAGAAGCCTGCGATGTCGGTTTCCGCGAGGTGCGGATTGAAAATGGTCTGCTGCTGCTGAACGGCAAGCCGTTGCTGATTCGAGGCGTTAACCGTCACGAGCATCATCCTCTGCATGGTCAGGTCATGGATGAGCAGACGATGGTGCAGGATATCCTGCTGATGAAGCAGAACAACTTTAACGCCGTGCGCTGTTCGCATTATCCGAACCATCCGCTGTGGTACACGCTGTGCGACCGCTACGGCCTGTATGTGGTGGATGAAGCCAATATTGAAACCCACGGCATGGTGCCAATGAATCGTCTGACCGATGATCCGCGCTGGCTACCGGCGATGAGCGAACGCGTAACGCGAATGGTGCAGCGCGATCGTAATCACCCGAGTGTGATCATCTGGTCGCTGGGGAATGAATCAGGCCACGGCGCTAATCACGACGCGCTGTATCGCTGGATCAAATCTGTCGATCCTTCCCGCCCGGTGCAGTATGAAGGCGGCGGAGCCGACACCACGGCCACCGATATTATTTGCCCGATGTACGCGCGCGTGGATGAAGACCAGCCCTTCCCGGCTGTGCCGAAATGGTCCATCAAAAAATGGCTTTCGCTACCTGGAGAGACGCGCCCGCTGATCCTTTGCGAATACGCCCACGCGATGGGTAACAGTCTTGGCGGTTTCGCTAAATACTGGCAGGCGTTTCGTCAGTATCCCCGTTTACAGGGCGGCTTCGTCTGGGACTGGGTGGATCAGTCGCTGATTAAATATGATGAAAACGGCAACCCGTGGTCGGCTTACGGCGGTGATTTTGGCGATACGCCGAACGATCGCCAGTTCTGTATGAACGGTCTGGTCTTTGCCGACCGCACGCCGCATCCAGCGCTGACGGAAGCAAAACACCAGCAGCAGTTTTTCCAGTTCCGTTTATCCGGGCAAACCATCGAAGTGACCAGCGAATACCTGTTCCGTCATAGCGATAACGAGCTCCTGCACTGGATGGTGGCGCTGGATGGTAAGCCGCTGGCAAGCGGTGAAGTGCCTCTGGATGTCGCTCCACAAGGTAAACAGTTGATTGAACTGCCTGAACTACCGCAGCCGGAGAGCGCCGGGCAACTCTGGCTCACAGTACGCGTAGTGCAACCGAACGCGACCGCATGGTCAGAAGCCGGGCACATCAGCGCCTGGCAGCAGTGGCGTCTGGCGGAAAACCTCAGTGTGACGCTCCCCGCCGCGTCCCACGCCATCCCGCATCTGACCACCAGCGAAATGGATTTTTGCATCGAGCTGGGTAATAAGCGTTGGCAATTTAACCGCCAGTCAGGCTTTCTTTCACAGATGTGGATTGGCGATAAAAAACAACTGCTGACGCCGCTGCGCGATCAGTTCACCCGTGCACCGCTGGATAACGACATTGGCGTAAGTGAAGCGACCCGCATTGACCCTAACGCCTGGGTCGAACGCTGGAAGGCGGCGGGCCATTACCAGGCCGAAGCAGCGTTGTTGCAGTGCACGGCAGATACACTTGCTGATGCGGTGCTGATTACGACCGCTCACGCGTGGCAGCATCAGGGGAAAACCTTATTTATCAGCCGGAAAACCTACCGGATTGATGGTAGTGGTCAAATGGCGATTACCGTTGATGTTGAAGTGGCGAGCGATACACCGCATCCGGCGCGGATTGGCCTGAACTGCCAGCTGGCGCAGGTAGCAGAGCGGGTAAACTGGCTCGGATTAGGGCCGCAAGAAAACTATCCCGACCGCCTTACTGCCGCCTGTTTTGACCGCTGGGATCTGCCATTGTCAGACATGTATACCCCGTACGTCTTCCCGAGCGAAAACGGTCTGCGCTGCGGGACGCGCGAATTGAATTATGGCCCACACCAGTGGCGCGGCGACTTCCAGTTCAACATCAGCCGCTACAGTCAACAGCAACTGATGGAAACCAGCCATCGCCATCTGCTGCACGCGGAAGAAGGCACATGGCTGAATATCGACGGTTTCCATATGGGGATTGGTGGCGACGACTCCTGGAGCCCGTCAGTATCGGCGGAATTCCAGCTGAGCGCCGGTCGCTACCATTACCAGTTGGTCTGGTGTCAAAAATAATAATAAcggctgccgt".ToLower();
+
+        private static String lStringOut0 = "BBPre-BsaI-N-"; //"atgaagacgt";
+        private static String lStringIn0 = "-NN-BpiI-";
+        private static String rStringIn0 = "-BpiI-NN-"; //aggtcttcgt";
+        private static String rStringOut0 = "-N-BsaI-BBSuf";
+
+        private static String lStringOut1 = "BBPre-BpiI-NN-";
+        private static String lStringIn1 = "-N-BsaI-";
+        private static String rStringIn1 = "-BsaI-N-";
+        private static String rStringOut1 = "-NN-BpiI-BBSuf";
+        #endregion
 
         #region Properties
 
@@ -316,39 +332,39 @@ namespace SurfaceApplication1
             this.ResultGrid.Visibility = Visibility.Visible;
 
             #region Working code, disabled to test new visual
-            //if (pd1 != null)
-            //{
-            //    sw1.SW_SV.Items.Remove(pd1);
-            //    pd1 = null;
-            //}
+            if (pd1 != null)
+            {
+                sw1.SW_SV.Items.Remove(pd1);
+                pd1 = null;
+            }
 
-            //StackPanel activeTab = PD2_manual;
-            //if (PD2_buildTabs.SelectedIndex == 1) { activeTab = PD2_auto; }
+            StackPanel activeTab = PD2_manual;
+            if (PD2_buildTabs.SelectedIndex == 1) { activeTab = PD2_auto; }
 
-            //int i = 0;
+            int i = 0;
 
-            //foreach (UIElement elem in activeTab.Children)
-            //{
-            //    if (elem.GetType() == typeof(Part))
-            //    {
-            //        //If list (i.e. L1 module) is full and there are still Parts left
-            //        //Create new list and increment index
-            //        if (partList.ElementAt(i).Count == 4)
-            //        {
-            //            partList.Add(new List<Part>());
-            //            i++;
-            //        }
-            //        int elemIndex = activeTab.Children.IndexOf(elem);
-            //        Part p = (Part)elem;
-            //        //p.updateSites(activeTab, elemIndex);
-            //        p.updateSites(activeTab);
-            //        Part clone = p.clone();
-            //        clone.BorderBrush = p.BorderBrush;
-            //        clone.ElementMenu.Items.Remove(clone.PD);
-            //        partList.ElementAt(i).Add(clone);
+            foreach (UIElement elem in activeTab.Children)
+            {
+                if (elem.GetType() == typeof(Part))
+                {
+                    //If list (i.e. L1 module) is full and there are still Parts left
+                    //Create new list and increment index
+                    if (partList.ElementAt(i).Count == 4)
+                    {
+                        partList.Add(new List<Part>());
+                        i++;
+                    }
+                    int elemIndex = activeTab.Children.IndexOf(elem);
+                    Part p = (Part)elem;
+                    //p.updateSites(activeTab, elemIndex);
+                    p.updateSites(activeTab);
+                    Part clone = p.clone();
+                    clone.BorderBrush = p.BorderBrush;
+                    clone.ElementMenu.Items.Remove(clone.PD);
+                    partList.ElementAt(i).Add(clone);
 
-            //    }
-            //}
+                }
+            }
             #endregion
 
 
@@ -480,7 +496,7 @@ namespace SurfaceApplication1
         //Store used indices in a list to check
         //Needs more complex checks: first/last sites of L1Ms must be unique, but others only need to be unique within the given L1M
         private List<int> usedSites;
-        private void permMaker_Click(object sender, RoutedEventArgs e)
+        private void AddRandomFusionSites_Click(object sender, RoutedEventArgs e)
         {
             permMaker.IsEnabled = false;
 

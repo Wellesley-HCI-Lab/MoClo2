@@ -6,16 +6,16 @@
              mc:Ignorable="d" 
              xmlns:s="http://schemas.microsoft.com/surface/2008"
              xmlns:myProject="clr-namespace:SurfaceApplication1"
-             d:DesignHeight="100" d:DesignWidth="100"
                    Background="Transparent" BorderThickness="0">
-    <Grid Name="testing" Background="Transparent" Margin="0" Width="100">
+    <Grid Name="testing" Background="Transparent" Margin="5" Width="73" IsHitTestVisible="False" Height="77">
             <Grid.RowDefinitions>
-                 <RowDefinition Height="50"/>
-                 <RowDefinition Height="25"/>
-                 <RowDefinition Height="25"/>
+                 <RowDefinition Height="22"/>
+                 <RowDefinition Height="27"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="51"/>
              </Grid.RowDefinitions>
 
-        <TextBlock Name="fsName" Grid.Row="1" Foreground="Black" HorizontalAlignment="Center">Name</TextBlock>
-        <TextBlock Name="seqText" Grid.Row="2" HorizontalAlignment="Center" Foreground="Black">TESTING</TextBlock>
+        <TextBox Name="fsName" Grid.Row="1" Foreground="Black" HorizontalAlignment="Center">Name</TextBox>
+        <TextBox Name="seqText" Grid.Row="3" HorizontalAlignment="Center" Foreground="Black" Margin="24,0,24,25">TESTING</TextBox>
     </Grid>
 </s:ScatterViewItem>

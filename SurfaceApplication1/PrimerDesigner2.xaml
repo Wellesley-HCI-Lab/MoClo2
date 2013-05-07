@@ -157,7 +157,7 @@
                              HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
                              Foreground="White" Background="Gray" FontSize="18" Height="auto" Width="auto" Margin="110,0,0,0" />
             <!-- Eugene Checklist -->
-            <s:SurfaceButton Name="ViewEugeneChecklist" Content="View Eguene Checklist" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="3"
+            <s:SurfaceButton Name="ViewEugeneChecklist" Content="View Eugene Checklist" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="3"
                              HorizontalAlignment="Left" VerticalAlignment="Center" 
                              HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
                              Foreground="White" Background="Gray" FontSize="18" Height="auto" Width="auto" Margin="0,0,0,0" Click="ViewEugeneChecklist_Click"/>
@@ -244,7 +244,7 @@
         </TabControl>
 
         <s:SurfaceButton Name="permMaker" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Top" Content="Use random fusion sites" IsEnabled="True" Visibility="Visible"
-                         VerticalContentAlignment="Center" Click="permMaker_Click" Margin="0,0,15,0" Width="auto" Height="auto" Foreground="Black" HorizontalContentAlignment="Center" FontSize="18"
+                         VerticalContentAlignment="Center" Click="AddRandomFusionSites_Click" Margin="0,0,15,0" Width="auto" Height="auto" Foreground="Black" HorizontalContentAlignment="Center" FontSize="18"
                          ToolTip="Generates fusion sites automatically">
             <s:SurfaceButton.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -255,7 +255,7 @@
         </s:SurfaceButton>
         
         <!--Overlying ScatterView-->
-        <s:ScatterView Name="PD2_SV" Grid.Row="2" Grid.RowSpan="3" />
+        <s:ScatterView Name="PD2_SV" Grid.Row="2" Grid.RowSpan="5" Margin="0,0,0,128" />
 
         <!-- <s:SurfaceButton Name="GeneratePrimers" Grid.Row="5" Content="Generate Primers" FontSize="26" FontWeight="Heavy"
                     VerticalContentAlignment="Center" HorizontalContentAlignment="Center"

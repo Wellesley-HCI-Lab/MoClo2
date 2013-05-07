@@ -251,7 +251,6 @@
     <Content Include="Resources\Annealer\build\classes\biojava.jar" />
     <Content Include="Resources\Annealer\dist\Annealer.jar" />
     <Content Include="Resources\Annealer\dist\lib\biojava.jar" />
-    <Resource Include="Resources\Annealer\dist\README.TXT" />
     <Content Include="Resources\Annealer\lib\biojava\biojava.jar" />
     <Content Include="Resources\Annealer\lib\CopyLibs\org-netbeans-modules-java-j2seproject-copylibstask.jar" />
     <Content Include="Resources\Annealer\lib\junit\junit-3.8.2.jar" />
