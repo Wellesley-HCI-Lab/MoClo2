@@ -17,6 +17,7 @@ using Microsoft.Surface.Presentation.Controls;
 using Microsoft.Surface.Presentation.Input;
 using System.Collections.ObjectModel;
 using System.Collections;
+using System.IO;
 
 
 namespace SurfaceApplication1
@@ -94,6 +95,9 @@ namespace SurfaceApplication1
             PrimerDesigner1.pd2 = this;
             SurfaceWindow1.pd2 = this;
 
+            LevelIndicator.Text = "0";
+            DestinationVectorText.Text = lStringOut0 + lacZ + rStringOut0;
+
             //_moduleNum = 0; //launced by Part
 
             PD2_auto.Children.Add(new Sites());
@@ -120,6 +124,8 @@ namespace SurfaceApplication1
             L1Module.pd2 = this;
             L2Module.pd2 = this;
             PrimerDesigner1.pd2 = this;
+            LevelIndicator.Text = "1";
+            DestinationVectorText.Text = lStringIn1 + lacZ + rStringIn1;
 
             //_moduleNum = 1; //launched by L1Module
 
@@ -165,6 +171,8 @@ namespace SurfaceApplication1
             L1Module.pd2 = this;
             L2Module.pd2 = this;
             PrimerDesigner1.pd2 = this;
+            LevelIndicator.Text = "2";
+            DestinationVectorText.Text = lStringOut1 + lacZ + rStringOut1;
 
             //_moduleNum = 2; //launched by L2Module
             //_l2Modulel1Count = l2.Children.Count - 2; //Minus 2 for Element Menu and StackPanel, remaining are L1Modules
@@ -331,7 +339,17 @@ namespace SurfaceApplication1
             //toggle Grid to visible
             this.ResultGrid.Visibility = Visibility.Visible;
 
-            #region Working code, disabled to test new visual
+            String FString = "ATGAAGACGT";
+            String RString = "AGGTAGGTCTTCGT";
+            String site1seq = "";
+                    String site2seq = "";
+                    String textTitle = "test";
+
+            MessageBox.Show("Primers have been printed to a text file.");
+
+            
+              
+               #region Working code, disabled to test new visual
             if (pd1 != null)
             {
                 sw1.SW_SV.Items.Remove(pd1);
@@ -367,6 +385,45 @@ namespace SurfaceApplication1
             }
             #endregion
 
+               
+                //Get current working directory
+                string file = Directory.GetCurrentDirectory();
+                //change directory to EugeneFiles directory and read text file based on ListModulesToPermute count
+                file = file.Substring(0, file.IndexOf("bin")) + @"PrimerResults/" + textTitle + ".txt";
+                StreamWriter writer = new StreamWriter(file);
+
+                //Forward
+                //writer.WriteLine("Forward Name: " + nameForward.Text);
+                //writer.WriteLine("\t# of Base Pairs: " + lengthForward.Text);
+                //writer.WriteLine(FString + site1seq + _leftSeq);
+
+                //Reverse
+                writer.WriteLine("Reverse");
+                //writer.WriteLine("\t# of Base Pairs: " + lengthReverse.Text);
+                //Convert RString and Site sequence in 3' to 5', to match _rightPrimer, which is the last ~24 bases in 3' to 5'
+                String RString3to5 = new String(RString.ToCharArray().Reverse().ToArray());
+                //String site2seq3to5 = new String(site2seq.ToCharArray().Reverse().ToArray());
+                //String reverse3to5 = RString3to5 + site2seq3to5 + _rightSeq;
+                //writer.WriteLine(reverse3to5);
+
+                //Reverse complement
+                //writer.WriteLine("Reverse Complement Name: " + nameReverse.Text);
+                //writer.WriteLine("\t# of Base Pairs: " + lengthReverse.Text);
+                //Transform reverse3to5 into its complement
+                //writer.WriteLine(Transform(reverse3to5));
+
+                //writer.WriteLine("Forward Name: " + nameForward.Text);
+                //writer.WriteLine("Reverse Name: " + nameReverse.Text);
+                //writer.WriteLine("Complete Sequence: " + seqComplete.Text);
+                //writer.WriteLine("Forward Sequence: " + seqForward.Text);
+                //writer.WriteLine("\t# of Base Pairs: " + lengthForward.Text);
+                //writer.WriteLine("Reverse Sequence: " + seqReverse.Text);
+                //writer.WriteLine("\t# of Base Pairs: " + lengthReverse.Text);
+
+                writer.Close();
+            
+
+            
 
             //pd1 = new PrimerDesigner1(partList);
             //sw1.SW_SV.Items.Add(pd1);
@@ -437,6 +494,23 @@ namespace SurfaceApplication1
             //    MessageBox.Show("Couldn't generate primers. Please check for duplicate and empty fusion sites.");
             //}
             #endregion
+        }
+
+        //Transform string into its complement
+        private string Transform(String s)
+        {
+            String complement1 = "";
+            char[] array = s.ToCharArray();
+            for (int i = 0; i < array.Length; i++)
+            {
+                char c = array[i];
+                if (c == 'a') complement1 += 't';
+                if (c == 't') complement1 += 'a';
+                if (c == 'g') complement1 += 'c';
+                if (c == 'c') complement1 += 'g';
+                if (c == '-') complement1 += '-';
+            }
+            return complement1;
         }
 
         //Moves pd1 to front and moves pd2 back
@@ -531,7 +605,7 @@ namespace SurfaceApplication1
                             current.copySitesInfoFrom((Sites)PD2_siteLibrary.Items.GetItemAt(randIndex));
 
                             //Double the Site
-                            int nextIndex = PD2_auto.Children.IndexOf(current) + 1;
+                            int nextIndex = PD2_auto.Children.IndexOf(current) + 2;
                             Sites next = (Sites)VisualTreeHelper.GetChild(PD2_auto, nextIndex);
                             next.copySitesInfoFrom(current);
 
@@ -558,6 +632,11 @@ namespace SurfaceApplication1
         private void EugeneOk_Click(object sender, RoutedEventArgs e)
         {
             this.EugeneChecklist.Visibility = Visibility.Collapsed;
+        }
+
+        private void SavePrimers_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
