@@ -147,15 +147,15 @@
             
             <!-- Level -->
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Level" Foreground="Black" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
-            <TextBlock x:Name="LevelIndicator" Grid.Row="1" Grid.Column="0" Text="2-fake" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+            <TextBlock x:Name="LevelIndicator" Grid.Row="1" Grid.Column="0" Text="" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
             <!-- Destination Vector -->
             <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="Destination Vector" Foreground="Black" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <TextBlock x:Name="DestinationVectorText" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="Some fake data here" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock x:Name="DestinationVectorText" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <!-- Complete Sequence -->
             <s:SurfaceButton Name="ViewCompleteSequence" Content="View Complete Sequence" Grid.Row="0" Grid.Column="2"
                              HorizontalAlignment="Left" VerticalAlignment="Center" 
                              HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
-                             Foreground="White" Background="Gray" FontSize="18" Height="auto" Width="auto" Margin="110,0,0,0" />
+                             Foreground="White" Background="Gray" FontSize="18" Height="auto" Width="auto" Margin="110,0,0,0" Click="ViewCompleteSequence_Click"/>
             <!-- Eugene Checklist -->
             <s:SurfaceButton Name="ViewEugeneChecklist" Content="View Eugene Checklist" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="3"
                              HorizontalAlignment="Left" VerticalAlignment="Center" 
@@ -171,25 +171,25 @@
             <!-- Results -->
             <TextBlock Grid.Row="3" Grid.Column="0" Text="Forward" Foreground="Black" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
             <s:SurfaceScrollViewer Grid.Row="3" Grid.Column="1" Width="140" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Left">
-                <TextBlock Text="fwdPrim" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBox x:Name="FwdPrimerName" Text="fwdPrim" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </s:SurfaceScrollViewer>
             <s:SurfaceScrollViewer Grid.Row="3" Grid.Column="2" Width="330" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible" HorizontalAlignment="Left">
-                <TextBlock Text="GTACGAGATCGATAGCTAGCTAGAAAGCTTTAGATCTAGATCAGATATAGCGATCGGAGTACGTAGCTAGCATATATATATCGGCGCGCGCATCAGTACGTAGCTAGCTA" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock x:Name="ForwardPrimerSequenceBox" Text="" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </s:SurfaceScrollViewer>
-            <TextBlock Grid.Row="3" Grid.Column="3" Text="12" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <TextBlock Grid.Row="3" Grid.Column="4" Text="3" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <TextBlock Grid.Row="3" Grid.Column="5" Text="46" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock x:Name="FwdLengthBox" Grid.Row="3" Grid.Column="3" Text="" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock x:Name="FwdGCBox" Grid.Row="3" Grid.Column="4" Text="" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock x:Name="FwdTempBox" Grid.Row="3" Grid.Column="5" Text="" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             
             <TextBlock Grid.Row="4" Grid.Column="0" Text="Reverse Complement" Foreground="Black" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
             <s:SurfaceScrollViewer Grid.Row="4" Grid.Column="1" Width="140" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Left">
-                <TextBlock Text="revPrim" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBox x:Name="RevPrimerName" Text="revPrim" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </s:SurfaceScrollViewer>
             <s:SurfaceScrollViewer Grid.Row="4" Grid.Column="2" Width="330" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible" HorizontalAlignment="Left">
-                <TextBlock Text="ATCGACTTTAGATCTAGATCAGATATGTACGCAGCATCAGTATA" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock x:Name="ReversePrimerSequenceBox" Text="" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </s:SurfaceScrollViewer>
-            <TextBlock Grid.Row="4" Grid.Column="3" Text="103" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <TextBlock Grid.Row="4" Grid.Column="4" Text="44" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <TextBlock Grid.Row="4" Grid.Column="5" Text="37" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock x:Name="RevLengthBox" Grid.Row="4" Grid.Column="3" Text="" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock x:Name="RevGCBox" Grid.Row="4" Grid.Column="4" Text="" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock x:Name="RevTempBox" Grid.Row="4" Grid.Column="5" Text="" Foreground="Gray" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
         </Grid>
         

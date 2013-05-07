@@ -338,161 +338,111 @@ namespace SurfaceApplication1
         {
             //toggle Grid to visible
             this.ResultGrid.Visibility = Visibility.Visible;
-
-            String FString = "ATGAAGACGT";
-            String RString = "AGGTAGGTCTTCGT";
-            String site1seq = "";
-                    String site2seq = "";
-                    String textTitle = "test";
-
-            MessageBox.Show("Primers have been printed to a text file.");
-
-            
+      
               
                #region Working code, disabled to test new visual
-            if (pd1 != null)
-            {
-                sw1.SW_SV.Items.Remove(pd1);
-                pd1 = null;
-            }
+            //if (pd1 != null)
+            //{
+            //    sw1.SW_SV.Items.Remove(pd1);
+            //    pd1 = null;
+            //}
 
             StackPanel activeTab = PD2_manual;
             if (PD2_buildTabs.SelectedIndex == 1) { activeTab = PD2_auto; }
 
-            int i = 0;
+            //int i = 0;
 
-            foreach (UIElement elem in activeTab.Children)
-            {
-                if (elem.GetType() == typeof(Part))
-                {
-                    //If list (i.e. L1 module) is full and there are still Parts left
-                    //Create new list and increment index
-                    if (partList.ElementAt(i).Count == 4)
-                    {
-                        partList.Add(new List<Part>());
-                        i++;
-                    }
-                    int elemIndex = activeTab.Children.IndexOf(elem);
-                    Part p = (Part)elem;
-                    //p.updateSites(activeTab, elemIndex);
-                    p.updateSites(activeTab);
-                    Part clone = p.clone();
-                    clone.BorderBrush = p.BorderBrush;
-                    clone.ElementMenu.Items.Remove(clone.PD);
-                    partList.ElementAt(i).Add(clone);
+            //foreach (UIElement elem in activeTab.Children)
+            //{
+            //    if (elem.GetType() == typeof(Part))
+            //    {
+            //        //If list (i.e. L1 module) is full and there are still Parts left
+            //        //Create new list and increment index
+            //        if (partList.ElementAt(i).Count == 4)
+            //        {
+            //            partList.Add(new List<Part>());
+            //            i++;
+            //        }
+            //        int elemIndex = activeTab.Children.IndexOf(elem);
+            //        Part p = (Part)elem;
+            //        //p.updateSites(activeTab, elemIndex);
+            //        p.updateSites(activeTab);
+            //        Part clone = p.clone();
+            //        clone.BorderBrush = p.BorderBrush;
+            //        clone.ElementMenu.Items.Remove(clone.PD);
+            //        partList.ElementAt(i).Add(clone);
 
-                }
-            }
+            //    }
+            //}
             #endregion
 
                
-                //Get current working directory
-                string file = Directory.GetCurrentDirectory();
-                //change directory to EugeneFiles directory and read text file based on ListModulesToPermute count
-                file = file.Substring(0, file.IndexOf("bin")) + @"PrimerResults/" + textTitle + ".txt";
-                StreamWriter writer = new StreamWriter(file);
-
-                //Forward
-                //writer.WriteLine("Forward Name: " + nameForward.Text);
-                //writer.WriteLine("\t# of Base Pairs: " + lengthForward.Text);
-                //writer.WriteLine(FString + site1seq + _leftSeq);
-
-                //Reverse
-                writer.WriteLine("Reverse");
-                //writer.WriteLine("\t# of Base Pairs: " + lengthReverse.Text);
-                //Convert RString and Site sequence in 3' to 5', to match _rightPrimer, which is the last ~24 bases in 3' to 5'
-                String RString3to5 = new String(RString.ToCharArray().Reverse().ToArray());
-                //String site2seq3to5 = new String(site2seq.ToCharArray().Reverse().ToArray());
-                //String reverse3to5 = RString3to5 + site2seq3to5 + _rightSeq;
-                //writer.WriteLine(reverse3to5);
-
-                //Reverse complement
-                //writer.WriteLine("Reverse Complement Name: " + nameReverse.Text);
-                //writer.WriteLine("\t# of Base Pairs: " + lengthReverse.Text);
-                //Transform reverse3to5 into its complement
-                //writer.WriteLine(Transform(reverse3to5));
-
-                //writer.WriteLine("Forward Name: " + nameForward.Text);
-                //writer.WriteLine("Reverse Name: " + nameReverse.Text);
-                //writer.WriteLine("Complete Sequence: " + seqComplete.Text);
-                //writer.WriteLine("Forward Sequence: " + seqForward.Text);
-                //writer.WriteLine("\t# of Base Pairs: " + lengthForward.Text);
-                //writer.WriteLine("Reverse Sequence: " + seqReverse.Text);
-                //writer.WriteLine("\t# of Base Pairs: " + lengthReverse.Text);
-
-                writer.Close();
-            
-
-            
-
             //pd1 = new PrimerDesigner1(partList);
             //sw1.SW_SV.Items.Add(pd1);
 
             #region Old Generate Primers code
             //2D array of each Part and Site sequence, divided into arrays of Parts and flanking sites (i.e. Sites-Parts-Sites)
-            
 
-            //int n = activeTab.Children.Count / 3; //Number of Part-Sites sets, not including the two backbone Sites
+            int n = activeTab.Children.Count / 3; //Number of Part-Sites sets, not including the two backbone Sites
 
-            //_partSiteSets = new UIElement[n + 2][];
+            _partSiteSets = new UIElement[n + 2][];
 
-            //Sites firstFS = ((Sites)VisualTreeHelper.GetChild(activeTab, 0)).clone();
-            //Sites lastFS = ((Sites)VisualTreeHelper.GetChild(activeTab, activeTab.Children.Count - 1)).clone();
-            //_partSiteSets[0] = new UIElement[] { firstFS };
-            //_partSiteSets[n + 1] = new UIElement[] { lastFS };
+            Sites firstFS = ((Sites)VisualTreeHelper.GetChild(activeTab, 0)).clone();
+            Sites lastFS = ((Sites)VisualTreeHelper.GetChild(activeTab, activeTab.Children.Count - 1)).clone();
+            _partSiteSets[0] = new UIElement[] { firstFS };
+            _partSiteSets[n + 1] = new UIElement[] { lastFS };
 
-            //for (int i = 0; i < n; i++)
-            //{
-            //    int j = 3 * i + 1;
-            //    Sites site1 = ((Sites)VisualTreeHelper.GetChild(activeTab, j)).clone();
-            //    Part p0 = ((Part)VisualTreeHelper.GetChild(activeTab, j + 1));
-            //    Part p = p0.clone();
-            //    p.BorderBrush = p0.BorderBrush;
-            //    p.ElementMenu.Items.Remove(p.PD);
-            //    Sites site2 = ((Sites)VisualTreeHelper.GetChild(activeTab, j + 2)).clone();
+            for (int i = 0; i < n; i++)
+            {
+                Sites site1 = ((Sites)VisualTreeHelper.GetChild(activeTab, i)).clone();
+                Part p0 = ((Part)VisualTreeHelper.GetChild(activeTab, i++));
+                Part p = p0.clone();
+                p.BorderBrush = p0.BorderBrush;
+                p.ElementMenu.Items.Remove(p.PD);
+                Sites site2 = ((Sites)VisualTreeHelper.GetChild(activeTab, i++)).clone();
 
-            //    UIElement[] subArray = new UIElement[] { site1, p, site2 };
-            //    _partSiteSets[i + 1] = subArray;
-            //}
+                UIElement[] subArray = new UIElement[] { site1, p, site2 };
+                _partSiteSets[i + 1] = subArray;
+            }
 
-            ////Check that Sites are not used twice
-            //List<String> sitesList = new List<String>();
-            ////Build checklist by taking the left Site in each set besides the first, plus the last Site (technically the left Site of the vector)
-            //for (int i = 2; i < _partSiteSets.Length; i++)
-            //{
-            //    sitesList.Add(((Sites)_partSiteSets[i][0]).Sequence);
-            //}
-            ////Check sitesList for duplicates
-            //bool noDupes = true;
-            //bool noEmpty = true;
-            ////Start by checking sitesList for the first left-hand Site
-            //String checkThis = ((Sites)_partSiteSets[1][0]).Sequence;
-            ////Break when sitesList has no items left to compare to checkForThis
-            //int count = sitesList.Count;
-            //while (sitesList.Count() > 0 /*&& noDupes && noEmpty*/)
-            //{
-            //    noDupes = !(sitesList.Contains(checkThis));
-            //    noEmpty = checkThis != "site";
-            //    checkThis = sitesList.ElementAt(0);
-            //    sitesList.RemoveAt(0);
-            //}
-            //if (noDupes && noEmpty)
-            //{
-            //    pd1 = new PrimerDesigner1(_partSiteSets);
-            //    sw1.SW_SV.Items.Add(pd1);
-            //}
-            //else if (noEmpty && !noDupes)
-            //{
-            //    MessageBox.Show("Couldn't generate primers. Please check for duplicate fusion sites.");
-            //}
-            //else if (!noEmpty && noDupes)
-            //{
-            //    MessageBox.Show("Couldn't generate primers. Please check for empty fusion sites.");
-            //}
-            //else //Both errors present
-            //{
-            //    MessageBox.Show("Couldn't generate primers. Please check for duplicate and empty fusion sites.");
-            //}
+            //Check that Sites are not used twice
+            List<String> sitesList = new List<String>();
+            //Build checklist by taking the left Site in each set besides the first, plus the last Site (technically the left Site of the vector)
+            for (int i = 2; i < _partSiteSets.Length; i++)
+            {
+                sitesList.Add(((Sites)_partSiteSets[i][0]).Sequence);
+            }
+            //Check sitesList for duplicates
+            bool noDupes = true;
+            bool noEmpty = true;
+            //Start by checking sitesList for the first left-hand Site
+            String checkThis = ((Sites)_partSiteSets[1][0]).Sequence;
+            //Break when sitesList has no items left to compare to checkForThis
+            int count = sitesList.Count;
+            while (sitesList.Count() > 0 /*&& noDupes && noEmpty*/)
+            {
+                noDupes = !(sitesList.Contains(checkThis));
+                noEmpty = checkThis != "site";
+                checkThis = sitesList.ElementAt(0);
+                sitesList.RemoveAt(0);
+            }
+            if (noDupes && noEmpty)
+            {
+                pd1 = new PrimerDesigner1(_partSiteSets);
+                sw1.SW_SV.Items.Add(pd1);
+            }
+            else if (noEmpty && !noDupes)
+            {
+                MessageBox.Show("Couldn't generate primers. Please check for duplicate fusion sites.");
+            }
+            else if (!noEmpty && noDupes)
+            {
+                MessageBox.Show("Couldn't generate primers. Please check for empty fusion sites.");
+            }
+            else //Both errors present
+            {
+                MessageBox.Show("Couldn't generate primers. Please check for duplicate and empty fusion sites.");
+            }
             #endregion
         }
 
@@ -605,9 +555,9 @@ namespace SurfaceApplication1
                             current.copySitesInfoFrom((Sites)PD2_siteLibrary.Items.GetItemAt(randIndex));
 
                             //Double the Site
-                            int nextIndex = PD2_auto.Children.IndexOf(current) + 2;
-                            Sites next = (Sites)VisualTreeHelper.GetChild(PD2_auto, nextIndex);
-                            next.copySitesInfoFrom(current);
+                            //int nextIndex = PD2_auto.Children.IndexOf(current) + 2;
+                            //Sites next = (Sites)VisualTreeHelper.GetChild(PD2_auto, nextIndex);
+                            //next.copySitesInfoFrom(current);
 
                             usedSites.Add(randIndex);
                         }
@@ -635,6 +585,53 @@ namespace SurfaceApplication1
         }
 
         private void SavePrimers_Click(object sender, RoutedEventArgs e)
+        {
+            String FString = "ATGAAGACGT";
+            String RString = "AGGTAGGTCTTCGT";
+            String site1seq = "";
+            String site2seq = "";
+            String textTitle = "primer" + System.DateTime.Today.ToString();
+
+            MessageBox.Show("Primers have been printed to a text file.");
+
+            //Get current working directory
+            string file = Directory.GetCurrentDirectory();
+            //change directory to EugeneFiles directory and read text file based on ListModulesToPermute count
+            file = file.Substring(0, file.IndexOf("bin")) + @"PrimerResults/" + textTitle + ".csv";
+            StreamWriter writer = new StreamWriter(file);
+
+            //Forward
+            writer.WriteLine("Forward Name," + FwdPrimerName.Text);
+            writer.WriteLine("\t# of Base Pairs," + ForwardPrimerSequenceBox.Text.Length);
+            writer.WriteLine(FString + site1seq + ForwardPrimerSequenceBox.Text);
+
+            //Reverse
+            writer.WriteLine("Reverse,");
+            writer.WriteLine("\t# of Base Pairs," + ReversePrimerSequenceBox.Text.Length);
+            //Convert RString and Site sequence in 3' to 5', to match _rightPrimer, which is the last ~24 bases in 3' to 5'
+            String RString3to5 = new String(RString.ToCharArray().Reverse().ToArray());
+            String site2seq3to5 = new String(site2seq.ToCharArray().Reverse().ToArray());
+            String reverse3to5 = RString3to5 + site2seq3to5 + ReversePrimerSequenceBox.Text;
+            writer.WriteLine(reverse3to5);
+
+            //Reverse complement
+            writer.WriteLine("Reverse Complement Name," + RevPrimerName.Text);
+            writer.WriteLine("\t# of Base Pairs," + ReversePrimerSequenceBox.Text.Length);
+            //Transform reverse3to5 into its complement
+            writer.WriteLine(Transform(reverse3to5));
+
+            writer.WriteLine("Forward Name," + FwdPrimerName.Text);
+            writer.WriteLine("Reverse Name," + RevPrimerName.Text);
+            writer.WriteLine("Complete Sequence," + ForwardPrimerSequenceBox.Text + ReversePrimerSequenceBox.Text);
+            writer.WriteLine("Forward Sequence," + ForwardPrimerSequenceBox.Text);
+            writer.WriteLine("\t# of Base Pairs," + ForwardPrimerSequenceBox.Text.Length);
+            writer.WriteLine("Reverse Sequence," + ReversePrimerSequenceBox.Text);
+            writer.WriteLine("\t# of Base Pairs," + ReversePrimerSequenceBox.Text.Length);
+
+            writer.Close();
+        }
+
+        private void ViewCompleteSequence_Click(object sender, RoutedEventArgs e)
         {
 
         }
