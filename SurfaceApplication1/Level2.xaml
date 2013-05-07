@@ -5,14 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:s="http://schemas.microsoft.com/surface/2008"
              xmlns:myProject="clr-namespace:SurfaceApplication1"
-             mc:Ignorable="d" d:DesignHeight="1024" d:DesignWidth="1280"
+             mc:Ignorable="d"
     CanMove="True" 
     CanScale="False"
     CanRotate="False" 
     IsTopmostOnActivation="False" ShowsActivationEffects="False"
-    VerticalAlignment="bottom" Width="1280" Height="864" Orientation="0"
+     Orientation="0"
                    ContainerManipulationDelta="Level2_ContainerManipulationDelta"
-                   ContainerManipulationCompleted="Level2_ContainerManipulationCompleted">
+                   ContainerManipulationCompleted="Level2_ContainerManipulationCompleted" MinHeight="768" MinWidth="1024" >
     <s:ScatterViewItem.Resources>
         <Style TargetType="TextBlock" x:Key="Titles">
             <Setter Property="FontSize" Value="18"/>
@@ -60,8 +60,8 @@
         <!--Level 1 Modules-->
         <TextBlock Grid.Row="1" Style="{StaticResource Titles}">Level 1 Modules</TextBlock>
         
-        <s:SurfaceScrollViewer Grid.Row="2" Width="1280" HorizontalScrollBarVisibility="Disabled">
-            <s:ScatterView Name="L2_L1ModulesSV" Background="#FFE5E5E5" Height="200" Grid.Row="2" Grid.Column="0" Width="1260">
+        <s:SurfaceScrollViewer Grid.Row="2" MinWidth="1024" HorizontalScrollBarVisibility="Disabled">
+            <s:ScatterView Name="L2_L1ModulesSV" Background="#FFE5E5E5" Height="200" Grid.Row="2" Grid.Column="0" MinWidth="1024">
             </s:ScatterView>
         </s:SurfaceScrollViewer>
         
@@ -98,9 +98,9 @@
         <!--ScatterView for Level 2-->
         <s:ScatterView Name="L2_SV" Grid.Row="1" Grid.RowSpan="4" AllowDrop="True"/>
         
-        <s:SurfaceButton Name="permMaker" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Right" Content="Generate permutations" IsEnabled="True" Visibility="Visible"
-                         VerticalContentAlignment="Center" Click="permMaker_Click" Margin="0,11,20,1" Width="225" Foreground="Black" HorizontalContentAlignment="Center" FontSize="18"
-                         ToolTip="Generates L1 Module permutations">
+        <s:SurfaceButton Name="permMaker" Grid.Row="3" HorizontalAlignment="Right" Content="Generate permutations" IsEnabled="True" Visibility="Visible"
+                         VerticalContentAlignment="Center" Click="permMaker_Click" Margin="0,11,20,434" Width="225" Foreground="Black" HorizontalContentAlignment="Center" FontSize="18"
+                         ToolTip="Generates L1 Module permutations" Height="43" Grid.RowSpan="2">
             <s:SurfaceButton.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0" />
@@ -121,7 +121,7 @@
             </s:SurfaceButton.Background>
          </s:SurfaceButton>
         
-        <Grid Width="{Binding ElementName=L0, Path=ActualWidth}" Height="{Binding ElementName=L0, Path=ActualHeight}"
+        <Grid Width="{Binding ElementName=L0, Path=Width}" Height="{Binding ElementName=L0, Path=Height}"
               Name="ProgressIndicator" Visibility="Collapsed" Grid.ColumnSpan="2" Grid.RowSpan="5">
             <myProject:CircularProgressIndicator VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Grid>

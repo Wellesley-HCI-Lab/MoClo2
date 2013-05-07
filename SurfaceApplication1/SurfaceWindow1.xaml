@@ -6,10 +6,8 @@
                  Title="SurfaceApplication1" 
                  mc:Ignorable="d" 
                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="1024" d:DesignWidth="1280" 
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
                  SizeToContent="WidthAndHeight"
-                 Height="1024"
-                 Width="1280"
                  WindowStyle="None">
     
     <s:SurfaceWindow.Resources>

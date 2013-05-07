@@ -36,6 +36,7 @@ namespace SurfaceApplication1
         private PrimerDesigner1 pd1;
         private static List<Sites> _fusionSiteLibrary;
         private UIElement[][] _partSiteSets;
+        private int level = 0;
 
         //for duplicate fusion site checks 
         //private int _moduleNum; //to indicate which module launched this PrimerDesigner
@@ -95,7 +96,12 @@ namespace SurfaceApplication1
             PrimerDesigner1.pd2 = this;
             SurfaceWindow1.pd2 = this;
 
+            this.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
+            this.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
+            this.Center = new Point(Width / 2.0, Height / 2.0);
+
             LevelIndicator.Text = "0";
+            level = 0;
             DestinationVectorText.Text = lStringOut0 + lacZ + rStringOut0;
 
             //_moduleNum = 0; //launced by Part
@@ -125,7 +131,12 @@ namespace SurfaceApplication1
             L2Module.pd2 = this;
             PrimerDesigner1.pd2 = this;
             LevelIndicator.Text = "1";
+            level = 1;
             DestinationVectorText.Text = lStringIn1 + lacZ + rStringIn1;
+
+            this.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
+            this.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
+            this.Center = new Point(Width / 2.0, Height / 2.0);
 
             //_moduleNum = 1; //launched by L1Module
 
@@ -172,7 +183,12 @@ namespace SurfaceApplication1
             L2Module.pd2 = this;
             PrimerDesigner1.pd2 = this;
             LevelIndicator.Text = "2";
+            level = 2;
             DestinationVectorText.Text = lStringOut1 + lacZ + rStringOut1;
+
+            this.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
+            this.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
+            this.Center = new Point(Width / 2.0, Height / 2.0);
 
             //_moduleNum = 2; //launched by L2Module
             //_l2Modulel1Count = l2.Children.Count - 2; //Minus 2 for Element Menu and StackPanel, remaining are L1Modules
@@ -331,14 +347,14 @@ namespace SurfaceApplication1
             e.Handled = true;
         }
 
-        private List<List<Part>> partList = new List<List<Part>>() { new List<Part>() };
+      
 
         //Put Parts and Sites into a list. Generate string of sequences
         private void GeneratePrimers_Click(object sender, RoutedEventArgs e)
         {
             //toggle Grid to visible
             this.ResultGrid.Visibility = Visibility.Visible;
-      
+            string s1 = "";
               
                #region Working code, disabled to test new visual
             //if (pd1 != null)
@@ -351,7 +367,7 @@ namespace SurfaceApplication1
             if (PD2_buildTabs.SelectedIndex == 1) { activeTab = PD2_auto; }
 
             //int i = 0;
-
+            //  private List<List<Part>> partList = new List<List<Part>>() { new List<Part>() };
             //foreach (UIElement elem in activeTab.Children)
             //{
             //    if (elem.GetType() == typeof(Part))
@@ -392,17 +408,21 @@ namespace SurfaceApplication1
             _partSiteSets[0] = new UIElement[] { firstFS };
             _partSiteSets[n + 1] = new UIElement[] { lastFS };
 
+
+
             for (int i = 0; i < n; i++)
             {
                 Sites site1 = ((Sites)VisualTreeHelper.GetChild(activeTab, i)).clone();
-                Part p0 = ((Part)VisualTreeHelper.GetChild(activeTab, i++));
+                Part p0 = ((Part)VisualTreeHelper.GetChild(activeTab, i+1));
                 Part p = p0.clone();
                 p.BorderBrush = p0.BorderBrush;
                 p.ElementMenu.Items.Remove(p.PD);
-                Sites site2 = ((Sites)VisualTreeHelper.GetChild(activeTab, i++)).clone();
+                Sites site2 = ((Sites)VisualTreeHelper.GetChild(activeTab, i+2)).clone();
 
                 UIElement[] subArray = new UIElement[] { site1, p, site2 };
                 _partSiteSets[i + 1] = subArray;
+
+                i = i + 2;
             }
 
             //Check that Sites are not used twice
@@ -428,8 +448,42 @@ namespace SurfaceApplication1
             }
             if (noDupes && noEmpty)
             {
-                pd1 = new PrimerDesigner1(_partSiteSets);
-                sw1.SW_SV.Items.Add(pd1);
+                //Part pt = (Part)VisualTreeHelper.GetChild(firstKid, i + 1);
+                //String s1 = (Sites)(sitesList.ElementAt(0)).Sequence;
+                //i++;
+                //String s2 = (pt.SitesList.ElementAt(i)).Sequence;
+                //String s1 = (String)((Sites)VisualTreeHelper.GetChild(firstKid, 0)).Sequence;
+                //String s2 = (String)((Sites)VisualTreeHelper.GetChild(lastKid, 2)).Sequence;
+                String p = lacZ;
+
+                String flank1 = ""; //Flanking sequence, including s1, restriction sites, etc.
+                String flank2 = ""; //Flanking sequence, including s2, restriction sites, etc.
+
+                //pd1 = new PrimerDesigner1(_partSiteSets);
+                if (level == -1)
+                {
+                    //p = (String)((Part)VisualTreeHelper.GetChild(firstKid, 1)).myRegDS.BasicInfo.Sequence;
+                    //flank1 = lString + s1 + "-";
+                    //flank2 = "-" + s2 + rString;
+                }
+                else if (level == 1)
+                {
+                    flank1 = lStringOut1 + s1 + lStringIn1;
+                    //flank2 = rStringIn1 + s2 + rStringOut1;
+                }
+                else
+                {
+                    //flank1 = lStringOut0 + s1 + lStringIn0;
+                    //flank2 = rStringIn0 + s2 + rStringOut0;
+                }
+
+                String complete = flank1 + p + flank2;
+                //String forward = flank1 + leftGetSeq(24, p);
+                //String reverse = rightGetSeq(24, p) + flank2;
+                String reverseComplement = "";
+
+              // List<String> results = new List<String>() { complete, forward, reverse, reverseComplement };
+                //sw1.SW_SV.Items.Add(pd1);
             }
             else if (noEmpty && !noDupes)
             {

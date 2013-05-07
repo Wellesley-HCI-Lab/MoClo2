@@ -6,14 +6,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:s="http://schemas.microsoft.com/surface/2008"
             xmlns:myProject="clr-namespace:SurfaceApplication1"
-             mc:Ignorable="d" d:DesignHeight="944" d:DesignWidth="1280"
+             mc:Ignorable="d"
     CanMove="True" 
     CanScale="False"
     CanRotate="False" 
     IsTopmostOnActivation="False" ShowsActivationEffects="False"
-    VerticalAlignment="bottom" Width="1280" Height="944" Orientation="0"
+    VerticalAlignment="bottom"  Orientation="0"
     ContainerManipulationDelta="Level1_ContainerManipulationDelta"
-    ContainerManipulationCompleted="Level1_ContainerManipulationCompleted">
+    ContainerManipulationCompleted="Level1_ContainerManipulationCompleted" 
+    MinHeight="768" MinWidth="1024">
     
     
     <s:ScatterViewItem.Resources>
@@ -52,7 +53,7 @@
         
     </s:ScatterViewItem.Resources>
 
-    <Grid Name="Main" Background="#FFFFFFFF" Width="1280">
+    <Grid Name="Main" Background="#FFFFFFFF" MinWidth="1024" MinHeight="768">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -64,8 +65,8 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="200"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition />
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="518" />
         </Grid.RowDefinitions>
         
         <Canvas Grid.Row="0" Grid.ColumnSpan="4">
@@ -130,8 +131,8 @@
         </TabControl>
 
         <s:SurfaceButton Name="permMaker" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Right" Content="Generate permutations" IsEnabled="True" Visibility="Visible"
-                         VerticalContentAlignment="Center" Click="permMaker_Click" Margin="0,11,20,1" Width="225" Foreground="Black" HorizontalContentAlignment="Center" FontSize="18"
-                         ToolTip="Generates L1 Module permutations">
+                         VerticalContentAlignment="Top" Click="permMaker_Click" Margin="0,6,20,1" Width="225" Foreground="Black" HorizontalContentAlignment="Center" FontSize="18"
+                         ToolTip="Generates L1 Module permutations" Height="43">
             <s:SurfaceButton.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0" />
@@ -154,7 +155,7 @@
 
         
 
-        <Grid Width="{Binding ElementName=L0, Path=ActualWidth}" Height="{Binding ElementName=L0, Path=ActualHeight}"
+        <Grid Width="{Binding ElementName=L0, Path=Width}" Height="{Binding ElementName=L0, Path=ActualHeight}"
               Name="ProgressIndicator" Visibility="Collapsed" Grid.ColumnSpan="4" Grid.RowSpan="6">
             <myProject:CircularProgressIndicator VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Grid>

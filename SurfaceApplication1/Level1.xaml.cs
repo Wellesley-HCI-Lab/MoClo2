@@ -39,9 +39,9 @@ namespace SurfaceApplication1
             InitializeComponent();
             IsTopmostOnActivation = false;
 
-            double parentHeight = 1024;
-            double parentWidth = 1280;
-
+            double parentHeight = System.Windows.SystemParameters.PrimaryScreenHeight;
+            double parentWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
+            this.Width = parentWidth;
             this.Height = parentHeight - 40; //Height of all tabs together
             low.Y = parentHeight - 80 + this.Height / 2;
             low.X = parentWidth / 2;

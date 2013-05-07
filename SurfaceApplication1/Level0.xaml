@@ -12,7 +12,7 @@
     CanRotate="False" 
     Orientation="0"
     Focusable="true"
-    Width="1260">
+    MinHeight="768" MinWidth="1024">
     <s:ScatterViewItem.Resources>
         
         <Style TargetType="s:SurfaceButton" x:Key="NavButton">
@@ -136,7 +136,7 @@
 
         <!--Results field-->
         <s:SurfaceScrollViewer Grid.Row="3" Grid.Column="1" Background="#FFE5E5E5" Margin="5" BorderBrush="#FF1D0909" BorderThickness="2" Height="1024">
-            <s:ScatterView Name="L0_resultsSV" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1000" Height="730" >
+            <s:ScatterView Name="L0_resultsSV" HorizontalAlignment="Center" VerticalAlignment="Top"  MinHeight="768" MinWidth="1000">
                 
             </s:ScatterView>
         </s:SurfaceScrollViewer>

@@ -51,8 +51,8 @@ namespace SurfaceApplication1
         public Level0()
         { 
             InitializeComponent();
-            Width = 1280;
-            Height = 1024;
+            Width = System.Windows.SystemParameters.PrimaryScreenWidth;
+            Height = System.Windows.SystemParameters.PrimaryScreenHeight;
             Center = new Point(Width / 2.0, Height / 2.0);
 
             IsTopmostOnActivation = false;

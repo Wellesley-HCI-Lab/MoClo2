@@ -161,16 +161,22 @@ namespace SurfaceApplication1
                 //lastKid = set;
             }
 
+            int i = 0;
+
             //Drill down to the StackPanels (L0 Panels) that contain Sites and Parts
-            while (VisualTreeHelper.GetChild(firstKid,0).GetType() != typeof(Sites))
+            while (VisualTreeHelper.GetChild(firstKid,i).GetType() != typeof(Sites))
             {
-                firstKid = VisualTreeHelper.GetChild(firstKid, 0);
+                firstKid = VisualTreeHelper.GetChild(firstKid, i);
+                i++;
                 //lastKid = VisualTreeHelper.GetChild(lastKid, VisualTreeHelper.GetChildrenCount(lastKid) - 1);
             }
 
-            Part pt = (Part)VisualTreeHelper.GetChild(firstKid, 1);
-            String s1 = (pt.SitesList.ElementAt(0)).Sequence;
-            String s2 = (pt.SitesList.ElementAt(1)).Sequence;
+            
+           
+            Part pt = (Part)VisualTreeHelper.GetChild(firstKid, i+1);
+            String s1 = (pt.SitesList.ElementAt(i-1)).Sequence;
+            i++;
+            String s2 = (pt.SitesList.ElementAt(i)).Sequence;
             //String s1 = (String)((Sites)VisualTreeHelper.GetChild(firstKid, 0)).Sequence;
             //String s2 = (String)((Sites)VisualTreeHelper.GetChild(lastKid, 2)).Sequence;
             String p = lacZ;
@@ -218,6 +224,9 @@ namespace SurfaceApplication1
             showPanel.Children.Add(firstPanel);
             firstPanel.Visibility = Visibility.Collapsed;
 
+            int partCounter = 0;
+            int sublistCounter = 0;
+
             for (int i = 1; i < _partSiteSets.Count() - 1; i++)
             {
                 StackPanel set = new StackPanel();
@@ -226,6 +235,26 @@ namespace SurfaceApplication1
                     set.Children.Add(element);
                 }
                 showPanel.Children.Add(set);
+
+                //Generate primers for the Part PCR product and L0 DV and add to list
+                if (_partPrimerList == null) _partPrimerList = new List<List<String>>();
+                _partPrimerList.Add(generatePrimers(-1, firstPanel));
+                if (_l0PrimerList == null) _l0PrimerList = new List<List<String>>();
+                _l0PrimerList.Add(generatePrimers(0, firstPanel));
+
+                partCounter++;
+
+                //If more than one Part in sublist, generate primers for the L1 DV and add to list
+                //if (sublist.Count > 1)
+                //{
+                //    if (_l1PrimerList == null) _l1PrimerList = new List<List<String>>();
+                //    _l1PrimerList.Add(generatePrimers(1, lastPanel));
+                //    l1DV.IsEnabled = true;
+                //    l1DV.Visibility = Visibility.Visible;
+                //}//If more than one sublist/L1 module in _partList, generate primers for the L2 DV and add to list
+
+                partCounter = 0;
+                sublistCounter++;
             }
 
             StackPanel lastPanel = new StackPanel();
@@ -240,6 +269,19 @@ namespace SurfaceApplication1
                 sp.Background = new SolidColorBrush(Colors.Transparent);
                 sp.Margin = new Thickness(3);
             }
+
+            if (_l2PrimerList == null) _l2PrimerList = new List<List<String>>();
+            _l2PrimerList.Add(generatePrimers(2, showPanel));
+            /* NOTE: Removing duplicate fusion site visuals is MAD HACK right now, and I know that it's totally wrong and lazy fix. Will have to put in 
+             * counters and conditionals to figure out when the last part of the last subpart list is to add in that last fusion site. Also need to somehow
+             * preserve the fusion site sequence string so it'll display the correct sequence with double fusion site SEQUENCE still there.
+             * SHOOT ME IN THE HEAD @T.Feng (will come back to this after dinner)*/
+                          
+
+            //On initialization, auto-select first Part
+            StackPanel show = (StackPanel)VisualTreeHelper.GetChild(VisualTreeHelper.GetChild(showPanel, 0), 0);
+            show.Background = new SolidColorBrush(Colors.WhiteSmoke);
+            pcr.IsChecked = true;
 
 
             //Currently, show first part
