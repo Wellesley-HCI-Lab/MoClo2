@@ -18,6 +18,7 @@ using Microsoft.Surface.Presentation.Input;
 using System.Collections.ObjectModel;
 using System.Collections;
 using System.IO;
+using System.Threading;
 
 
 namespace SurfaceApplication1
@@ -32,32 +33,46 @@ namespace SurfaceApplication1
     /// </summary>
     public partial class PrimerDesigner2 : ScatterViewItem
     {
-        public static SurfaceWindow1 sw1;
-        private PrimerDesigner1 pd1;
+        public static SurfaceWindow1 sw1;        
         private static List<Sites> _fusionSiteLibrary;
         private UIElement[][] _partSiteSets;
+        private List<List<Part>> partList = new List<List<Part>>() { new List<Part>() };
         private int level = 0;
 
+        private List<List<Part>> _partList;
+        private List<List<String>> _partPrimerList;
+        private List<List<String>> _l0PrimerList;
+        private List<List<String>> _l1PrimerList;
+        private List<List<String>> _l2PrimerList;
+
+        private double _leftGibbsFree;
+        private double _rightGibbsFree;
+        private String _leftSeq;
+        private String _rightSeq;
+        private Thread _primerTest;
+        private ProgressBarWrapper _progressBarWrapper;
+        private LinkedList<String>[] alignments;
+        private string CompleteSequence = "";
+
         //for duplicate fusion site checks 
-        //private int _moduleNum; //to indicate which module launched this PrimerDesigner
-        //private Sites[] _sitesAdded; //stores all fusion sites added to the object 
-        //private int _l2Modulel1Count;
+        private int _moduleNum; //to indicate which module launched this PrimerDesigner
+        private Sites[] _sitesAdded; //stores all fusion sites added to the object 
+        private List<int> usedSites;
+        private int _l2Modulel1Count;
+        private List<String> results;
 
         #region Sequences for building primers
-        private static String lString = "AT-GAAGAC-GT-";
-        private static String rString = "-AG-GTCTTC-GT";
+        private static String Level02RestrictionSitesBeforeFusionSite = "GTTCTTTACTAGTGGGTCTCA"; //followed by fusion site and first 24
+        private static String Level02ReverseRestrictionSitesAfterFusionSite = "AGAGACCTACTAGTAGCGGCCGC"; //after last 24 and fusion site
+
+        private static String Level02Bpi1AfterFusionSiteBeforeLacZ = "GTCTTC";
+        private static String Level02Bpi1AfterBeforeLacZ = "GAAGAC";
 
         private static String lacZ = "ACCATGATTACGGATTCACTGGCCGTCGTTTTACAACGTCGTGACTGGGAAAACCCTGGCGTTACCCAACTTAATCGCCTTGCAGCACATCCCCCTTTCGCCAGCTGGCGTAATAGCGAAGAGGCCCGCACCGATCGCCCTTCCCAACAGTTGCGCAGCCTGAATGGCGAATGGCGCTTTGCCTGGTTTCCGGCACCAGAAGCGGTGCCGGAAAGCTGGCTGGAGTGCGATCTTCCTGAGGCCGATACTGTCGTCGTCCCCTCAAACTGGCAGATGCACGGTTACGATGCGCCCATCTACACCAACGTAACCTATCCCATTACGGTCAATCCGCCGTTTGTTCCCACGGAGAATCCGACGGGTTGTTACTCGCTCACATTTAATGTTGATGAAAGCTGGCTACAGGAAGGCCAGACGCGAATTATTTTTGATGGCGTTAACTCGGCGTTTCATCTGTGGTGCAACGGGCGCTGGGTCGGTTACGGCCAGGACAGTCGTTTGCCGTCTGAATTTGACCTGAGCGCATTTTTACGCGCCGGAGAAAACCGCCTCGCGGTGATGGTGCTGCGTTGGAGTGACGGCAGTTATCTGGAAGATCAGGATATGTGGCGGATGAGCGGCATTTTCCGTGACGTCTCGTTGCTGCATAAACCGACTACACAAATCAGCGATTTCCATGTTGCCACTCGCTTTAATGATGATTTCAGCCGCGCTGTACTGGAGGCTGAAGTTCAGATGTGCGGCGAGTTGCGTGACTACCTACGGGTAACAGTTTCTTTATGGCAGGGTGAAACGCAGGTCGCCAGCGGCACCGCGCCTTTCGGCGGTGAAATTATCGATGAGCGTGGTGGTTATGCCGATCGCGTCACACTACGTCTGAACGTCGAAAACCCGAAACTGTGGAGCGCCGAAATCCCGAATCTCTATCGTGCGGTGGTTGAACTGCACACCGCCGACGGCACGCTGATTGAAGCAGAAGCCTGCGATGTCGGTTTCCGCGAGGTGCGGATTGAAAATGGTCTGCTGCTGCTGAACGGCAAGCCGTTGCTGATTCGAGGCGTTAACCGTCACGAGCATCATCCTCTGCATGGTCAGGTCATGGATGAGCAGACGATGGTGCAGGATATCCTGCTGATGAAGCAGAACAACTTTAACGCCGTGCGCTGTTCGCATTATCCGAACCATCCGCTGTGGTACACGCTGTGCGACCGCTACGGCCTGTATGTGGTGGATGAAGCCAATATTGAAACCCACGGCATGGTGCCAATGAATCGTCTGACCGATGATCCGCGCTGGCTACCGGCGATGAGCGAACGCGTAACGCGAATGGTGCAGCGCGATCGTAATCACCCGAGTGTGATCATCTGGTCGCTGGGGAATGAATCAGGCCACGGCGCTAATCACGACGCGCTGTATCGCTGGATCAAATCTGTCGATCCTTCCCGCCCGGTGCAGTATGAAGGCGGCGGAGCCGACACCACGGCCACCGATATTATTTGCCCGATGTACGCGCGCGTGGATGAAGACCAGCCCTTCCCGGCTGTGCCGAAATGGTCCATCAAAAAATGGCTTTCGCTACCTGGAGAGACGCGCCCGCTGATCCTTTGCGAATACGCCCACGCGATGGGTAACAGTCTTGGCGGTTTCGCTAAATACTGGCAGGCGTTTCGTCAGTATCCCCGTTTACAGGGCGGCTTCGTCTGGGACTGGGTGGATCAGTCGCTGATTAAATATGATGAAAACGGCAACCCGTGGTCGGCTTACGGCGGTGATTTTGGCGATACGCCGAACGATCGCCAGTTCTGTATGAACGGTCTGGTCTTTGCCGACCGCACGCCGCATCCAGCGCTGACGGAAGCAAAACACCAGCAGCAGTTTTTCCAGTTCCGTTTATCCGGGCAAACCATCGAAGTGACCAGCGAATACCTGTTCCGTCATAGCGATAACGAGCTCCTGCACTGGATGGTGGCGCTGGATGGTAAGCCGCTGGCAAGCGGTGAAGTGCCTCTGGATGTCGCTCCACAAGGTAAACAGTTGATTGAACTGCCTGAACTACCGCAGCCGGAGAGCGCCGGGCAACTCTGGCTCACAGTACGCGTAGTGCAACCGAACGCGACCGCATGGTCAGAAGCCGGGCACATCAGCGCCTGGCAGCAGTGGCGTCTGGCGGAAAACCTCAGTGTGACGCTCCCCGCCGCGTCCCACGCCATCCCGCATCTGACCACCAGCGAAATGGATTTTTGCATCGAGCTGGGTAATAAGCGTTGGCAATTTAACCGCCAGTCAGGCTTTCTTTCACAGATGTGGATTGGCGATAAAAAACAACTGCTGACGCCGCTGCGCGATCAGTTCACCCGTGCACCGCTGGATAACGACATTGGCGTAAGTGAAGCGACCCGCATTGACCCTAACGCCTGGGTCGAACGCTGGAAGGCGGCGGGCCATTACCAGGCCGAAGCAGCGTTGTTGCAGTGCACGGCAGATACACTTGCTGATGCGGTGCTGATTACGACCGCTCACGCGTGGCAGCATCAGGGGAAAACCTTATTTATCAGCCGGAAAACCTACCGGATTGATGGTAGTGGTCAAATGGCGATTACCGTTGATGTTGAAGTGGCGAGCGATACACCGCATCCGGCGCGGATTGGCCTGAACTGCCAGCTGGCGCAGGTAGCAGAGCGGGTAAACTGGCTCGGATTAGGGCCGCAAGAAAACTATCCCGACCGCCTTACTGCCGCCTGTTTTGACCGCTGGGATCTGCCATTGTCAGACATGTATACCCCGTACGTCTTCCCGAGCGAAAACGGTCTGCGCTGCGGGACGCGCGAATTGAATTATGGCCCACACCAGTGGCGCGGCGACTTCCAGTTCAACATCAGCCGCTACAGTCAACAGCAACTGATGGAAACCAGCCATCGCCATCTGCTGCACGCGGAAGAAGGCACATGGCTGAATATCGACGGTTTCCATATGGGGATTGGTGGCGACGACTCCTGGAGCCCGTCAGTATCGGCGGAATTCCAGCTGAGCGCCGGTCGCTACCATTACCAGTTGGTCTGGTGTCAAAAATAATAATAAcggctgccgt".ToLower();
 
-        private static String lStringOut0 = "BBPre-BsaI-N-"; //"atgaagacgt";
-        private static String lStringIn0 = "-NN-BpiI-";
-        private static String rStringIn0 = "-BpiI-NN-"; //aggtcttcgt";
-        private static String rStringOut0 = "-N-BsaI-BBSuf";
+        private static String Level1RestrictionSitesAfterFusionSite = "GTTCTTTACTAGTGGAAGACAT"; //followed by fusion site and first 24
+        private static String Level1ReverseRestrictionSitesAfterFusionSite = "ATGTCTTCTACTAGTAGCGGCCGC"; //after last 24 and fusion site
 
-        private static String lStringOut1 = "BBPre-BpiI-NN-";
-        private static String lStringIn1 = "-N-BsaI-";
-        private static String rStringIn1 = "-BsaI-N-";
-        private static String rStringOut1 = "-NN-BpiI-BBSuf";
         #endregion
 
         #region Properties
@@ -85,7 +100,12 @@ namespace SurfaceApplication1
         #endregion
 
         #region Constructors
-        //Constructor: Primer Designer launched by a Part
+        
+        
+        /// <summary>
+        /// Constructor: L0 Primer Designer launched by a Part
+        /// </summary>
+        /// <param name="p"></param>
         public PrimerDesigner2(Part p) 
         {
             InitializeComponent();
@@ -93,8 +113,9 @@ namespace SurfaceApplication1
             Part.pd2 = this;
             L1Module.pd2 = this;
             L2Module.pd2 = this;
-            PrimerDesigner1.pd2 = this;
+            //PrimerDesigner1.pd2 = this;
             SurfaceWindow1.pd2 = this;
+            _progressBarWrapper = new ProgressBarWrapper(new Action(showProgressBar), new Action(hideProgressBar));
 
             this.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
             this.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
@@ -102,26 +123,24 @@ namespace SurfaceApplication1
 
             LevelIndicator.Text = "0";
             level = 0;
-            DestinationVectorText.Text = lStringOut0 + lacZ + rStringOut0;
 
-            //_moduleNum = 0; //launced by Part
+            DestinationVectorText.Text = Level02RestrictionSitesBeforeFusionSite;
 
-            PD2_auto.Children.Add(new Sites());
-            //PD2_manual.Children.Add(new Sites()); //remove duplicate fusion sites
+            _moduleNum = 0; //launced by Part
 
             addPartSiteSets(PD2_auto, p, true);
             addPartSiteSets(PD2_manual, p, true);
-
-            PD2_auto.Children.Add(new Sites());
-            //PD2_manual.Children.Add(new Sites()); //remove duplicate fusion sites
-
+            
             matchSites(PD2_auto);
-            //matchSites(PD2_manual);
+            matchSites(PD2_manual);
 
-            //initializeFusionSiteChecker(); //initialize array to hold all possible fusion sites to be added
+            initializeFusionSiteChecker(); //initialize array to hold all possible fusion sites to be added
         }
 
-        //Constructor: Primer Designer launched by an L1Module
+        /// <summary>
+        /// Constructor: L1 Primer Designer launched by an L1Module
+        /// </summary>
+        /// <param name="l1"></param>
         public PrimerDesigner2(L1Module l1)
         {
             InitializeComponent();
@@ -129,19 +148,17 @@ namespace SurfaceApplication1
             Part.pd2 = this;
             L1Module.pd2 = this;
             L2Module.pd2 = this;
-            PrimerDesigner1.pd2 = this;
+            _progressBarWrapper = new ProgressBarWrapper(new Action(showProgressBar), new Action(hideProgressBar));
+
             LevelIndicator.Text = "1";
             level = 1;
-            DestinationVectorText.Text = lStringIn1 + lacZ + rStringIn1;
+            DestinationVectorText.Text = Level1RestrictionSitesAfterFusionSite;
 
             this.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
             this.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
             this.Center = new Point(Width / 2.0, Height / 2.0);
 
-            //_moduleNum = 1; //launched by L1Module
-
-            //PD2_auto.Children.Add(new Sites()); //remove duplicate fusion sites
-            //PD2_manual.Children.Add(new Sites()); //remove duplicate fusion sites
+            _moduleNum = 1; //launched by L1Module
 
             int forLoopCounter = 0; //for keeping track of last part to add second fusion site
 
@@ -164,16 +181,17 @@ namespace SurfaceApplication1
                     forLoopCounter++;
                 }
             }
-            //PD2_auto.Children.Add(new Sites()); //remove duplicate fusion sites
-            //PD2_manual.Children.Add(new Sites()); //remove duplicate fusion sites
 
-            //matchSites(PD2_auto); //remove duplicate fusion sites
-            //matchSites(PD2_manual); //remove duplicate fusion sites
+            matchSites(PD2_auto); //remove duplicate fusion sites
+            matchSites(PD2_manual); //remove duplicate fusion sites
 
-            //initializeFusionSiteChecker(); //initialize array to hold all possible fusion sites to be added
+            initializeFusionSiteChecker(); //initialize array to hold all possible fusion sites to be added
         }
 
-        //Constructor: Primer Designer launched by an L2Module
+        /// <summary>
+        /// Constructor: L2 Primer Designer launched by an L2Module
+        /// </summary>
+        /// <param name="l2"></param>
         public PrimerDesigner2(L2Module l2)
         {
             InitializeComponent();
@@ -181,21 +199,20 @@ namespace SurfaceApplication1
             Part.pd2 = this;
             L1Module.pd2 = this;
             L2Module.pd2 = this;
-            PrimerDesigner1.pd2 = this;
             LevelIndicator.Text = "2";
             level = 2;
-            DestinationVectorText.Text = lStringOut1 + lacZ + rStringOut1;
+
+            _progressBarWrapper = new ProgressBarWrapper(new Action(showProgressBar), new Action(hideProgressBar));
+
+            DestinationVectorText.Text = Level02RestrictionSitesBeforeFusionSite;
 
             this.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
             this.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
             this.Center = new Point(Width / 2.0, Height / 2.0);
 
-            //_moduleNum = 2; //launched by L2Module
-            //_l2Modulel1Count = l2.Children.Count - 2; //Minus 2 for Element Menu and StackPanel, remaining are L1Modules
-
-            //PD2_auto.Children.Add(new Sites());
-            //PD2_manual.Children.Add(new Sites()); //remove duplicate fusion sites
-
+            _moduleNum = 2; //launched by L2Module
+            _l2Modulel1Count = l2.Children.Count - 2; //Minus 2 for Element Menu and StackPanel, remaining are L1Modules
+            
             int forLoopCounter = 0; //for keeping track of last part to add second fusion site in inner loop
             int lastL1ModuleCounter = 0; //to indicate when for loop is on last L1Module (so can add second fusion site), (l2.Children.Count - 1) to account for ElementMenu and Grid
 
@@ -227,16 +244,15 @@ namespace SurfaceApplication1
                 lastL1ModuleCounter++;
 
             }
-            //PD2_auto.Children.Add(new Sites());
-            // PD2_manual.Children.Add(new Sites()); //remove duplicate fusion sites
 
-            //matchSites(PD2_auto);
-            //matchSites(PD2_manual);
+            matchSites(PD2_auto);
+            matchSites(PD2_manual);
 
             //initializeFusionSiteChecker(); //initialize array to hold all possible fusion sites to be added
         }
 
         #endregion
+
 
         #region Constructor helpers
 
@@ -264,7 +280,10 @@ namespace SurfaceApplication1
                 parent.Children.Add(new Sites(seq2));
         }
 
-        //Constructor helper: checks for empty fusion sites and matches them to neighboring defined Sites, if any
+        /// <summary>
+        /// Constructor helper: checks for empty fusion sites and matches them to neighboring defined Sites, if any
+        /// </summary>
+        /// <param name="pan"></param>
         private void matchSites(StackPanel pan)
         {
             for (int i = 0; i < VisualTreeHelper.GetChildrenCount(pan); i++)
@@ -293,35 +312,26 @@ namespace SurfaceApplication1
         /// Actual fusion site requirement checking done in Sites.xaml.cs during hit test
         /// </summary>
         /// @T.Feng
-        //private void initializeFusionSiteChecker()
-        //{
-        //    switch (_moduleNum)
-        //    {
-        //        case 0: SitesAdded = new Sites[2]; break;//Part has 2 fusion sites
-        //        case 1: SitesAdded = new Sites[5]; break;//L1Module has 5 fusion sites
-        //        case 2: SitesAdded = new Sites[_l2Modulel1Count * 4 + 1]; break; //L2Module has L1ModuleNum*4 + 1 fusion sites
-        //        default: Console.WriteLine("No fusion site-added storage constructed, no info on object that launched Primer Designer. PrimerDesigner2.xaml.cs Ln 250"); break;           
-        //    }
-        //}
+        private void initializeFusionSiteChecker()
+        {
+            switch (_moduleNum)
+            {
+                case 0: _sitesAdded = new Sites[2]; break;//Part has 2 fusion sites
+                case 1: _sitesAdded = new Sites[5]; break;//L1Module has 5 fusion sites
+                case 2: _sitesAdded = new Sites[_l2Modulel1Count * 4 + 1]; break; //L2Module has L1ModuleNum*4 + 1 fusion sites
+                default: Console.WriteLine("No fusion site-added storage constructed, no info on object that launched Primer Designer. PrimerDesigner2.xaml.cs Ln 250"); break;
+            }
+        }
 
-        
-        #endregion
-
+        /// <summary>
+        /// Sets up the fusion site library
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnInitialized(EventArgs e)
         {
             base.OnInitialized(e);
             DataContext = this;
             _fusionSiteLibrary = new List<Sites>();
-            //_fusionSiteLibrary.Add(new Sites("Site A", "acaa", new SolidColorBrush(Colors.Gold)));
-            //_fusionSiteLibrary.Add(new Sites("Site B", "atgc", new SolidColorBrush(Colors.GreenYellow)));
-            //Sites tester = new Sites("Site C", "atgg", new SolidColorBrush(Colors.LimeGreen));
-            //_fusionSiteLibrary.Add(tester);
-            //_fusionSiteLibrary.Add(new Sites("Site D", "gtca", new SolidColorBrush(Colors.Orchid)));
-            //_fusionSiteLibrary.Add(new Sites("Site E", "cctg", new SolidColorBrush(Colors.PaleVioletRed)));
-            //_fusionSiteLibrary.Add(new Sites("Site F", "aatg", new SolidColorBrush(Colors.Peru)));
-            //_fusionSiteLibrary.Add(new Sites("Site G", "ggta", new SolidColorBrush(Colors.RosyBrown)));
-            //_fusionSiteLibrary.Add(new Sites("Site H", "catt", new SolidColorBrush(Colors.Thistle)));
-            //_fusionSiteLibrary.Add(new Sites("Site I", "gact", new SolidColorBrush(Colors.DeepSkyBlue)));
 
             _fusionSiteLibrary.Add(new Sites("acaa"));
             _fusionSiteLibrary.Add(new Sites("atgc"));
@@ -339,85 +349,296 @@ namespace SurfaceApplication1
             }
         }
 
-        //Enables touch on tabs
-        private void TabControl_TouchDown(object sender, TouchEventArgs e)
+        #endregion
+
+               
+
+
+        #region Backend
+
+
+        
+        //Returns a list of alignmentTest results organized by test type
+        private List<double> _getTestResults()
         {
-            TabItem tab = (TabItem)sender;
-            PD2_buildTabs.SelectedItem = tab;
-            e.Handled = true;
+            List<double> testResults = new List<double>();
+
+            _leftSeq = leftGetSeq(24, CompleteSequence);
+            _rightSeq = rightGetSeq(24, CompleteSequence);
+
+            //alignmentTests at1 = new alignmentTests(_leftSeq);
+            //alignmentTests at2 = new alignmentTests(_rightSeq);
+
+            alignments = new LinkedList<String>[6];
+
+            ////the following is for HAIRPIN RUN only!!
+            ////  testResults.Add(at1.hairpinRun());
+            //alignments[0] = at1.hairpinRunAlignments();
+            //// testResults.Add(at2.hairpinRun());
+
+            //alignments[1] = at2.hairpinRunAlignments();
+
+            ////the following is for SELF DIMER only!!
+            ////testResults.Add(at1.selfDimerRun());
+
+            //alignments[2] = at2.selfDimerRunAlignments();
+
+            //// testResults.Add(at2.selfDimerRun());
+            //alignments[3] = at2.selfDimerRunAlignments();
+
+
+            ////the following is for HETERODIMER only!!
+            //// testResults.Add(at1.heteroDimerRun(_rightSeq));
+            //alignments[4] = at2.heteroDimerRunAlignments(_rightSeq);
+
+            //// testResults.Add(at2.heteroDimerRun(_leftSeq));
+            //alignments[5] = at2.heteroDimerRunAlignments(_leftSeq);
+
+
+            //Console.WriteLine(testResults);
+            return testResults;
         }
 
-      
+        //Writes results into PD1, compares results to Gibbs free enrgy and checks forward/reverse success checkboxes accordingly
+        private void _getTestResultsCallback(List<double> resultsList)
+        {
+
+            //Console.WriteLine(alignments);
+            //Console.WriteLine("results SVI here!!");
+
+            ScatterViewItem testResultsObject = new ScatterViewItem();
+            ScrollViewer scroller = new ScrollViewer();
+            TextBlock block = new TextBlock();
+            String resultString = "";
+
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    foreach (String s in alignments[i])
+            //    {
+            //        resultString += s + "\n\n";
+            //    }
+            //}
+
+            block.Text = resultString;
+
+            scroller.Content = block;
+
+
+            testResultsObject.Content = scroller;
+
+            sw1.SW_SV.Items.Add(testResultsObject);
+            //testGrid.Children.Add(testResultsObject);
+
+            this.ResultGrid.Visibility = Visibility.Visible;
+            StackPanel activeTab = PD2_manual;
+            if (PD2_buildTabs.SelectedIndex == 1) { activeTab = PD2_auto; }
+
+            List<SurfaceCheckBox> checkList = new List<SurfaceCheckBox>();
+            List<TextBlock> numList = new List<TextBlock>();
+
+            //foreach (UIElement elem in activeTab.Children)
+            //{
+            //    if (elem.GetType() == typeof(Grid))
+            //    {
+            //        foreach (UIElement e in ((Grid)elem).Children)
+            //        {
+            //            if (e.GetType() == typeof(SurfaceCheckBox))
+            //            {
+            //                checkList.Add((SurfaceCheckBox)e);
+            //            }
+            //            else if (e.GetType() == typeof(TextBlock))
+            //            {
+            //                numList.Add((TextBlock)e);
+            //            }
+            //        }
+            //    }
+
+            //}
+
+
+            _leftGibbsFree = calcDeltaG(_leftSeq);
+            FwdGCBox.Text = calcDeltaG(_leftSeq).ToString();
+            _rightGibbsFree = calcDeltaG(_rightSeq);
+            RevGCBox.Text = calcDeltaG(_rightSeq).ToString();
+            double gibbsTestValue;
+
+            for (int i = 0; i < resultsList.Count; i++)
+            {
+                double d = resultsList.ElementAt(i);
+                numList.ElementAt(i).Text = d.ToString();
+                if (i < 3) gibbsTestValue = _leftGibbsFree;
+                else gibbsTestValue = _rightGibbsFree;
+                if (d < gibbsTestValue) checkList.ElementAt(i).IsChecked = true;
+
+            }
+
+
+        }
+           
+
+        /// <summary>
+        /// Given a full sequence and length, this method returns the highlighted left primer sequence
+        /// </summary>
+        /// <param name="len">integer representing the length of the primer sequence</param>
+        /// <param name="fullSeq">string representing the full sequence displayed on the primer designer</param>
+        /// <returns>string representing the left highlighted primer sequence</returns>
+        private String leftGetSeq(int len, String fullSeq)
+        {
+            if (len > 40)
+                len = 40;
+            if (fullSeq.Length < len) len = fullSeq.Length;
+            String primer = "";
+            //try
+            //{
+            for (int i = 0; i < len; i++)
+            {
+                char c = fullSeq[i];
+                primer += c;
+            }
+            //}
+            //catch (Exception exc) { Console.WriteLine(exc); }
+            return primer;
+        }
+
+        /// <summary>
+        /// Given a full sequence and length, this method returns the highlighted right primer sequence
+        /// </summary>
+        /// <param name="len">integer representing the length of the primer sequence</param>
+        /// <param name="fullSeq">string representing the full sequence displayed on the primer designer</param>
+        /// <returns>string representing the right highlighted primer sequence</returns>
+        private String rightGetSeq(int len, String fullSeq)
+        {
+            if (len > 40)
+                len = 40;
+            if (fullSeq.Length < len) len = fullSeq.Length;
+            String primer = "";
+            //try
+            //{
+            for (int i = fullSeq.Length - 1; i >= fullSeq.Length - len; i--)
+            {
+                char c = fullSeq[i];
+                primer += c;
+            }
+            //}
+            //catch (Exception exc) { Console.WriteLine(exc); }
+            return primer;
+        }
+
+        /// <summary>
+        /// Calculates gibbs free energy for a processed string
+        /// </summary>
+        /// <param name="s">String whose delta G is being calculated</param>
+        /// <returns> double representing delta G for inputted sequence</returns>
+        public Double calcDeltaG(String s)
+        {
+            Double toReturn = 0.0;
+            if (s != null)
+            {
+                s = s.ToUpper();
+                if (s.StartsWith("C") || s.StartsWith("G"))
+                {
+                    toReturn = toReturn + 0.98;
+                }
+                else
+                {
+                    toReturn = toReturn + 1.03;
+                }
+                if (s.EndsWith("C") || s.EndsWith("G"))
+                {
+                    toReturn = toReturn + 0.98;
+                }
+                else
+                {
+                    toReturn = toReturn + 1.03;
+                }
+                for (int i = 0; i < s.Length - 1; i++)
+                {
+                    String token = s.Substring(i, 2);
+                    if (token.Equals("AA") || token.Equals("TT"))
+                    {
+                        toReturn = toReturn - 1.00;
+                    }
+                    else if (token.Equals("AT"))
+                    {
+                        toReturn = toReturn - 0.88;
+                    }
+                    else if (token.Equals("TA"))
+                    {
+                        toReturn = toReturn - -0.58;
+                    }
+                    else if (token.Equals("CA") || token.Equals("AC"))
+                    {
+                        toReturn = toReturn - 1.45;
+                    }
+                    else if (token.Equals("GT") || token.Equals("TG"))
+                    {
+                        toReturn = toReturn - 1.44;
+                    }
+                    else if (token.Equals("CT") || token.Equals("TC"))
+                    {
+                        toReturn = toReturn - 1.28;
+                    }
+                    else if (token.Equals("GA") || token.Equals("AG"))
+                    {
+                        toReturn = toReturn - 1.30;
+                    }
+                    else if (token.Equals("CG"))
+                    {
+                        toReturn = toReturn - 2.17;
+                    }
+                    else if (token.Equals("GC"))
+                    {
+                        toReturn = toReturn - 2.24;
+                    }
+                    else if (token.Equals("GG") || token.Equals("CC"))
+                    {
+                        toReturn = toReturn - 1.84;
+                    }
+                }
+
+                //rounding
+                toReturn = toReturn * 10;
+                int toReturnInt = (int)toReturn;
+                toReturn = (double)toReturnInt / (double)10;
+
+                FwdGCBox.Text = toReturn.ToString();
+
+                return toReturn;
+            }
+
+            FwdGCBox.Text = "0.00";
+            return 0.00;
+        }
+        
+
 
         //Put Parts and Sites into a list. Generate string of sequences
         private void GeneratePrimers_Click(object sender, RoutedEventArgs e)
         {
             //toggle Grid to visible
             this.ResultGrid.Visibility = Visibility.Visible;
-            string s1 = "";
-              
-               #region Working code, disabled to test new visual
-            //if (pd1 != null)
-            //{
-            //    sw1.SW_SV.Items.Remove(pd1);
-            //    pd1 = null;
-            //}
-
             StackPanel activeTab = PD2_manual;
             if (PD2_buildTabs.SelectedIndex == 1) { activeTab = PD2_auto; }
 
-            //int i = 0;
-            //  private List<List<Part>> partList = new List<List<Part>>() { new List<Part>() };
-            //foreach (UIElement elem in activeTab.Children)
-            //{
-            //    if (elem.GetType() == typeof(Part))
-            //    {
-            //        //If list (i.e. L1 module) is full and there are still Parts left
-            //        //Create new list and increment index
-            //        if (partList.ElementAt(i).Count == 4)
-            //        {
-            //            partList.Add(new List<Part>());
-            //            i++;
-            //        }
-            //        int elemIndex = activeTab.Children.IndexOf(elem);
-            //        Part p = (Part)elem;
-            //        //p.updateSites(activeTab, elemIndex);
-            //        p.updateSites(activeTab);
-            //        Part clone = p.clone();
-            //        clone.BorderBrush = p.BorderBrush;
-            //        clone.ElementMenu.Items.Remove(clone.PD);
-            //        partList.ElementAt(i).Add(clone);
+            String complete = "";
 
-            //    }
-            //}
-            #endregion
+            
 
-               
-            //pd1 = new PrimerDesigner1(partList);
-            //sw1.SW_SV.Items.Add(pd1);
-
-            #region Old Generate Primers code
             //2D array of each Part and Site sequence, divided into arrays of Parts and flanking sites (i.e. Sites-Parts-Sites)
-
             int n = activeTab.Children.Count / 3; //Number of Part-Sites sets, not including the two backbone Sites
-
             _partSiteSets = new UIElement[n + 2][];
-
             Sites firstFS = ((Sites)VisualTreeHelper.GetChild(activeTab, 0)).clone();
             Sites lastFS = ((Sites)VisualTreeHelper.GetChild(activeTab, activeTab.Children.Count - 1)).clone();
-            _partSiteSets[0] = new UIElement[] { firstFS };
-            _partSiteSets[n + 1] = new UIElement[] { lastFS };
-
-
 
             for (int i = 0; i < n; i++)
             {
                 Sites site1 = ((Sites)VisualTreeHelper.GetChild(activeTab, i)).clone();
-                Part p0 = ((Part)VisualTreeHelper.GetChild(activeTab, i+1));
+                Part p0 = ((Part)VisualTreeHelper.GetChild(activeTab, i + 1));
                 Part p = p0.clone();
+                CompleteSequence = p.myRegDS.BasicInfo.Sequence;
                 p.BorderBrush = p0.BorderBrush;
                 p.ElementMenu.Items.Remove(p.PD);
-                Sites site2 = ((Sites)VisualTreeHelper.GetChild(activeTab, i+2)).clone();
+                Sites site2 = ((Sites)VisualTreeHelper.GetChild(activeTab, i + 2)).clone();
 
                 UIElement[] subArray = new UIElement[] { site1, p, site2 };
                 _partSiteSets[i + 1] = subArray;
@@ -425,12 +646,14 @@ namespace SurfaceApplication1
                 i = i + 2;
             }
 
+
             //Check that Sites are not used twice
             List<String> sitesList = new List<String>();
             //Build checklist by taking the left Site in each set besides the first, plus the last Site (technically the left Site of the vector)
-            for (int i = 2; i < _partSiteSets.Length; i++)
+            for (int j = 1; j < _partSiteSets.Length; j++)
             {
-                sitesList.Add(((Sites)_partSiteSets[i][0]).Sequence);
+                if(_partSiteSets[j] != null)
+                    sitesList.Add(((Sites)_partSiteSets[j][0]).Sequence);
             }
             //Check sitesList for duplicates
             bool noDupes = true;
@@ -446,14 +669,13 @@ namespace SurfaceApplication1
                 checkThis = sitesList.ElementAt(0);
                 sitesList.RemoveAt(0);
             }
+
             if (noDupes && noEmpty)
             {
-                //Part pt = (Part)VisualTreeHelper.GetChild(firstKid, i + 1);
-                //String s1 = (Sites)(sitesList.ElementAt(0)).Sequence;
+                Part pt = partList.ElementAt(0).ElementAt(1);
+                String s1 = sitesList.ElementAt(0);
                 //i++;
-                //String s2 = (pt.SitesList.ElementAt(i)).Sequence;
-                //String s1 = (String)((Sites)VisualTreeHelper.GetChild(firstKid, 0)).Sequence;
-                //String s2 = (String)((Sites)VisualTreeHelper.GetChild(lastKid, 2)).Sequence;
+                
                 String p = lacZ;
 
                 String flank1 = ""; //Flanking sequence, including s1, restriction sites, etc.
@@ -462,27 +684,25 @@ namespace SurfaceApplication1
                 //pd1 = new PrimerDesigner1(_partSiteSets);
                 if (level == -1)
                 {
-                    //p = (String)((Part)VisualTreeHelper.GetChild(firstKid, 1)).myRegDS.BasicInfo.Sequence;
-                    //flank1 = lString + s1 + "-";
-                    //flank2 = "-" + s2 + rString;
+                     complete = flank1 + p + flank2;
                 }
                 else if (level == 1)
                 {
-                    flank1 = lStringOut1 + s1 + lStringIn1;
-                    //flank2 = rStringIn1 + s2 + rStringOut1;
+                     complete = flank1 + p + flank2;
                 }
                 else
                 {
-                    //flank1 = lStringOut0 + s1 + lStringIn0;
-                    //flank2 = rStringIn0 + s2 + rStringOut0;
+                    complete = flank1 + p + flank2;
                 }
 
-                String complete = flank1 + p + flank2;
-                //String forward = flank1 + leftGetSeq(24, p);
-                //String reverse = rightGetSeq(24, p) + flank2;
+
+                String forward = flank1 + leftGetSeq(24, p);
+                String reverse = rightGetSeq(24, p) + flank2;
                 String reverseComplement = "";
 
-              // List<String> results = new List<String>() { complete, forward, reverse, reverseComplement };
+                
+
+                results = new List<String>() { complete, forward, reverse, reverseComplement };
                 //sw1.SW_SV.Items.Add(pd1);
             }
             else if (noEmpty && !noDupes)
@@ -497,8 +717,90 @@ namespace SurfaceApplication1
             {
                 MessageBox.Show("Couldn't generate primers. Please check for duplicate and empty fusion sites.");
             }
-            #endregion
+
+            _primerTest = _progressBarWrapper.execute<List<double>>(_getTestResults, _getTestResultsCallback);
+
+            //Forward
+            String leftPrimer = "ATGAAGACGT" + _leftSeq;
+            _leftSeq = leftPrimer;
+
+            //Convert RString and Site sequence in 3' to 5', to match _rightPrimer, which is the last ~24 bases in 3' to 5'
+            String RString3to5 = new String(_rightSeq.ToCharArray().Reverse().ToArray());
+            String site2seq3to5 = new String(lastFS.Sequence.ToCharArray().Reverse().ToArray());
+            String reverse1 = RString3to5 + _rightSeq;
+
+            //Reverse complement
+            //Transform reverse3to5 into its complement
+            String rightPrimer = Transform(reverse1);
+            _rightSeq = rightPrimer;
+
+            //Show number of basepairs
+            FwdLengthBox.Text = _leftSeq.Length.ToString();
+            RevLengthBox.Text = _rightSeq.Length.ToString();
+
+            //Show percent of gc bases
+            double countForward = (double)(leftPrimer.Split('c').Length + leftPrimer.Split('g').Length - 2);
+            double countReverse = (double)(rightPrimer.Split('c').Length + rightPrimer.Split('g').Length - 2);
+            double percentForward = Math.Round(100 * (countForward / ((double)_leftSeq.Length)), 3);
+            double percentReverse = Math.Round(100 * (countReverse / ((double)_rightSeq.Length)), 3);
+            //Just make it show for now
+            FwdGCBox.Text = percentForward.ToString() + "%";
+            RevGCBox.Text = percentReverse.ToString() + "%";
+
+            //seqForward.Text = completeSequence.Substring(0, primerLength);
+            //String txt = completeSequence.Substring(completeSequence.Length - primerLength, primerLength);
+            //seqReverse.Text = new String(txt.ToCharArray().Reverse().ToArray());
+            
         }
+
+
+
+        private void PrintPrimersToFile()
+        {
+           
+            String site1seq = "";
+            String site2seq = "";
+            String textTitle = "primer" + System.DateTime.Today.ToString();
+
+            MessageBox.Show("Primers have been printed to a text file.");
+
+            //Get current working directory
+            string file = Directory.GetCurrentDirectory();
+            //change directory to EugeneFiles directory and read text file based on ListModulesToPermute count
+            file = file.Substring(0, file.IndexOf("bin")) + @"PrimerResults/" + textTitle + ".csv";
+            StreamWriter writer = new StreamWriter(file);
+
+            //Forward
+            writer.WriteLine("Forward Name," + FwdPrimerName.Text);
+            writer.WriteLine("\t# of Base Pairs," + ForwardPrimerSequenceBox.Text.Length);
+            writer.WriteLine(Level02RestrictionSitesBeforeFusionSite + site1seq + ForwardPrimerSequenceBox.Text);
+
+            //Reverse
+            writer.WriteLine("Reverse,");
+            writer.WriteLine("\t# of Base Pairs," + ReversePrimerSequenceBox.Text.Length);
+            //Convert RString and Site sequence in 3' to 5', to match _rightPrimer, which is the last ~24 bases in 3' to 5'
+            String RString3to5 = new String(Level02ReverseRestrictionSitesAfterFusionSite.ToCharArray().ToArray());
+            String site2seq3to5 = new String(site2seq.ToCharArray().Reverse().ToArray());
+            String reverse3to5 = RString3to5 + site2seq3to5 + ReversePrimerSequenceBox.Text;
+            writer.WriteLine(reverse3to5);
+
+            //Reverse complement
+            writer.WriteLine("Reverse Complement Name," + RevPrimerName.Text);
+            writer.WriteLine("\t# of Base Pairs," + ReversePrimerSequenceBox.Text.Length);
+            //Transform reverse3to5 into its complement
+            writer.WriteLine(Transform(reverse3to5));
+
+            writer.WriteLine("Forward Name," + FwdPrimerName.Text);
+            writer.WriteLine("Reverse Name," + RevPrimerName.Text);
+            writer.WriteLine("Complete Sequence," + ForwardPrimerSequenceBox.Text + ReversePrimerSequenceBox.Text);
+            writer.WriteLine("Forward Sequence," + ForwardPrimerSequenceBox.Text);
+            writer.WriteLine("\t# of Base Pairs," + ForwardPrimerSequenceBox.Text.Length);
+            writer.WriteLine("Reverse Sequence," + ReversePrimerSequenceBox.Text);
+            writer.WriteLine("\t# of Base Pairs," + ReversePrimerSequenceBox.Text.Length);
+
+            writer.Close();
+        }
+
 
         //Transform string into its complement
         private string Transform(String s)
@@ -517,15 +819,27 @@ namespace SurfaceApplication1
             return complement1;
         }
 
-        //Moves pd1 to front and moves pd2 back
-        private void forwardButton_Click(object sender, RoutedEventArgs e)
+        #endregion
+
+        #region UI Event Handlers
+
+        /// <summary>
+        /// Enables touch on tabs
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TabControl_TouchDown(object sender, TouchEventArgs e)
         {
-            int tempZ = pd1.ZIndex;
-            pd1.ZIndex = ZIndex;
-            ZIndex = tempZ;
+            TabItem tab = (TabItem)sender;
+            PD2_buildTabs.SelectedItem = tab;
+            e.Handled = true;
         }
 
-        //Removes pd2 and pd1 from sw1 and saves Sites data to Part
+        /// <summary>
+        /// Removes pd2 from sw1 and ### WILL #### saves Sites data to Part
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void exitButton_Click(object sender, RoutedEventArgs e)
         {
             StackPanel sp = PD2_manual;
@@ -539,10 +853,24 @@ namespace SurfaceApplication1
                 }
             }
             sw1.SW_SV.Items.Remove(this);
-            if (pd1 != null) sw1.SW_SV.Items.Remove(pd1);
+            
         }
 
-        //Adds an editable fusion site template to the library
+        private void showProgressBar()
+        {
+            ProgressIndicator.Visibility = Visibility.Visible;
+        }
+
+        private void hideProgressBar()
+        {
+            ProgressIndicator.Visibility = Visibility.Collapsed;
+        }
+        
+        /// <summary>
+        /// Adds an editable fusion site template to the library
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void siteAdder_Click(object sender, RoutedEventArgs e)
         {
             Sites template = new Sites();
@@ -553,7 +881,12 @@ namespace SurfaceApplication1
             template.Center = SurfaceWindow1.SetPosition(template);
         }
 
-        //Enables touch on the build tabs
+        
+        /// <summary>
+        /// Enables touch on the build tabs
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PD2_buildTabs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             TabControl tabc = (TabControl)sender;
@@ -571,9 +904,13 @@ namespace SurfaceApplication1
             }
         }
 
-        //Store used indices in a list to check
-        //Needs more complex checks: first/last sites of L1Ms must be unique, but others only need to be unique within the given L1M
-        private List<int> usedSites;
+        
+        /// <summary>
+        /// Store used indices in a list to check
+        /// Needs more complex checks: first/last sites of L1Ms must be unique, but others only need to be unique within the given L1M
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddRandomFusionSites_Click(object sender, RoutedEventArgs e)
         {
             permMaker.IsEnabled = false;
@@ -640,54 +977,14 @@ namespace SurfaceApplication1
 
         private void SavePrimers_Click(object sender, RoutedEventArgs e)
         {
-            String FString = "ATGAAGACGT";
-            String RString = "AGGTAGGTCTTCGT";
-            String site1seq = "";
-            String site2seq = "";
-            String textTitle = "primer" + System.DateTime.Today.ToString();
-
-            MessageBox.Show("Primers have been printed to a text file.");
-
-            //Get current working directory
-            string file = Directory.GetCurrentDirectory();
-            //change directory to EugeneFiles directory and read text file based on ListModulesToPermute count
-            file = file.Substring(0, file.IndexOf("bin")) + @"PrimerResults/" + textTitle + ".csv";
-            StreamWriter writer = new StreamWriter(file);
-
-            //Forward
-            writer.WriteLine("Forward Name," + FwdPrimerName.Text);
-            writer.WriteLine("\t# of Base Pairs," + ForwardPrimerSequenceBox.Text.Length);
-            writer.WriteLine(FString + site1seq + ForwardPrimerSequenceBox.Text);
-
-            //Reverse
-            writer.WriteLine("Reverse,");
-            writer.WriteLine("\t# of Base Pairs," + ReversePrimerSequenceBox.Text.Length);
-            //Convert RString and Site sequence in 3' to 5', to match _rightPrimer, which is the last ~24 bases in 3' to 5'
-            String RString3to5 = new String(RString.ToCharArray().Reverse().ToArray());
-            String site2seq3to5 = new String(site2seq.ToCharArray().Reverse().ToArray());
-            String reverse3to5 = RString3to5 + site2seq3to5 + ReversePrimerSequenceBox.Text;
-            writer.WriteLine(reverse3to5);
-
-            //Reverse complement
-            writer.WriteLine("Reverse Complement Name," + RevPrimerName.Text);
-            writer.WriteLine("\t# of Base Pairs," + ReversePrimerSequenceBox.Text.Length);
-            //Transform reverse3to5 into its complement
-            writer.WriteLine(Transform(reverse3to5));
-
-            writer.WriteLine("Forward Name," + FwdPrimerName.Text);
-            writer.WriteLine("Reverse Name," + RevPrimerName.Text);
-            writer.WriteLine("Complete Sequence," + ForwardPrimerSequenceBox.Text + ReversePrimerSequenceBox.Text);
-            writer.WriteLine("Forward Sequence," + ForwardPrimerSequenceBox.Text);
-            writer.WriteLine("\t# of Base Pairs," + ForwardPrimerSequenceBox.Text.Length);
-            writer.WriteLine("Reverse Sequence," + ReversePrimerSequenceBox.Text);
-            writer.WriteLine("\t# of Base Pairs," + ReversePrimerSequenceBox.Text.Length);
-
-            writer.Close();
+            PrintPrimersToFile();
         }
 
         private void ViewCompleteSequence_Click(object sender, RoutedEventArgs e)
         {
 
         }
+
+        #endregion
     }
 }
