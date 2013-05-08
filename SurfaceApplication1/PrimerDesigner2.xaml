@@ -167,7 +167,7 @@
             <TextBlock Grid.Row="2" Grid.Column="2" Text="Sequence" Foreground="Black" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <TextBlock Grid.Row="2" Grid.Column="3" Text="Length" Foreground="Black" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <TextBlock Grid.Row="2" Grid.Column="4" Text="% GC" Foreground="Black" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <TextBlock Grid.Row="2" Grid.Column="5" Text="Temp." Foreground="Black" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <!--<TextBlock Grid.Row="2" Grid.Column="5" Text="Temp." Foreground="Black" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>-->
             <!-- Results -->
             <TextBlock Grid.Row="3" Grid.Column="0" Text="Forward" Foreground="Black" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
             <s:SurfaceScrollViewer Grid.Row="3" Grid.Column="1" Width="140" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Left">

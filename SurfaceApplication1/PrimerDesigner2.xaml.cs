@@ -35,11 +35,10 @@ namespace SurfaceApplication1
     {
         public static SurfaceWindow1 sw1;        
         private static List<Sites> _fusionSiteLibrary;
-        private UIElement[][] _partSiteSets;
-        private List<List<Part>> partList = new List<List<Part>>() { new List<Part>() };
-        private int level = 0;
 
-        private List<List<Part>> _partList;
+        private List<Part> _partsList;
+        private List<Sites> _fusionSitesList;
+        
         private List<List<String>> _partPrimerList;
         private List<List<String>> _l0PrimerList;
         private List<List<String>> _l1PrimerList;
@@ -72,6 +71,7 @@ namespace SurfaceApplication1
 
         private static String Level1RestrictionSitesAfterFusionSite = "GTTCTTTACTAGTGGAAGACAT"; //followed by fusion site and first 24
         private static String Level1ReverseRestrictionSitesAfterFusionSite = "ATGTCTTCTACTAGTAGCGGCCGC"; //after last 24 and fusion site
+        
 
         #endregion
 
@@ -83,18 +83,7 @@ namespace SurfaceApplication1
             set { _fusionSiteLibrary = value; }
         }
 
-
-        //public Sites[] SitesAdded
-        //{
-        //    get { return _sitesAdded; }
-        //    set { _sitesAdded = value; }
-        //}
-
-
-        public UIElement[][] PartSiteSets
-        {
-            get { return _partSiteSets; }
-        }
+              
 
     
         #endregion
@@ -117,12 +106,16 @@ namespace SurfaceApplication1
             SurfaceWindow1.pd2 = this;
             _progressBarWrapper = new ProgressBarWrapper(new Action(showProgressBar), new Action(hideProgressBar));
 
+            _fusionSitesList = new List<Sites>();
+
+            _partsList = new List<Part>();
+            _partsList.Add(p); //save only part for primer design
+
             this.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
             this.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
             this.Center = new Point(Width / 2.0, Height / 2.0);
 
             LevelIndicator.Text = "0";
-            level = 0;
 
             DestinationVectorText.Text = Level02RestrictionSitesBeforeFusionSite;
 
@@ -149,9 +142,8 @@ namespace SurfaceApplication1
             L1Module.pd2 = this;
             L2Module.pd2 = this;
             _progressBarWrapper = new ProgressBarWrapper(new Action(showProgressBar), new Action(hideProgressBar));
-
+            _fusionSitesList = new List<Sites>();
             LevelIndicator.Text = "1";
-            level = 1;
             DestinationVectorText.Text = Level1RestrictionSitesAfterFusionSite;
 
             this.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
@@ -161,12 +153,14 @@ namespace SurfaceApplication1
             _moduleNum = 1; //launched by L1Module
 
             int forLoopCounter = 0; //for keeping track of last part to add second fusion site
-
+            _partsList = new List<Part>();
+            
             foreach (UIElement elem in l1.L1Grid.Children)
             {
                 if (elem.GetType() == typeof(Part))
                 {
                     Part p = (Part)elem;
+                    _partsList.Add(p); //save parts for primer design
 
                     if (forLoopCounter == 3) //4th Part being added, add second fusion site
                     {
@@ -200,10 +194,9 @@ namespace SurfaceApplication1
             L1Module.pd2 = this;
             L2Module.pd2 = this;
             LevelIndicator.Text = "2";
-            level = 2;
 
             _progressBarWrapper = new ProgressBarWrapper(new Action(showProgressBar), new Action(hideProgressBar));
-
+            _fusionSitesList = new List<Sites>();
             DestinationVectorText.Text = Level02RestrictionSitesBeforeFusionSite;
 
             this.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
@@ -216,6 +209,8 @@ namespace SurfaceApplication1
             int forLoopCounter = 0; //for keeping track of last part to add second fusion site in inner loop
             int lastL1ModuleCounter = 0; //to indicate when for loop is on last L1Module (so can add second fusion site), (l2.Children.Count - 1) to account for ElementMenu and Grid
 
+            _partsList = new List<Part>();
+
             foreach (UIElement l1 in l2.Children)
             {
                 if (l1.GetType() == typeof(L1Module))
@@ -225,6 +220,7 @@ namespace SurfaceApplication1
                         if (elem.GetType() == typeof(Part))
                         {
                             Part p = (Part)elem;
+                            _partsList.Add(p); //save parts for primer design
 
                             if ((forLoopCounter == 3) && (lastL1ModuleCounter == l2.Children.Count - 1)) //4th Part of last L1Module being added, add second fusion site
                             {
@@ -350,21 +346,35 @@ namespace SurfaceApplication1
         }
 
         #endregion
-
-               
-
+                    
 
         #region Backend
 
+        private string CreateL0L2DestinationVector(string fusionSite1, string fusionSite2)
+        {
+            string dvSequence = "";
 
+            dvSequence = Level02RestrictionSitesBeforeFusionSite + fusionSite1 + Level02Bpi1AfterFusionSiteBeforeLacZ 
+                            + lacZ + Level02Bpi1AfterBeforeLacZ + fusionSite2+ Level02ReverseRestrictionSitesAfterFusionSite;
+
+            return dvSequence;
+        }
+
+        private string CreateL1DestinationVector(string fusionSite, string fusionSite2)
+        {
+            string dvSequence = "";
+
+            dvSequence = Level1RestrictionSitesAfterFusionSite + fusionSite + Level02Bpi1AfterFusionSiteBeforeLacZ
+                            + lacZ + Level02Bpi1AfterBeforeLacZ + fusionSite2 + Level1ReverseRestrictionSitesAfterFusionSite;
+
+            return dvSequence;
+        }
         
         //Returns a list of alignmentTest results organized by test type
         private List<double> _getTestResults()
         {
             List<double> testResults = new List<double>();
-
-            _leftSeq = leftGetSeq(24, CompleteSequence);
-            _rightSeq = rightGetSeq(24, CompleteSequence);
+                     
 
             //alignmentTests at1 = new alignmentTests(_leftSeq);
             //alignmentTests at2 = new alignmentTests(_rightSeq);
@@ -411,13 +421,13 @@ namespace SurfaceApplication1
             TextBlock block = new TextBlock();
             String resultString = "";
 
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    foreach (String s in alignments[i])
-            //    {
-            //        resultString += s + "\n\n";
-            //    }
-            //}
+            for (int i = 0; i < 5; i++)
+            {
+                foreach (String s in alignments[i])
+                {
+                    resultString += s + "\n\n";
+                }
+            }
 
             block.Text = resultString;
 
@@ -435,25 +445,6 @@ namespace SurfaceApplication1
 
             List<SurfaceCheckBox> checkList = new List<SurfaceCheckBox>();
             List<TextBlock> numList = new List<TextBlock>();
-
-            //foreach (UIElement elem in activeTab.Children)
-            //{
-            //    if (elem.GetType() == typeof(Grid))
-            //    {
-            //        foreach (UIElement e in ((Grid)elem).Children)
-            //        {
-            //            if (e.GetType() == typeof(SurfaceCheckBox))
-            //            {
-            //                checkList.Add((SurfaceCheckBox)e);
-            //            }
-            //            else if (e.GetType() == typeof(TextBlock))
-            //            {
-            //                numList.Add((TextBlock)e);
-            //            }
-            //        }
-            //    }
-
-            //}
 
 
             _leftGibbsFree = calcDeltaG(_leftSeq);
@@ -620,185 +611,170 @@ namespace SurfaceApplication1
             StackPanel activeTab = PD2_manual;
             if (PD2_buildTabs.SelectedIndex == 1) { activeTab = PD2_auto; }
 
-            String complete = "";
-
-            
-
-            //2D array of each Part and Site sequence, divided into arrays of Parts and flanking sites (i.e. Sites-Parts-Sites)
-            int n = activeTab.Children.Count / 3; //Number of Part-Sites sets, not including the two backbone Sites
-            _partSiteSets = new UIElement[n + 2][];
-            Sites firstFS = ((Sites)VisualTreeHelper.GetChild(activeTab, 0)).clone();
-            Sites lastFS = ((Sites)VisualTreeHelper.GetChild(activeTab, activeTab.Children.Count - 1)).clone();
-
-            for (int i = 0; i < n; i++)
+            //Check for validity and populate fields
+            if (CheckFusionSites())
             {
-                Sites site1 = ((Sites)VisualTreeHelper.GetChild(activeTab, i)).clone();
-                Part p0 = ((Part)VisualTreeHelper.GetChild(activeTab, i + 1));
-                Part p = p0.clone();
-                CompleteSequence = p.myRegDS.BasicInfo.Sequence;
-                p.BorderBrush = p0.BorderBrush;
-                p.ElementMenu.Items.Remove(p.PD);
-                Sites site2 = ((Sites)VisualTreeHelper.GetChild(activeTab, i + 2)).clone();
-
-                UIElement[] subArray = new UIElement[] { site1, p, site2 };
-                _partSiteSets[i + 1] = subArray;
-
-                i = i + 2;
-            }
-
-
-            //Check that Sites are not used twice
-            List<String> sitesList = new List<String>();
-            //Build checklist by taking the left Site in each set besides the first, plus the last Site (technically the left Site of the vector)
-            for (int j = 1; j < _partSiteSets.Length; j++)
-            {
-                if(_partSiteSets[j] != null)
-                    sitesList.Add(((Sites)_partSiteSets[j][0]).Sequence);
-            }
-            //Check sitesList for duplicates
-            bool noDupes = true;
-            bool noEmpty = true;
-            //Start by checking sitesList for the first left-hand Site
-            String checkThis = ((Sites)_partSiteSets[1][0]).Sequence;
-            //Break when sitesList has no items left to compare to checkForThis
-            int count = sitesList.Count;
-            while (sitesList.Count() > 0 /*&& noDupes && noEmpty*/)
-            {
-                noDupes = !(sitesList.Contains(checkThis));
-                noEmpty = checkThis != "site";
-                checkThis = sitesList.ElementAt(0);
-                sitesList.RemoveAt(0);
-            }
-
-            if (noDupes && noEmpty)
-            {
-                Part pt = partList.ElementAt(0).ElementAt(1);
-                String s1 = sitesList.ElementAt(0);
-                //i++;
-                
-                String p = lacZ;
-
-                String flank1 = ""; //Flanking sequence, including s1, restriction sites, etc.
-                String flank2 = ""; //Flanking sequence, including s2, restriction sites, etc.
-
-                //pd1 = new PrimerDesigner1(_partSiteSets);
-                if (level == -1)
+                //Get current design as string -> Flanks + FS + Part + FS + Flanks
+                int fscounter = 0;
+                foreach (Part currentPart in _partsList)
                 {
-                     complete = flank1 + p + flank2;
-                }
-                else if (level == 1)
-                {
-                     complete = flank1 + p + flank2;
-                }
-                else
-                {
-                    complete = flank1 + p + flank2;
+                    CompleteSequence = CompleteSequence + _fusionSitesList.ElementAt(fscounter).Sequence;
+
+                    CompleteSequence = CompleteSequence + currentPart.myRegDS.BasicInfo.Sequence;
+
+                    fscounter++;
+                    CompleteSequence = CompleteSequence + _fusionSitesList.ElementAt(fscounter).Sequence;
+                    fscounter++;
                 }
 
+                string leftPrimer = leftGetSeq(24, CompleteSequence);
+                string rightPrimer = rightGetSeq(24, CompleteSequence);
+                PopulateGCTextBoxes(leftPrimer, rightPrimer);
+                PopulateLengthBoxes(leftPrimer, rightPrimer);
 
-                String forward = flank1 + leftGetSeq(24, p);
-                String reverse = rightGetSeq(24, p) + flank2;
-                String reverseComplement = "";
+                ForwardPrimerSequenceBox.Text = leftPrimer;
+                ReversePrimerSequenceBox.Text = rightPrimer;
 
-                
+                DestinationVectorText.Text = CreateDestinationVector();
 
-                results = new List<String>() { complete, forward, reverse, reverseComplement };
-                //sw1.SW_SV.Items.Add(pd1);
             }
-            else if (noEmpty && !noDupes)
-            {
-                MessageBox.Show("Couldn't generate primers. Please check for duplicate fusion sites.");
-            }
-            else if (!noEmpty && noDupes)
-            {
-                MessageBox.Show("Couldn't generate primers. Please check for empty fusion sites.");
-            }
-            else //Both errors present
+            else
             {
                 MessageBox.Show("Couldn't generate primers. Please check for duplicate and empty fusion sites.");
             }
+            
+                   
+            
 
-            _primerTest = _progressBarWrapper.execute<List<double>>(_getTestResults, _getTestResultsCallback);
-
-            //Forward
-            String leftPrimer = "ATGAAGACGT" + _leftSeq;
-            _leftSeq = leftPrimer;
-
-            //Convert RString and Site sequence in 3' to 5', to match _rightPrimer, which is the last ~24 bases in 3' to 5'
-            String RString3to5 = new String(_rightSeq.ToCharArray().Reverse().ToArray());
-            String site2seq3to5 = new String(lastFS.Sequence.ToCharArray().Reverse().ToArray());
-            String reverse1 = RString3to5 + _rightSeq;
-
-            //Reverse complement
-            //Transform reverse3to5 into its complement
-            String rightPrimer = Transform(reverse1);
-            _rightSeq = rightPrimer;
-
-            //Show number of basepairs
-            FwdLengthBox.Text = _leftSeq.Length.ToString();
-            RevLengthBox.Text = _rightSeq.Length.ToString();
-
-            //Show percent of gc bases
-            double countForward = (double)(leftPrimer.Split('c').Length + leftPrimer.Split('g').Length - 2);
-            double countReverse = (double)(rightPrimer.Split('c').Length + rightPrimer.Split('g').Length - 2);
-            double percentForward = Math.Round(100 * (countForward / ((double)_leftSeq.Length)), 3);
-            double percentReverse = Math.Round(100 * (countReverse / ((double)_rightSeq.Length)), 3);
-            //Just make it show for now
-            FwdGCBox.Text = percentForward.ToString() + "%";
-            RevGCBox.Text = percentReverse.ToString() + "%";
-
-            //seqForward.Text = completeSequence.Substring(0, primerLength);
-            //String txt = completeSequence.Substring(completeSequence.Length - primerLength, primerLength);
-            //seqReverse.Text = new String(txt.ToCharArray().Reverse().ToArray());
             
         }
 
-
-
-        private void PrintPrimersToFile()
+        private string CreateDestinationVector()
         {
-           
+            if (_moduleNum == 0)
+            {
+               return CreateL0L2DestinationVector(_fusionSitesList.ElementAt(0).Sequence, _fusionSitesList.Last().Sequence);
+            }
+            else if (_moduleNum == 1)
+            {
+                return CreateL1DestinationVector(_fusionSitesList.ElementAt(0).Sequence, _fusionSitesList.Last().Sequence);
+            }
+            else
+            {
+                return CreateL0L2DestinationVector(_fusionSitesList.ElementAt(0).Sequence, _fusionSitesList.Last().Sequence);
+            }
+
+        }
+
+        private bool CheckFusionSites()
+        {
+            //Check sitesList for duplicates
+            bool noDupes = true;
+            bool noEmpty = true;
+            int dupecount = 0;
+            
+            foreach( Sites s in _fusionSitesList)
+            {                
+                noEmpty = s.Sequence != "site";
+
+                foreach (Sites fs in _fusionSitesList)
+                {
+                    if (fs.Sequence.Equals(s.Sequence))
+                        dupecount++;
+                }
+
+                if (dupecount > 1)
+                {
+                    noDupes = false;
+                    return false;
+                }
+                dupecount = 0;
+            }
+
+            return noDupes && noEmpty;
+        }
+
+        private void PopulateLengthBoxes(string leftPrimer, string rightPrimer)
+        {
+            //Show number of basepairs
+            FwdLengthBox.Text = leftPrimer.Length.ToString();
+            RevLengthBox.Text = rightPrimer.Length.ToString();
+
+        }
+
+        private void PopulateGCTextBoxes(string leftPrimer, string rightPrimer)
+        {
+            //Show percent of gc bases
+            double countForward = (double)(leftPrimer.Split('c').Length + leftPrimer.Split('g').Length - 2);
+            double countReverse = (double)(rightPrimer.Split('c').Length + rightPrimer.Split('g').Length - 2);
+            double percentForward = Math.Round(100 * (countForward / ((double)leftPrimer.Length)), 3);
+            double percentReverse = Math.Round(100 * (countReverse / ((double)rightPrimer.Length)), 3);
+            //Just make it show for now
+            FwdGCBox.Text = percentForward.ToString() + "%";
+            RevGCBox.Text = percentReverse.ToString() + "%";
+        }
+
+        private void PrintPrimersToFileCallback(string file)
+        {
+            if(file != "FAIL")
+                MessageBox.Show("Primers have been printed to a text file at location: " + file);
+            else
+                MessageBox.Show("Primers were not saved. Please check design for errors.");
+        }
+
+
+        private string PrintPrimersToFile()
+        {
             String site1seq = "";
             String site2seq = "";
             String textTitle = "primer" + System.DateTime.Today.ToString();
+            textTitle = textTitle.Replace("/", "-"); //originally uses / which doesn't work with file names...
+            textTitle = textTitle.Replace(":", "-");
+            try
+            {
+                //Get current working directory
+                string file = Directory.GetCurrentDirectory();
+                //change directory to EugeneFiles directory and read text file based on ListModulesToPermute count
+                file = file.Substring(0, file.IndexOf("bin")) + @"PrimerResults/" + textTitle + ".csv";
+                StreamWriter writer = new StreamWriter(file);
 
-            MessageBox.Show("Primers have been printed to a text file.");
+                //Forward
+                writer.WriteLine("Forward Name," + FwdPrimerName.Text);
+                writer.WriteLine("\t# of Base Pairs," + ForwardPrimerSequenceBox.Text.Length);
+                writer.WriteLine(Level02RestrictionSitesBeforeFusionSite + site1seq + ForwardPrimerSequenceBox.Text);
 
-            //Get current working directory
-            string file = Directory.GetCurrentDirectory();
-            //change directory to EugeneFiles directory and read text file based on ListModulesToPermute count
-            file = file.Substring(0, file.IndexOf("bin")) + @"PrimerResults/" + textTitle + ".csv";
-            StreamWriter writer = new StreamWriter(file);
+                //Reverse
+                writer.WriteLine("Reverse,");
+                writer.WriteLine("\t# of Base Pairs," + ReversePrimerSequenceBox.Text.Length);
+                //Convert RString and Site sequence in 3' to 5', to match _rightPrimer, which is the last ~24 bases in 3' to 5'
+                String RString3to5 = new String(Level02ReverseRestrictionSitesAfterFusionSite.ToCharArray().ToArray());
+                String site2seq3to5 = new String(site2seq.ToCharArray().Reverse().ToArray());
+                String reverse3to5 = RString3to5 + site2seq3to5 + ReversePrimerSequenceBox.Text;
+                writer.WriteLine(reverse3to5);
 
-            //Forward
-            writer.WriteLine("Forward Name," + FwdPrimerName.Text);
-            writer.WriteLine("\t# of Base Pairs," + ForwardPrimerSequenceBox.Text.Length);
-            writer.WriteLine(Level02RestrictionSitesBeforeFusionSite + site1seq + ForwardPrimerSequenceBox.Text);
+                //Reverse complement
+                writer.WriteLine("Reverse Complement Name," + RevPrimerName.Text);
+                writer.WriteLine("\t# of Base Pairs," + ReversePrimerSequenceBox.Text.Length);
+                //Transform reverse3to5 into its complement
+                writer.WriteLine(Transform(reverse3to5));
 
-            //Reverse
-            writer.WriteLine("Reverse,");
-            writer.WriteLine("\t# of Base Pairs," + ReversePrimerSequenceBox.Text.Length);
-            //Convert RString and Site sequence in 3' to 5', to match _rightPrimer, which is the last ~24 bases in 3' to 5'
-            String RString3to5 = new String(Level02ReverseRestrictionSitesAfterFusionSite.ToCharArray().ToArray());
-            String site2seq3to5 = new String(site2seq.ToCharArray().Reverse().ToArray());
-            String reverse3to5 = RString3to5 + site2seq3to5 + ReversePrimerSequenceBox.Text;
-            writer.WriteLine(reverse3to5);
+                writer.WriteLine("Forward Name," + FwdPrimerName.Text);
+                writer.WriteLine("Reverse Name," + RevPrimerName.Text);
+                writer.WriteLine("Complete Sequence," + ForwardPrimerSequenceBox.Text + ReversePrimerSequenceBox.Text);
+                writer.WriteLine("Forward Sequence," + ForwardPrimerSequenceBox.Text);
+                writer.WriteLine("\t# of Base Pairs," + ForwardPrimerSequenceBox.Text.Length);
+                writer.WriteLine("Reverse Sequence," + ReversePrimerSequenceBox.Text);
+                writer.WriteLine("\t# of Base Pairs," + ReversePrimerSequenceBox.Text.Length);
 
-            //Reverse complement
-            writer.WriteLine("Reverse Complement Name," + RevPrimerName.Text);
-            writer.WriteLine("\t# of Base Pairs," + ReversePrimerSequenceBox.Text.Length);
-            //Transform reverse3to5 into its complement
-            writer.WriteLine(Transform(reverse3to5));
+                writer.Close();
 
-            writer.WriteLine("Forward Name," + FwdPrimerName.Text);
-            writer.WriteLine("Reverse Name," + RevPrimerName.Text);
-            writer.WriteLine("Complete Sequence," + ForwardPrimerSequenceBox.Text + ReversePrimerSequenceBox.Text);
-            writer.WriteLine("Forward Sequence," + ForwardPrimerSequenceBox.Text);
-            writer.WriteLine("\t# of Base Pairs," + ForwardPrimerSequenceBox.Text.Length);
-            writer.WriteLine("Reverse Sequence," + ReversePrimerSequenceBox.Text);
-            writer.WriteLine("\t# of Base Pairs," + ReversePrimerSequenceBox.Text.Length);
-
-            writer.Close();
+                return file;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return "FAIL";
+            }
         }
 
 
@@ -951,6 +927,7 @@ namespace SurfaceApplication1
                             //next.copySitesInfoFrom(current);
 
                             usedSites.Add(randIndex);
+                           
                         }
                     }
                 }
@@ -960,6 +937,12 @@ namespace SurfaceApplication1
                 Console.WriteLine(exception);
             }
 
+            foreach (int r in usedSites)
+            {
+                Sites current = new Sites();
+                current.copySitesInfoFrom((Sites)PD2_siteLibrary.Items.GetItemAt(r));
+                _fusionSitesList.Add(current); //maintains order as long as it's random...
+            }
             permMaker.IsEnabled = true;
 
         }
@@ -977,12 +960,29 @@ namespace SurfaceApplication1
 
         private void SavePrimers_Click(object sender, RoutedEventArgs e)
         {
-            PrintPrimersToFile();
+            //_progressBarWrapper.execute<string>(PrintPrimersToFile, PrintPrimersToFileCallback);
+            _progressBarWrapper.Show();
+            string temp = PrintPrimersToFile();
+            _progressBarWrapper.Hide();
+            PrintPrimersToFileCallback(temp);
         }
+
+
 
         private void ViewCompleteSequence_Click(object sender, RoutedEventArgs e)
         {
+            ScatterViewItem testResultsObject = new ScatterViewItem();
+            ScrollViewer scroller = new ScrollViewer();
+            TextBlock block = new TextBlock();
+            
+            block.Text = CompleteSequence;
 
+            scroller.Content = block;
+
+
+            testResultsObject.Content = scroller;
+
+            sw1.SW_SV.Items.Add(testResultsObject);
         }
 
         #endregion
