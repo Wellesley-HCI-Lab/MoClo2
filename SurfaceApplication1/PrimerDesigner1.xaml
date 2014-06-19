@@ -57,26 +57,26 @@
         </Style>
     </s:ScatterViewItem.Resources>
     
-    <Grid Background="SkyBlue" Width="1920" Height="1080" ShowGridLines="False" >
+    <Grid Background="SkyBlue" Width="auto" Height="auto" ShowGridLines="False" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="150"/> <!--Title and Nav-->
-            <RowDefinition Height="300"/> <!--showPanel-->
-            <RowDefinition Height="50"/> <!--Primer titles-->
-            <RowDefinition Height="150"/> <!--Forward-->
-            <RowDefinition Height="150"/> <!--Reverse-->
+            <RowDefinition Height="150*"/> <!--Title and Nav-->
+            <RowDefinition Height="300*"/> <!--showPanel-->
+            <RowDefinition Height="50*"/> <!--Primer titles-->
+            <RowDefinition Height="150*"/> <!--Forward-->
+            <RowDefinition Height="150*"/> <!--Reverse-->
             <RowDefinition Height="*"/> <!--Buttons-->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Name="seqCol" Width="700"/> <!--complete sequence-->
-            <ColumnDefinition Width="200"/><!--Primer labels-->
-            <ColumnDefinition Width="230"/> <!--Primer names-->
-            <ColumnDefinition Width="280"/><!--Primer sequences-->
-            <ColumnDefinition Width="100"/><!--Primer length-->
-            <ColumnDefinition Width="100"/><!--%GC-->
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Name="seqCol" Width="700*"/> <!--complete sequence-->
+            <ColumnDefinition Width="200*"/><!--Primer labels-->
+            <ColumnDefinition Width="230*"/> <!--Primer names-->
+            <ColumnDefinition Width="280*"/><!--Primer sequences-->
+            <ColumnDefinition Width="100*"/><!--Primer length-->
+            <ColumnDefinition Width="100*"/><!--%GC-->
+            <ColumnDefinition Width="100*"/>
             <!--Temperature-->
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="105*"/>
         </Grid.ColumnDefinitions>
         <Label Grid.Row="0" Content="PRIMER DESIGNER" Grid.ColumnSpan="8" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Heavy" Foreground="White"/>
 

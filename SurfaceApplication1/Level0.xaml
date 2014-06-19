@@ -12,7 +12,7 @@
     CanRotate="False" 
     Orientation="0"
     Focusable="true"
-    MinHeight="768" MinWidth="1024">
+    >
     <s:ScatterViewItem.Resources>
         
         <Style TargetType="s:SurfaceButton" x:Key="NavButton">
@@ -24,7 +24,7 @@
         </Style>
 
         <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton" x:Key="NavRButton">
-            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontSize" Value="13"/>
             <Setter Property="Margin" Value="10,5"/>
             <Setter Property="Padding" Value="35,0"/>
             <Style.Triggers>
@@ -55,18 +55,17 @@
         </Style>
     </s:ScatterViewItem.Resources>
 
-    <Grid Name="Main" Background="#FFFFFFFF" Focusable="True" TouchDown="Main_TouchDown">
+    <Grid Name="Main" Background="#FFFFFFFF" Focusable="True" TouchDown="Main_TouchDown" Height="auto" Width="auto">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="244"/>
-            <ColumnDefinition />
+            <ColumnDefinition Width="244*"/>
+            <ColumnDefinition Width="1047*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="60" />
-            <RowDefinition />
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="60*" />
+            <RowDefinition Height="400*"/>
         </Grid.RowDefinitions>
-        <StackPanel Name="tabs" Background="White" Grid.Row="0" Grid.ColumnSpan="2"></StackPanel>
 
         <Canvas Grid.Row="1" Grid.ColumnSpan="2">
             <Canvas.Background>

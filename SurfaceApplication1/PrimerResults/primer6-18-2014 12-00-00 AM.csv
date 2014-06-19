@@ -1,0 +1,16 @@
+Forward Name,fwdPrim
+	# of Base Pairs,0
+GTTCTTTACTAGTGGGTCTCA
+Reverse,
+	# of Base Pairs,0
+AGAGACCTACTAGTAGCGGCCGC
+Reverse Complement Name,revPrim
+	# of Base Pairs,0
+
+Forward Name,fwdPrim
+Reverse Name,revPrim
+Complete Sequence,
+Forward Sequence,
+	# of Base Pairs,0
+Reverse Sequence,
+	# of Base Pairs,0

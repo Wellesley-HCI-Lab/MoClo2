@@ -7,8 +7,8 @@
                  mc:Ignorable="d" 
                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-                 SizeToContent="WidthAndHeight"
-                 WindowStyle="None">
+                
+                 WindowStyle="None" d:DesignHeight="765" d:DesignWidth="1110" SizeToContent="WidthAndHeight">
     
     <s:SurfaceWindow.Resources>
         <Style TargetType="s:ScatterViewItem" x:Key="Part">
@@ -18,7 +18,7 @@
     </s:SurfaceWindow.Resources>
 
     <Grid>
-        <s:ScatterView Name="SW_SV" >//Width="1920" Height="1080"
+        <s:ScatterView Name="SW_SV" Width="auto" Height=" auto">//Width="1920" Height="1080"
 
             <myProject:Level0 x:Name="L0" ShowsActivationEffects="False" />
             <myProject:Level1 x:Name="L1" AllowDrop="True"/>

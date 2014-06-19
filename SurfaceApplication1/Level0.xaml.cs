@@ -86,7 +86,14 @@ namespace SurfaceApplication1
             //Start with promoters
             //_partTypeSelected = "prom";
             //filterText = "inducible"; 
-            prom.IsChecked = true;
+            try
+            {
+                prom.IsChecked = true;
+            }
+            catch (Exception e)
+            {
+                //heck knows why
+            }
             //populate_Filters(0);
             //SurfaceRadioButton firstfilter = VisualTreeHelper.GetChild(filtersPanel, 0) as SurfaceRadioButton;
             //firstfilter.IsChecked = true; 
