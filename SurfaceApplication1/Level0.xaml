@@ -37,18 +37,18 @@
         <Style TargetType="s:SurfaceButton" x:Key="PartButton">
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontSize" Value="12"/>
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
         
         <Style TargetType="s:SurfaceRadioButton" x:Key="Filter">
-            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontSize" Value="12"/>
             <Setter Property="Margin" Value="10,10"/>
             <Setter Property="Foreground" Value="Black"/>
         </Style>
 
         <Style TargetType="TextBlock" x:Key="PartText">
-            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="FontSize" Value="11"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>

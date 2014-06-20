@@ -7,7 +7,7 @@
                    xmlns:myProject="clr-namespace:SurfaceApplication1"
              mc:Ignorable="d" Orientation="0"  
                    CanMove="False" CanRotate="False" Background="White" ShowsActivationEffects="False" IsTopmostOnActivation="False"
-                   CanScale="False" MinWidth="1024" MinHeight="768">
+                   CanScale="False" Height="700" Width="1000">
 
         <!--<s:ScatterViewItem Orientation="0" CanMove="False" CanRotate="False" Width="1920" Height="1080" Center="960,540">-->
 
@@ -32,7 +32,7 @@
 
         <!-- #region SurfaceListBoxItemDataTemplate0 -->
                 <DataTemplate x:Key="SurfaceListBoxItemDataTemplate0">
-                    <StackPanel Height="75" Width="740" Background="White">
+                    <StackPanel Height="75" Width="380" Background="White">
                         <!--<Image Source="{Binding SiteTestIcon}" HorizontalAlignment="Left" VerticalAlignment="Center"
                                Height="70" Width="70" Margin="5,5,5,5"/>-->
                         <Label
@@ -55,12 +55,12 @@
             
     <Grid Background="White" ShowGridLines="False">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50*"/>
+            <RowDefinition Height="45*"/>
             <RowDefinition Height="5*"/>
-            <RowDefinition Height="249*" />
+            <RowDefinition Height="224*" />
             <RowDefinition Height="89*" />
             <RowDefinition Height="75*"/>
-            <RowDefinition Height="333*"/>
+            <RowDefinition Height="300*"/>
             <RowDefinition Height="51*"/>
         </Grid.RowDefinitions>
 

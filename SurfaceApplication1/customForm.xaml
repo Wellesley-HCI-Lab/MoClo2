@@ -9,21 +9,21 @@
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1000">
     <!--FORM FOR CUSTOM PART DATA-->
-    <Grid Name="cusForm" Visibility="Collapsed" Grid.ColumnSpan="2" Grid.RowSpan="5" Background="#FFBBBBBB" Width="1000" Height="700" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid Name="cusForm" Visibility="Collapsed" Grid.ColumnSpan="2" Grid.RowSpan="5" Background="#FFBBBBBB" Width="500" Height="450" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="50*"/>
             <!--Title of form-->
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="50*"/>
             <!--Part type-->
-            <RowDefinition/>
+            <RowDefinition Height="550*" />
             <!--Scrollable data area-->
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="50*"/>
             <!--Save, cancel buttons-->
         </Grid.RowDefinitions>
 
-        <Label Content="New Module" FontSize="20" Padding="10,10,10,10" HorizontalAlignment="Stretch"/>
+        <Label Content="New Module" FontSize="15" Padding="10,10,10,10" HorizontalAlignment="Stretch"/>
         <!--Part type radio buttons-->
-        <StackPanel Name="cus_Type" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" >
+        <StackPanel Name="cus_Type" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Width="500">
             <s:SurfaceRadioButton Name="cus_prom" Grid.Row="1" GroupName="newPartRadioButtons" Margin="0,0,50,0" Content="Promoter" IsChecked="True" />
             <s:SurfaceRadioButton Name="cus_rbs" Grid.Row="1" GroupName="newPartRadioButtons" Margin="0,0,50,0" Content="RBS"/>
             <s:SurfaceRadioButton Name="cus_cds" Grid.Row="1" GroupName="newPartRadioButtons" Margin="0,0,50,0" Content="CDS"/>
@@ -69,9 +69,9 @@
 
         <!--Save and Cancel-->
         <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Name="form_save" Content="Save" FontSize="20" Width="100" Margin="10,10,20,10"
+            <Button Name="form_save" Content="Save" FontSize="20" Width="100" Margin="10,0,20,0"
                         Click="cusSave_Click"/>
-            <Button Name="form_cancel" Content="Cancel" FontSize="20" Width="100" Margin="10,10,0,10"
+            <Button Name="form_cancel" Content="Cancel" FontSize="20" Width="100" Margin="10,0,0,0"
                         Click="cusCancel_Click"/>
         </StackPanel>
     </Grid>

@@ -43,13 +43,16 @@ namespace SurfaceApplication1
             double parentWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
             this.Width = parentWidth;
             this.Height = parentHeight - 40; //Height of all tabs together
-            low.Y = parentHeight - 80 + this.Height / 2;
+            low.Y = parentHeight - 80 + this.Height / 2 ;
+            
             low.X = parentWidth / 2;
 
             this.Center = low;
             high = low;
-            high.Y = high.Y - this.Height + 120; //50 for height of tabs?
-            snapThreshold = 200;
+            high.Y = high.Y - this.Height + 120 +60; //50 for height of tabs?
+
+            low.Y = low.Y + 75;
+            snapThreshold = 100;
             snapThreshold_L2 = 50;
 
             addL1Module();

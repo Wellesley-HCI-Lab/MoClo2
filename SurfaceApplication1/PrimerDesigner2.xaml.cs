@@ -200,6 +200,7 @@ namespace SurfaceApplication1
             DestinationVectorText.Text = Level02RestrictionSitesBeforeFusionSite;
 
             this.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
+            
             this.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
             this.Center = new Point(Width / 2.0, Height / 2.0);
 
@@ -618,13 +619,17 @@ namespace SurfaceApplication1
                 int fscounter = 0;
                 foreach (Part currentPart in _partsList)
                 {
-                    CompleteSequence = CompleteSequence + _fusionSitesList.ElementAt(fscounter).Sequence;
+                    try
+                    {
+                        CompleteSequence = CompleteSequence + _fusionSitesList.ElementAt(fscounter).Sequence;
 
-                    CompleteSequence = CompleteSequence + currentPart.myRegDS.BasicInfo.Sequence;
+                        CompleteSequence = CompleteSequence + currentPart.myRegDS.BasicInfo.Sequence;
 
-                    fscounter++;
-                    CompleteSequence = CompleteSequence + _fusionSitesList.ElementAt(fscounter).Sequence;
-                    fscounter++;
+                        fscounter++;
+                        CompleteSequence = CompleteSequence + _fusionSitesList.ElementAt(fscounter).Sequence;
+                        fscounter++;
+                    }
+                    catch (Exception ex) { }
                 }
 
                 string leftPrimer = leftGetSeq(24, CompleteSequence);

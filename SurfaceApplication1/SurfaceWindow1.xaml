@@ -12,8 +12,8 @@
     
     <s:SurfaceWindow.Resources>
         <Style TargetType="s:ScatterViewItem" x:Key="Part">
-            <Setter Property="Width" Value="300"/>
-            <Setter Property="Height" Value="200"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="100"/>
         </Style>
     </s:SurfaceWindow.Resources>
 
@@ -24,7 +24,7 @@
             <myProject:Level1 x:Name="L1" AllowDrop="True"/>
             <myProject:Level2 x:Name="L2" ShowsActivationEffects="False" AllowDrop="True"/>
         
-            <!--<myProject:PrimerDesigner2 x:Name="PD2" ShowsActivationEffects="False" AllowDrop="True"/>--> 
+      
         
         </s:ScatterView>
 

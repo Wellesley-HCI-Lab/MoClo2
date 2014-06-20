@@ -55,8 +55,10 @@ namespace SurfaceApplication1
 
             this.Center = low;
             high = low;
-            high.Y = high.Y - this.Height + 100; //50 for height of tabs?
-            snapThreshold = 200;
+            high.Y = high.Y - this.Height + 100 +60; //50 for height of tabs?
+
+            low.Y = low.Y + 75;
+            snapThreshold = 100;
             snapThreshold_Level = 50;
 
             L2Module l2 = new L2Module();

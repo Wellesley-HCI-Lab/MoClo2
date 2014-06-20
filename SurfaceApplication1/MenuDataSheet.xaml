@@ -6,7 +6,7 @@
                    xmlns:s="http://schemas.microsoft.com/surface/2008"
                    xmlns:myProject="clr-namespace:SurfaceApplication1"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" CanRotate="False" Background="SteelBlue" Width="820" Height="670" CanScale="False" VerticalAlignment="Stretch">
+             d:DesignHeight="300" d:DesignWidth="300" CanRotate="False" Background="SteelBlue" Width="400" Height="300" CanScale="False" VerticalAlignment="Stretch">
     
     <s:ScatterViewItem.Resources>
         
@@ -19,7 +19,7 @@
     </s:ScatterViewItem.Resources>
     
     
-    <TabControl Margin="10" Width="800" Height="660" Name="DataSheetTabControl">
+    <TabControl Margin="10" Width="400" Height="300" Name="DataSheetTabControl">
         <TabItem Name="DataSheetTab" Header="Summary" TouchDown="DataSheetTab_TouchDown">
             <ScrollViewer VerticalScrollBarVisibility="Hidden">
             <Grid Name="DataSheet" ShowGridLines="True" Height="608" VerticalAlignment="Top">
@@ -75,7 +75,7 @@
         </TabItem>
 
         <TabItem Header="Sequence" TouchDown="DataSheetTab_TouchDown">
-            <Grid Name="SeqTab" VerticalAlignment="Top" Height="608">
+            <Grid Name="SeqTab" VerticalAlignment="Top" Height="300">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="31*" />
                     <RowDefinition Height="577*" />
@@ -104,7 +104,7 @@
             </Grid>
         </TabItem>
         <TabItem Header="Author Info" TouchDown="DataSheetTab_TouchDown">
-            <Grid Name="AuthorInfo" ShowGridLines="True" Height="608" VerticalAlignment="Top" >
+            <Grid Name="AuthorInfo" ShowGridLines="True" Height="300" VerticalAlignment="Top" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="202*" />
                     <RowDefinition Height="202*" />
